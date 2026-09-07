@@ -14,7 +14,9 @@
 # Keystore and signing files
 *.jks
 *.keystore
-meowoirs*
+/meowoirs-release-key
+meowoirs*.jks
+meowoirs*.keystore
 keystore.properties
 signing.properties
 secrets.properties
