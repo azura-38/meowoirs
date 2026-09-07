@@ -1,0 +1,36 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Warm Sunny Circle -->
+    <path
+        android:fillColor="#FDF4E7"
+        android:pathData="M48,48m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" />
+    <!-- Sunburst in corner -->
+    <path
+        android:fillColor="#F2A568"
+        android:pathData="M78,18m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0" />
+    <!-- Cat basking -->
+    <path
+        android:fillColor="#594A42"
+        android:pathData="M44,38c-12,0 -20,8 -20,18c0,11 8,20 20,20s20,-9 20,-20c0,-10 -8,-18 -20,-18z" />
+    <!-- Ears tilted back relaxed -->
+    <path
+        android:fillColor="#594A42"
+        android:pathData="M27,41L18,29L34,35Z" />
+    <path
+        android:fillColor="#594A42"
+        android:pathData="M61,41L70,29L54,35Z" />
+    <!-- Content closed eyes -->
+    <path
+        android:strokeColor="#FCEEE3"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:pathData="M32,53c2,2 5,2 7,0" />
+    <path
+        android:strokeColor="#FCEEE3"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:pathData="M49,53c2,2 5,2 7,0" />
+</vector>

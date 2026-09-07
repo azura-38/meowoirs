@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meowoirs</string>
+    <string name="tagline">Ogni gatto ha una storia</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_cats">I miei gatti</string>
+    <string name="nav_memories">Ricordi</string>
+    <string name="nav_story">La mia storia</string>
+    <string name="nav_profile">Profilo</string>
+
+    <string name="profile_title">Profilo</string>
+    <string name="profile_greeting_prefix">Ciao</string>
+    <string name="profile_default_title">La tua storia</string>
+    <string name="profile_subtitle">Questo è il tuo spazio personale in Meowoirs.</string>
+    <string name="profile_edit_button">Modifica profilo</string>
+    <string name="profile_edit_dialog_title">Modifica profilo</string>
+    <string name="profile_nickname_label">Soprannome</string>
+    <string name="profile_nickname_placeholder">es: Luna</string>
+    <string name="profile_select_avatar">Scegli avatar</string>
+    <string name="profile_save">Salva</string>
+    <string name="profile_cancel">Annulla</string>
+
+    <string name="favorite_cat_section_title">Gatto preferito</string>
+    <string name="favorite_cat_change_button">Cambia gatto preferito</string>
+    <string name="favorite_cat_select_button">Scegli gatto preferito</string>
+    <string name="favorite_cat_empty_title">Non hai ancora un gatto preferito.</string>
+    <string name="favorite_cat_empty_cta">Aggiungi il tuo primo gatto</string>
+    <string name="favorite_cat_none_selected">Nessun gatto preferito selezionato.</string>
+    <string name="favorite_cat_dialog_title">Seleziona il gatto preferito</string>
+
+    <string name="my_story_section_title">La mia storia</string>
+    <string name="my_story_view_all">Guarda tutta la storia</string>
+    <string name="stat_cats">Gatti</string>
+    <string name="stat_memories">Ricordi</string>
+    <string name="stat_home">Casa</string>
+    <string name="stat_street">Strada</string>
+
+    <string name="profile_settings_button">Impostazioni</string>
+    <string name="settings_title">Impostazioni</string>
+    <string name="settings_section_appearance">Aspetto</string>
+    <string name="settings_theme">Tema</string>
+    <string name="theme_system">Sistema</string>
+    <string name="theme_light">Chiaro</string>
+    <string name="theme_dark">Scuro</string>
+
+    <string name="settings_section_privacy_legal">Privacy e Note Legali</string>
+    <string name="settings_privacy_policy">Informativa sulla Privacy</string>
+    <string name="settings_terms_of_service">Termini di Servizio</string>
+    <string name="settings_ad_privacy">Privacy degli annunci</string>
+    <string name="privacy_pending_title">Informazioni</string>
+    <string name="privacy_pending_desc">L\'informativa sulla privacy e i termini saranno presto disponibili online.</string>
+    <string name="ump_not_required">Le opzioni di consenso pubblicitario non sono richieste per la tua regione.</string>
+
+    <string name="settings_section_language">Lingua</string>
+    <string name="settings_language">Lingua dell\'app</string>
+
+    <string name="settings_section_reach_us">Contatti</string>
+    <string name="settings_reach_us">Contattaci</string>
+    <string name="reach_us_thank_you_title">Grazie per aver scelto Meowoirs.</string>
+    <string name="reach_us_thank_you_desc">Siamo felici che ogni piccolo ricordo diventi una storia con te.</string>
+    <string name="reach_us_action_suggestion">Invia suggerimento</string>
+    <string name="reach_us_action_bug">Segnala un problema</string>
+    <string name="reach_us_action_contact">Scrivici</string>
+    <string name="reach_us_no_email_app">Nessuna app di posta trovata su questo dispositivo.</string>
+
+    <string name="settings_section_app">Applicazione</string>
+    <string name="version_format">Versione %1$s</string>
+    <string name="version_build_format">Versione %1$s (Build %2$d)</string>
+
+    <string name="avatar_desc_warm_cat">Gatto arancione caldo</string>
+    <string name="avatar_desc_sage_cat">Gatto salvia tranquillo</string>
+    <string name="avatar_desc_lavender_cat">Gatto lavanda sognatore</string>
+    <string name="avatar_desc_curious_cat">Gatto curioso</string>
+    <string name="avatar_desc_cozy_cat">Gatto addormentato sereno</string>
+    <string name="avatar_desc_gentle_paw">Zampina gentile</string>
+    <string name="avatar_desc_star_gazer">Gatto sotto le stelle</string>
+    <string name="avatar_desc_book_cat">Gatto lettore</string>
+    <string name="avatar_desc_sunlit_cat">Gatto al sole</string>
+    <string name="avatar_desc_whisker_heart">Cuore con baffi</string>
+
+    <string name="debug_panel_unlocked">Pannello sviluppatore sbloccato</string>
+    <string name="debug_onboarding_completed">Benvenuto completato</string>
+    <string name="debug_accepted_legal_version">Versione legale accettata</string>
+    <string name="debug_reset_onboarding">SVILUPPATORE: REIMPOSTA BENVENUTO</string>
+    <string name="debug_onboarding_reset_toast">Stato di benvenuto reimpostato</string>
+
+    <!-- Onboarding Common -->
+    <string name="onboarding_skip">SALTA</string>
+    <string name="onboarding_btn_continue">Continua →</string>
+
+    <!-- Onboarding Screen 1 (Introduction) -->
+    <string name="onboarding_step1_chap">VOLUME I — CAPITOLO 01</string>
+    <string name="onboarding_step1_badge">LUCE MATTUTINA</string>
+    <string name="onboarding_step1_quote">«Come un sussurro silenzioso...»</string>
+    <string name="onboarding_step1_intro">NOTA INTRODUTTIVA</string>
+    <string name="onboarding_step1_intro_sub">APERTURA</string>
+    <string name="onboarding_step1_title">Ogni gatto ha una storia.</string>
+    <string name="onboarding_step1_title_part1">Ogni gatto ha una </string>
+    <string name="onboarding_step1_title_highlight">storia</string>
+    <string name="onboarding_step1_title_part2">.</string>
+    <string name="onboarding_step1_desc">Meowoirs è il tuo spazio personale per conservare i piccoli momenti, le foto e le storie che condividi con i tuoi gatti.</string>
+    <string name="onboarding_step1_feature_title">Crea il tuo archivio personale</string>
+    <string name="onboarding_step1_feature_desc">Costruisci il tuo archivio di ricordi con foto, appunti e piccoli momenti.</string>
+    <string name="onboarding_step1_footer1">ARCHIVIO MEOWOIRS</string>
+    <string name="onboarding_step1_footer2">PRIMA PAGINA</string>
+
+    <!-- Onboarding Screen 2 (Memories) -->
+    <string name="onboarding_step2_chap">CAPITOLO II — FRAMMENTI DI DIARIO</string>
+    <string name="onboarding_step2_title">Conserva i piccoli momenti.</string>
+    <string name="onboarding_step2_subtitle">Una foto, poche parole e il sentimento di quel momento.</string>
+    <string name="onboarding_step2_badge1">ANNO. 128</string>
+    <string name="onboarding_step2_badge2">08:45 Sonno mattutino</string>
+    <string name="onboarding_step2_date">14 Ottobre</string>
+    <string name="onboarding_step2_mood">Pacifico</string>
+    <string name="onboarding_step2_quote">“Raggomitolato sulla coperta di lana mentre bevevo il mio caffè mattutino. Così calmo come se il mondo si fosse fermato...”</string>
+    <string name="onboarding_step2_editorial_text">Meowoirs trasforma i momenti ordinari in piccole storie che non vorrai dimenticare.</string>
+    <string name="onboarding_step2_footer1">ARCHIVIO PERSONALE</string>
+    <string name="onboarding_step2_footer2">PICCOLI MOMENTI</string>
+
+    <!-- Onboarding Screen 3 (Cats & Stories) -->
+    <string name="onboarding_step3_chap">CAPITOLO III — NELLA TUA STORIA</string>
+    <string name="onboarding_step3_title">Ogni gatto può far parte della tua storia.</string>
+    <string name="onboarding_step3_desc">Dal gatto in casa tua a un amico incontrato per strada, conserva i piccoli momenti che toccano la tua vita.</string>
+    <string name="onboarding_step3_home_badge">A CASA</string>
+    <string name="onboarding_step3_home_title">La storia della nostra casa</string>
+    <string name="onboarding_step3_street_badge">STORIA DI STRADA</string>
+    <string name="onboarding_step3_street_title">Spirito della strada</string>
+    <string name="onboarding_step3_street_subtitle">Olive — Vecchio amico del quartiere</string>
+    <string name="onboarding_step3_feature_title">A casa o per strada</string>
+    <string name="onboarding_step3_feature_desc">Includi i gatti della tua casa o quelli che incontri per strada nella tua storia.</string>
+    <string name="onboarding_step3_footer1">ARCHIVIO MEOWOIRS</string>
+    <string name="onboarding_step3_footer2">OGNI GATTO</string>
+
+    <!-- Onboarding Screen 4 (Privacy & Legal) -->
+    <string name="onboarding_step4_chap">CAPITOLO IV • PRIVACY E FIDUCIA</string>
+    <string name="onboarding_step4_title">La tua storia è tua.</string>
+    <string name="onboarding_step4_desc">I tuoi ricordi e le tue foto rimangono sul tuo dispositivo. Meowoirs non li archivia sui propri server e non richiede un account o la sincronizzazione cloud.</string>
+    <string name="onboarding_step4_feature_title">Rimane sul tuo dispositivo</string>
+    <string name="onboarding_step4_feature_desc">I tuoi profili dei gatti, le foto, gli appunti e i ricordi sono archiviati localmente sul tuo dispositivo.</string>
+    <string name="onboarding_step4_privacy_checkbox">Ho letto e accetto l\'Informativa sulla privacy.</string>
+    <string name="onboarding_step4_privacy_link_text">Informativa sulla privacy</string>
+    <string name="onboarding_step4_terms_checkbox">Ho letto e accetto i Termini di servizio.</string>
+    <string name="onboarding_step4_terms_link_text">Termini di servizio</string>
+    <string name="onboarding_step4_btn_start">Inizia Meowoirs →</string>
+    <string name="onboarding_step4_footer">MEOWOIRS • ARCHIVIO PERSONALE</string>
+    <string name="onboarding_legal_ok">OK</string>
+
+    <string name="action_edit">Modifica</string>
+    <string name="action_delete">Elimina</string>
+    <string name="action_cancel">Annulla</string>
+    <string name="action_save">Salva</string>
+    <string name="action_save_changes">Salva modifiche</string>
+    <string name="edit_cat_title">Modifica gatto</string>
+    <string name="edit_cat_subtitle">Aggiorna i dettagli.</string>
+    <string name="delete_cat_title">Sei sicuro di voler eliminare questo gatto?</string>
+    <string name="delete_cat_message">Il profilo del gatto verrà eliminato. I ricordi salvati saranno conservati.</string>
+    <string name="memory_detail_title">Dettaglio ricordo</string>
+    <string name="edit_memory_title">Modifica ricordo</string>
+    <string name="edit_memory_subtitle">Aggiorna questo ricordo.</string>
+    <string name="delete_memory_title">Sei sicuro di voler eliminare questo ricordo?</string>
+    <string name="delete_memory_message">Questo ricordo verrà eliminato definitivamente.</string>
+    <string name="error_generic_operation">Si è verificato un errore durante l\'operazione. Riprova.</string>
+
+    <string name="action_back">Indietro</string>
+    <string name="action_retry">Riprova</string>
+    <string name="loading">Caricamento...</string>
+    <string name="cat_not_found_title">Gatto non trovato</string>
+    <string name="cat_not_found_desc">Questa storia non è più disponibile o potrebbe essere stata eliminata.</string>
+    <string name="memory_not_found_title">Ricordo non trovato</string>
+    <string name="memory_not_found_desc">Questo ricordo non è più disponibile o potrebbe essere stato eliminato.</string>
+    <string name="cat_save_error">Si è verificato un errore durante il salvataggio del gatto. Riprova.</string>
+    <string name="memory_save_error">Si è verificato un errore durante il salvataggio del ricordo. Riprova.</string>
+    <string name="cat_delete_error">Si è verificato un errore durante l\'eliminazione del gatto. Riprova.</string>
+    <string name="memory_delete_error">Si è verificato un errore durante l\'eliminazione del ricordo. Riprova.</string>
+    <string name="cat_name_required_error">Inserisci il nome del gatto.</string>
+    <string name="memory_cat_required_error">Seleziona un gatto per questo ricordo.</string>
+    <string name="photo_load_failed">Impossibile caricare la foto</string>
+</resources>

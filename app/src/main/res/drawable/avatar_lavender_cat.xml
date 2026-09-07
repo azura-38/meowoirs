@@ -1,0 +1,57 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Background Circle -->
+    <path
+        android:fillColor="#F1EEF8"
+        android:pathData="M48,48m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" />
+    <!-- Cat Head Base -->
+    <path
+        android:fillColor="#A99BCB"
+        android:pathData="M48,27c-14,0 -24,9 -24,22c0,13 10,23 24,23s24,-10 24,-23c0,-13 -10,-22 -24,-22z" />
+    <!-- Ears -->
+    <path
+        android:fillColor="#A99BCB"
+        android:pathData="M27,33L21,17L37,25Z" />
+    <path
+        android:fillColor="#A99BCB"
+        android:pathData="M69,33L75,17L59,25Z" />
+    <!-- Inner Ears -->
+    <path
+        android:fillColor="#DDD5EE"
+        android:pathData="M27,30L24,20L34,26Z" />
+    <path
+        android:fillColor="#DDD5EE"
+        android:pathData="M69,30L72,20L62,26Z" />
+    <!-- Cheerful Eyes -->
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M34,46c2,-3 6,-3 8,0" />
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M54,46c2,-3 6,-3 8,0" />
+    <!-- Nose & Mouth -->
+    <path
+        android:fillColor="#594A42"
+        android:pathData="M48,51l-2,-2h4z" />
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M48,51v4c-1.5,1.5 -3.5,0.5 -4.5,0" />
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M48,55c1.5,1.5 3.5,0.5 4.5,0" />
+    <!-- Star Sparkle -->
+    <path
+        android:fillColor="#E8753D"
+        android:pathData="M70,42l1.5,-4l1.5,4l4,1.5l-4,1.5l-1.5,4l-1.5,-4l-4,-1.5z" />
+</vector>

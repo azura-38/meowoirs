@@ -1,0 +1,57 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Gentle Cream Background Circle -->
+    <path
+        android:fillColor="#F4ECE1"
+        android:pathData="M48,48m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" />
+    <!-- Heart Nose -->
+    <path
+        android:fillColor="#E8753D"
+        android:pathData="M48,50c-4,-5 -10,-8 -10,-13c0,-4 3,-7 7,-7c3,0 5.5,1.8 6.5,4c1,-2.2 3.5,-4 6.5,-4c4,0 7,3 7,7c0,5 -6,8 -10,13z" />
+    <!-- Small Mouth Below Heart -->
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:pathData="M48,50v4c-2,2 -5,1 -6,0" />
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:pathData="M48,54c2,2 5,1 6,0" />
+    <!-- Whiskers Left -->
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M34,48L18,44" />
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M33,53L16,53" />
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M34,58L19,62" />
+    <!-- Whiskers Right -->
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M62,48L78,44" />
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M63,53L80,53" />
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M62,58L77,62" />
+</vector>

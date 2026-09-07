@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meowoirs</string>
+    <string name="tagline">Her kedinin bir hikâyesi var</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Ana Sayfa</string>
+    <string name="nav_cats">Kedilerim</string>
+    <string name="nav_memories">Anılar</string>
+    <string name="nav_story">Hikâyem</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_title">Profil</string>
+    <string name="profile_greeting_prefix">Merhaba</string>
+    <string name="profile_default_title">Senin Hikâyen</string>
+    <string name="profile_subtitle">Bu senin Meowoirs\'teki kişisel alanın.</string>
+    <string name="profile_edit_button">Profili Düzenle</string>
+    <string name="profile_edit_dialog_title">Profili Düzenle</string>
+    <string name="profile_nickname_label">Takma Adın</string>
+    <string name="profile_nickname_placeholder">Örn: Luna</string>
+    <string name="profile_select_avatar">Profil Görseli Seç</string>
+    <string name="profile_save">Kaydet</string>
+    <string name="profile_cancel">Vazgeç</string>
+
+    <!-- Favorite Cat -->
+    <string name="favorite_cat_section_title">Favori Kedim</string>
+    <string name="favorite_cat_change_button">Favori Kediyi Değiştir</string>
+    <string name="favorite_cat_select_button">Favori Kediyi Seç</string>
+    <string name="favorite_cat_empty_title">Henüz favori bir kedin yok.</string>
+    <string name="favorite_cat_empty_cta">İlk Kedini Ekle</string>
+    <string name="favorite_cat_none_selected">Henüz bir favori kedi seçilmedi.</string>
+    <string name="favorite_cat_dialog_title">Favori Kedini Seç</string>
+
+    <!-- My Story Section -->
+    <string name="my_story_section_title">Benim Hikâyem</string>
+    <string name="my_story_view_all">Tüm Hikâyeyi Gör</string>
+    <string name="stat_cats">Kediler</string>
+    <string name="stat_memories">Anılar</string>
+    <string name="stat_home">Ev</string>
+    <string name="stat_street">Sokak</string>
+
+    <!-- Settings Entry & Screen -->
+    <string name="profile_settings_button">Ayarlar</string>
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_section_appearance">Görünüm</string>
+    <string name="settings_theme">Tema</string>
+    <string name="theme_system">Sistem</string>
+    <string name="theme_light">Açık</string>
+    <string name="theme_dark">Koyu</string>
+
+    <!-- Privacy & Legal -->
+    <string name="settings_section_privacy_legal">Gizlilik ve Yasal</string>
+    <string name="settings_privacy_policy">Gizlilik Politikası</string>
+    <string name="settings_terms_of_service">Kullanım Koşulları</string>
+    <string name="settings_ad_privacy">Reklam Gizliliği</string>
+    <string name="privacy_pending_title">Bilgilendirme</string>
+    <string name="privacy_pending_desc">Gizlilik politikamız ve kullanım koşullarımız yakında web sitemizde yayında olacaktır.</string>
+    <string name="ump_not_required">Bu bölgede veya mevcut oturumda reklam gizliliği seçenekleri gerekli değildir.</string>
+
+    <!-- Language -->
+    <string name="settings_section_language">Dil</string>
+    <string name="settings_language">Uygulama Dili</string>
+
+    <!-- Reach Us -->
+    <string name="settings_section_reach_us">Bize Ulaşın</string>
+    <string name="settings_reach_us">Bize Ulaşın</string>
+    <string name="reach_us_thank_you_title">Meowoirs\'i kullandığın için teşekkür ederiz.</string>
+    <string name="reach_us_thank_you_desc">Her küçük anının bir hikâyeye dönüşmesine yardımcı olduğun için mutluyuz.</string>
+    <string name="reach_us_action_suggestion">Öneri Gönder</string>
+    <string name="reach_us_action_bug">Hata Bildir</string>
+    <string name="reach_us_action_contact">Bize Yaz</string>
+    <string name="reach_us_no_email_app">Bu cihazda e-posta uygulaması bulunamadı.</string>
+
+    <!-- App Version -->
+    <string name="settings_section_app">Uygulama</string>
+    <string name="version_format">Sürüm %1$s</string>
+    <string name="version_build_format">Sürüm %1$s (Yapı %2$d)</string>
+
+    <!-- Avatar Descriptions -->
+    <string name="avatar_desc_warm_cat">Sıcak turuncu kedi</string>
+    <string name="avatar_desc_sage_cat">Sakin adaçayı kedi</string>
+    <string name="avatar_desc_lavender_cat">Rüya lavanta kedi</string>
+    <string name="avatar_desc_curious_cat">Meraklı kedi</string>
+    <string name="avatar_desc_cozy_cat">Rahat uyuyan kedi</string>
+    <string name="avatar_desc_gentle_paw">Nazik pati izi</string>
+    <string name="avatar_desc_star_gazer">Yıldızları izleyen kedi</string>
+    <string name="avatar_desc_book_cat">Kitap kurdu kedi</string>
+    <string name="avatar_desc_sunlit_cat">Güneşte dinlenen kedi</string>
+    <string name="avatar_desc_whisker_heart">Bıyıklı kalp</string>
+
+    <!-- Debug -->
+    <string name="debug_panel_unlocked">Geliştirici paneli açıldı</string>
+    <string name="debug_onboarding_completed">İlk Başlangıç Tamamlandı</string>
+    <string name="debug_accepted_legal_version">Kabul Edilen Yasal Sürüm</string>
+    <string name="debug_reset_onboarding">GELİŞTİRİCİ: İLK BAŞLANGICI SIFIRLA</string>
+    <string name="debug_onboarding_reset_toast">İlk başlangıç durumu sıfırlandı</string>
+
+    <!-- Onboarding Common -->
+    <string name="onboarding_skip">ATLA</string>
+    <string name="onboarding_btn_continue">Devam Et →</string>
+
+    <!-- Onboarding Screen 1 (Introduction) -->
+    <string name="onboarding_step1_chap">CİLT I — BÖLÜM 01</string>
+    <string name="onboarding_step1_badge">GÜNÜN IŞIĞI</string>
+    <string name="onboarding_step1_quote">«Sessiz bir fısıltı gibi...»</string>
+    <string name="onboarding_step1_intro">GİRİŞ NOTU</string>
+    <string name="onboarding_step1_intro_sub">AÇILIŞ</string>
+    <string name="onboarding_step1_title">Her kedinin bir hikâyesi var.</string>
+    <string name="onboarding_step1_title_part1">Her kedinin bir </string>
+    <string name="onboarding_step1_title_highlight">hikâyesi</string>
+    <string name="onboarding_step1_title_part2"> var.</string>
+    <string name="onboarding_step1_desc">Meowoirs, kedilerinle paylaştığın küçük anları, fotoğrafları ve hikâyeleri saklamak için kişisel alanın.</string>
+    <string name="onboarding_step1_feature_title">Kişisel Arşivinizi Oluşturun</string>
+    <string name="onboarding_step1_feature_desc">Fotoğraf, notlar ve küçük anlarla kendi anı arşivinizi oluşturun.</string>
+    <string name="onboarding_step1_footer1">MEOWOIRS ARŞİVİ</string>
+    <string name="onboarding_step1_footer2">İLK SAYFA</string>
+
+    <!-- Onboarding Screen 2 (Memories) -->
+    <string name="onboarding_step2_chap">BÖLÜM II — GÜNLÜK PARÇALARI</string>
+    <string name="onboarding_step2_title">Küçük anları sakla.</string>
+    <string name="onboarding_step2_subtitle">Bir fotoğraf, birkaç kelime ve o anın duygusu.</string>
+    <string name="onboarding_step2_badge1">ANNO. 128</string>
+    <string name="onboarding_step2_badge2">08:45 Sabah Uykusu</string>
+    <string name="onboarding_step2_date">14 Ekim</string>
+    <string name="onboarding_step2_mood">Huzurlu</string>
+    <string name="onboarding_step2_quote">“Sabah kahvesi içerken yün battaniyeye kıvrılmıştı. Dünya durmuş gibi sakin...”</string>
+    <string name="onboarding_step2_editorial_text">Meowoirs, sıradan anları unutmak istemeyeceğin küçük hikâyelere dönüştürür.</string>
+    <string name="onboarding_step2_footer1">KİŞİSEL ARŞİV</string>
+    <string name="onboarding_step2_footer2">KÜÇÜK ANLAR</string>
+
+    <!-- Onboarding Screen 3 (Cats & Stories) -->
+    <string name="onboarding_step3_chap">BÖLÜM III — HİKÂYENDEKİLER</string>
+    <string name="onboarding_step3_title">Her kedi hikâyende yer alabilir.</string>
+    <string name="onboarding_step3_desc">Evindeki kediden sokakta karşılaştığın bir dosta kadar, hayatına dokunan küçük anları sakla.</string>
+    <string name="onboarding_step3_home_badge">EVDE</string>
+    <string name="onboarding_step3_home_title">Evimizin Hikâyesi</string>
+    <string name="onboarding_step3_street_badge">SOKAK HİKÂYESİ</string>
+    <string name="onboarding_step3_street_title">Sokağın Ruhu</string>
+    <string name="onboarding_step3_street_subtitle">Zeytin — Mahalledeki eski dost</string>
+    <string name="onboarding_step3_feature_title">Evde veya Sokakta</string>
+    <string name="onboarding_step3_feature_desc">Evindeki ya da sokakta karşılaştığın kedileri kendi hikâyene dahil et.</string>
+    <string name="onboarding_step3_footer1">MEOWOIRS ARŞİVİ</string>
+    <string name="onboarding_step3_footer2">HER KEDİ</string>
+
+    <!-- Onboarding Screen 4 (Privacy & Legal) -->
+    <string name="onboarding_step4_chap">BÖLÜM IV • MAHREMİYET &amp; GÜVEN</string>
+    <string name="onboarding_step4_title">Hikâyen senin.</string>
+    <string name="onboarding_step4_desc">Anıların ve fotoğrafların cihazında kalır. Meowoirs, bunları kendi sunucularında saklamaz ve hesap veya bulut senkronizasyonu gerektirmez.</string>
+    <string name="onboarding_step4_feature_title">Cihazında Kalır</string>
+    <string name="onboarding_step4_feature_desc">Kedi profillerin, fotoğrafların, notların ve anıların cihazında yerel olarak saklanır.</string>
+    <string name="onboarding_step4_privacy_checkbox">Gizlilik Politikası\'nı okudum ve kabul ediyorum.</string>
+    <string name="onboarding_step4_privacy_link_text">Gizlilik Politikası</string>
+    <string name="onboarding_step4_terms_checkbox">Kullanım Koşulları\'nı okudum ve kabul ediyorum.</string>
+    <string name="onboarding_step4_terms_link_text">Kullanım Koşulları</string>
+    <string name="onboarding_step4_btn_start">Meowoirs\'e Başla →</string>
+    <string name="onboarding_step4_footer">MEOWOIRS • KİŞİSEL ARŞİV</string>
+    <string name="onboarding_legal_ok">Tamam</string>
+
+    <string name="action_edit">Düzenle</string>
+    <string name="action_delete">Sil</string>
+    <string name="action_cancel">Vazgeç</string>
+    <string name="action_save">Kaydet</string>
+    <string name="action_save_changes">Değişiklikleri Kaydet</string>
+    <string name="edit_cat_title">Kediyi Düzenle</string>
+    <string name="edit_cat_subtitle">Bilgilerini güncelleyin.</string>
+    <string name="delete_cat_title">Bu kediyi silmek istediğine emin misin?</string>
+    <string name="delete_cat_message">Kedi profili silinecektir. Kayıtlı anılar korunacaktır.</string>
+    <string name="memory_detail_title">Anı Detayı</string>
+    <string name="edit_memory_title">Anıyı Düzenle</string>
+    <string name="edit_memory_subtitle">Bu anıyı güncelleyin.</string>
+    <string name="delete_memory_title">Bu anıyı silmek istediğine emin misin?</string>
+    <string name="delete_memory_message">Bu anı kalıcı olarak silinecektir.</string>
+    <string name="error_generic_operation">İşlem sırasında bir hata oluştu. Lütfen tekrar deneyin.</string>
+
+    <string name="action_back">Geri</string>
+    <string name="action_retry">Tekrar Dene</string>
+    <string name="loading">Yükleniyor...</string>
+    <string name="cat_not_found_title">Kedi bulunamadı</string>
+    <string name="cat_not_found_desc">Bu hikâye artık mevcut değil veya silinmiş olabilir.</string>
+    <string name="memory_not_found_title">Anı bulunamadı</string>
+    <string name="memory_not_found_desc">Bu anı artık mevcut değil veya silinmiş olabilir.</string>
+    <string name="cat_save_error">Kedi kaydedilirken bir hata oluştu. Lütfen tekrar deneyin.</string>
+    <string name="memory_save_error">Anı kaydedilirken bir hata oluştu. Lütfen tekrar deneyin.</string>
+    <string name="cat_delete_error">Kedi silinirken bir hata oluştu. Lütfen tekrar deneyin.</string>
+    <string name="memory_delete_error">Anı silinirken bir hata oluştu. Lütfen tekrar deneyin.</string>
+    <string name="cat_name_required_error">Lütfen kedinin adını yazın.</string>
+    <string name="memory_cat_required_error">Lütfen bu anıyı bir kediyle ilişkilendirin.</string>
+    <string name="photo_load_failed">Fotoğraf yüklenemedi</string>
+</resources>

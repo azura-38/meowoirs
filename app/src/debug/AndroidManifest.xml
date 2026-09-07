@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name="com.limanex.meowoirs.debug.DebugCrashActivity"
+            android:exported="true"
+            android:label="Meowoirs Test Crash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="meowoirs"
+                    android:host="debug"
+                    android:path="/crash" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.limanex.meowoirs.debug.DebugPanelActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Meowoirs" />
+
+        <receiver
+            android:name="com.limanex.meowoirs.debug.DebugCrashReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.limanex.meowoirs.ACTION_TEST_CRASH" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

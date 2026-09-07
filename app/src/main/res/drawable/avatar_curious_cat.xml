@@ -1,0 +1,51 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Background Circle -->
+    <path
+        android:fillColor="#F6ECE1"
+        android:pathData="M48,48m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" />
+    <!-- Cat Head Base (Tilted slightly curious) -->
+    <path
+        android:fillColor="#594A42"
+        android:pathData="M48,30c-14,0 -23,9 -23,21c0,13 9,23 23,23s23,-10 23,-23c0,-12 -9,-21 -23,-21z" />
+    <!-- Ears -->
+    <path
+        android:fillColor="#594A42"
+        android:pathData="M27,35L22,19L38,27Z" />
+    <path
+        android:fillColor="#594A42"
+        android:pathData="M69,35L74,19L58,27Z" />
+    <!-- Inner Ears -->
+    <path
+        android:fillColor="#8C7A70"
+        android:pathData="M28,32L24,22L35,27Z" />
+    <path
+        android:fillColor="#8C7A70"
+        android:pathData="M68,32L72,22L61,27Z" />
+    <!-- Big Wide Curious Eyes -->
+    <path
+        android:fillColor="#FFF9F2"
+        android:pathData="M37,47m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+    <path
+        android:fillColor="#FFF9F2"
+        android:pathData="M59,47m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+    <path
+        android:fillColor="#E8753D"
+        android:pathData="M37,47m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+    <path
+        android:fillColor="#E8753D"
+        android:pathData="M59,47m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M36,46m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M58,46m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0" />
+    <!-- Nose -->
+    <path
+        android:fillColor="#F6C3A8"
+        android:pathData="M48,54l-2,-2h4z" />
+</vector>

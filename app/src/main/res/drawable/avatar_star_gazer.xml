@@ -1,0 +1,35 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Deep Dusk Circle -->
+    <path
+        android:fillColor="#3A314E"
+        android:pathData="M48,48m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" />
+    <!-- Crescent Moon -->
+    <path
+        android:fillColor="#F6C3A8"
+        android:pathData="M66,22c-7,0 -13,6 -13,13c0,4 2,8 5,10c-8,0 -14,-7 -14,-15c0,-4 1.5,-8 4,-11c-1,0 -2,0 -3,0c-11,0 -20,9 -20,20s9,20 20,20c9,0 17,-6 19,-15c-1,0.5 -3,0.7 -4,0.7c-9,0 -16,-7 -16,-16c0,-4 1.5,-7 4,-10c2.5,4.5 7.5,7.3 13,7.3c1,0 2,-0.1 3,-0.3c-0.5,-1.2 -0.8,-2.5 -0.8,-3.7c0,-4.5 3.5,-8.3 8,-9.7c-2.5,-0.9 -5.2,-1.3 -8.2,-1.3z" />
+    <!-- Cat Silhouette from back looking up -->
+    <path
+        android:fillColor="#594A42"
+        android:pathData="M48,50c-10,0 -16,8 -16,22h32c0,-14 -6,-22 -16,-22z" />
+    <path
+        android:fillColor="#594A42"
+        android:pathData="M48,42m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0" />
+    <!-- Silhouette Ears -->
+    <path
+        android:fillColor="#594A42"
+        android:pathData="M39,36L34,24L44,32Z" />
+    <path
+        android:fillColor="#594A42"
+        android:pathData="M57,36L62,24L52,32Z" />
+    <!-- Little Stars -->
+    <path
+        android:fillColor="#FFF9F2"
+        android:pathData="M30,26l1,-2l1,2l2,1l-2,1l-1,2l-1,-2l-2,-1z" />
+    <path
+        android:fillColor="#FFF9F2"
+        android:pathData="M70,36l1,-2l1,2l2,1l-2,1l-1,2l-1,-2l-2,-1z" />
+</vector>

@@ -1,0 +1,6 @@
+{
+  "name": "Meowoirs",
+  "description": "Meowoirs onboarding experience based on Stitch design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

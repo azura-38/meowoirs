@@ -1,0 +1,74 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Background Circle -->
+    <path
+        android:fillColor="#FCEEE3"
+        android:pathData="M48,48m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" />
+    <!-- Cat Head Base -->
+    <path
+        android:fillColor="#E8753D"
+        android:pathData="M48,28c-14,0 -24,9 -24,22c0,13 10,24 24,24s24,-11 24,-24c0,-13 -10,-22 -24,-22z" />
+    <!-- Ears -->
+    <path
+        android:fillColor="#E8753D"
+        android:pathData="M27,33L21,17L37,25Z" />
+    <path
+        android:fillColor="#E8753D"
+        android:pathData="M69,33L75,17L59,25Z" />
+    <!-- Inner Ears -->
+    <path
+        android:fillColor="#F6C3A8"
+        android:pathData="M27,30L24,20L34,26Z" />
+    <path
+        android:fillColor="#F6C3A8"
+        android:pathData="M69,30L72,20L62,26Z" />
+    <!-- Closed Eyes (Curved Lines) -->
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M34,48c2,3 6,3 8,0" />
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M54,48c2,3 6,3 8,0" />
+    <!-- Nose & Mouth -->
+    <path
+        android:fillColor="#594A42"
+        android:pathData="M48,54l-2.5,-3h5z" />
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M48,54v3c-2,1.5 -4,0.5 -5,0" />
+    <path
+        android:strokeColor="#594A42"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M48,57c2,1.5 4,0.5 5,0" />
+    <!-- Whiskers -->
+    <path
+        android:strokeColor="#C85D26"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:pathData="M26,52L16,50" />
+    <path
+        android:strokeColor="#C85D26"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:pathData="M26,56L17,58" />
+    <path
+        android:strokeColor="#C85D26"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:pathData="M70,52L80,50" />
+    <path
+        android:strokeColor="#C85D26"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:pathData="M70,56L79,58" />
+</vector>

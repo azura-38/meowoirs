@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meowoirs</string>
+    <string name="tagline">Cada gato tem uma história</string>
+
+    <string name="nav_home">Início</string>
+    <string name="nav_cats">Meus Gatos</string>
+    <string name="nav_memories">Memórias</string>
+    <string name="nav_story">Minha História</string>
+    <string name="nav_profile">Perfil</string>
+
+    <string name="profile_title">Perfil</string>
+    <string name="profile_greeting_prefix">Olá</string>
+    <string name="profile_default_title">Sua História</string>
+    <string name="profile_subtitle">Este é o seu espaço pessoal no Meowoirs.</string>
+    <string name="profile_edit_button">Editar Perfil</string>
+    <string name="profile_edit_dialog_title">Editar Perfil</string>
+    <string name="profile_nickname_label">Apelido</string>
+    <string name="profile_nickname_placeholder">ex: Luna</string>
+    <string name="profile_select_avatar">Escolher Avatar</string>
+    <string name="profile_save">Salvar</string>
+    <string name="profile_cancel">Cancelar</string>
+
+    <string name="favorite_cat_section_title">Gato Favorito</string>
+    <string name="favorite_cat_change_button">Alterar Gato Favorito</string>
+    <string name="favorite_cat_select_button">Escolher Gato Favorito</string>
+    <string name="favorite_cat_empty_title">Você ainda não tem um gato favorito.</string>
+    <string name="favorite_cat_empty_cta">Adicionar Primeiro Gato</string>
+    <string name="favorite_cat_none_selected">Nenhum gato favorito selecionado.</string>
+    <string name="favorite_cat_dialog_title">Selecionar Gato Favorito</string>
+
+    <string name="my_story_section_title">Minha História</string>
+    <string name="my_story_view_all">Ver História Completa</string>
+    <string name="stat_cats">Gatos</string>
+    <string name="stat_memories">Memórias</string>
+    <string name="stat_home">Casa</string>
+    <string name="stat_street">Rua</string>
+
+    <string name="profile_settings_button">Configurações</string>
+    <string name="settings_title">Configurações</string>
+    <string name="settings_section_appearance">Aparência</string>
+    <string name="settings_theme">Tema</string>
+    <string name="theme_system">Sistema</string>
+    <string name="theme_light">Claro</string>
+    <string name="theme_dark">Escuro</string>
+
+    <string name="settings_section_privacy_legal">Privacidade e Legal</string>
+    <string name="settings_privacy_policy">Política de Privacidade</string>
+    <string name="settings_terms_of_service">Termos de Serviço</string>
+    <string name="settings_ad_privacy">Privacidade de Anúncios</string>
+    <string name="privacy_pending_title">Informação</string>
+    <string name="privacy_pending_desc">Nossa política de privacidade e termos estarão disponíveis online em breve.</string>
+    <string name="ump_not_required">Opções de privacidade de anúncios não são necessárias na sua região.</string>
+
+    <string name="settings_section_language">Idioma</string>
+    <string name="settings_language">Idioma do Aplicativo</string>
+
+    <string name="settings_section_reach_us">Fale Conosco</string>
+    <string name="settings_reach_us">Fale Conosco</string>
+    <string name="reach_us_thank_you_title">Obrigado por usar o Meowoirs.</string>
+    <string name="reach_us_thank_you_desc">Ficamos felizes que cada pequena memória se torne uma história com você.</string>
+    <string name="reach_us_action_suggestion">Enviar Sugestão</string>
+    <string name="reach_us_action_bug">Relatar Erro</string>
+    <string name="reach_us_action_contact">Escreva para Nós</string>
+    <string name="reach_us_no_email_app">Nenhum aplicativo de e-mail encontrado neste dispositivo.</string>
+
+    <string name="settings_section_app">Aplicativo</string>
+    <string name="version_format">Versão %1$s</string>
+    <string name="version_build_format">Versão %1$s (Build %2$d)</string>
+
+    <string name="avatar_desc_warm_cat">Gato laranja acolhedor</string>
+    <string name="avatar_desc_sage_cat">Gato sálvia sereno</string>
+    <string name="avatar_desc_lavender_cat">Gato lavanda sonhador</string>
+    <string name="avatar_desc_curious_cat">Gato curioso</string>
+    <string name="avatar_desc_cozy_cat">Gato dormindo aconchegante</string>
+    <string name="avatar_desc_gentle_paw">Patinha gentil</string>
+    <string name="avatar_desc_star_gazer">Gato olhando as estrelas</string>
+    <string name="avatar_desc_book_cat">Gato leitor</string>
+    <string name="avatar_desc_sunlit_cat">Gato ao sol</string>
+    <string name="avatar_desc_whisker_heart">Coração com bigodes</string>
+
+    <string name="debug_panel_unlocked">Painel de desenvolvedor desbloqueado</string>
+    <string name="debug_onboarding_completed">Apresentação concluída</string>
+    <string name="debug_accepted_legal_version">Versão legal aceita</string>
+    <string name="debug_reset_onboarding">DESENVOLVEDOR: REINICIAR APRESENTAÇÃO</string>
+    <string name="debug_onboarding_reset_toast">Status de apresentação redefinido</string>
+
+    <!-- Onboarding Common -->
+    <string name="onboarding_skip">PULAR</string>
+    <string name="onboarding_btn_continue">Continuar →</string>
+
+    <!-- Onboarding Screen 1 (Introduction) -->
+    <string name="onboarding_step1_chap">VOLUME I — CAPÍTULO 01</string>
+    <string name="onboarding_step1_badge">LUZ DA MANHÃ</string>
+    <string name="onboarding_step1_quote">«Como um sussurro silencioso...»</string>
+    <string name="onboarding_step1_intro">NOTA INTRODUTÓRIA</string>
+    <string name="onboarding_step1_intro_sub">ABERTURA</string>
+    <string name="onboarding_step1_title">Cada gato tem uma história.</string>
+    <string name="onboarding_step1_title_part1">Cada gato tem uma </string>
+    <string name="onboarding_step1_title_highlight">história</string>
+    <string name="onboarding_step1_title_part2">.</string>
+    <string name="onboarding_step1_desc">Meowoirs é o seu espaço pessoal para guardar os pequenos momentos, fotos e histórias que você compartilha com seus gatos.</string>
+    <string name="onboarding_step1_feature_title">Crie seu Arquivo Pessoal</string>
+    <string name="onboarding_step1_feature_desc">Construa seu próprio arquivo de memórias com fotos, notas e pequenos momentos.</string>
+    <string name="onboarding_step1_footer1">ARQUIVO MEOWOIRS</string>
+    <string name="onboarding_step1_footer2">PRIMEIRA PÁGINA</string>
+
+    <!-- Onboarding Screen 2 (Memories) -->
+    <string name="onboarding_step2_chap">CAPÍTULO II — FRAGMENTOS DE DIÁRIO</string>
+    <string name="onboarding_step2_title">Guarde os pequenos momentos.</string>
+    <string name="onboarding_step2_subtitle">Uma foto, algumas palavras e o sentimento daquele momento.</string>
+    <string name="onboarding_step2_badge1">ANNO. 128</string>
+    <string name="onboarding_step2_badge2">08:45 Sono Matinal</string>
+    <string name="onboarding_step2_date">14 de Outubro</string>
+    <string name="onboarding_step2_mood">Pacífico</string>
+    <string name="onboarding_step2_quote">“Enrolado no cobertor de lã enquanto tomava meu café da manhã. Tão calmo como se o mundo tivesse parado...”</string>
+    <string name="onboarding_step2_editorial_text">Meowoirs transforma momentos comuns em pequenas histórias que você não vai querer esquecer.</string>
+    <string name="onboarding_step2_footer1">ARQUIVO PESSOAL</string>
+    <string name="onboarding_step2_footer2">PEQUENOS MOMENTOS</string>
+
+    <!-- Onboarding Screen 3 (Cats & Stories) -->
+    <string name="onboarding_step3_chap">CAPÍTULO III — NA SUA HISTÓRIA</string>
+    <string name="onboarding_step3_title">Cada gato pode estar na sua história.</string>
+    <string name="onboarding_step3_desc">Desde o gato na sua casa até um amigo que conheceu na rua, guarde os pequenos momentos que tocam a sua vida.</string>
+    <string name="onboarding_step3_home_badge">EM CASA</string>
+    <string name="onboarding_step3_home_title">A História da Nossa Casa</string>
+    <string name="onboarding_step3_street_badge">HISTÓRIA DE RUA</string>
+    <string name="onboarding_step3_street_title">Espírito da Rua</string>
+    <string name="onboarding_step3_street_subtitle">Olive — Velho amigo do bairro</string>
+    <string name="onboarding_step3_feature_title">Em Casa ou na Rua</string>
+    <string name="onboarding_step3_feature_desc">Inclua os gatos da sua casa ou aqueles que você encontra na rua na sua própria história.</string>
+    <string name="onboarding_step3_footer1">ARQUIVO MEOWOIRS</string>
+    <string name="onboarding_step3_footer2">CADA GATO</string>
+
+    <!-- Onboarding Screen 4 (Privacy & Legal) -->
+    <string name="onboarding_step4_chap">CAPÍTULO IV • PRIVACIDADE E CONFIANÇA</string>
+    <string name="onboarding_step4_title">A sua história é sua.</string>
+    <string name="onboarding_step4_desc">As suas memórias e fotos permanecem no seu dispositivo. O Meowoirs não as armazena nos seus servidores e não requer uma conta ou sincronização na nuvem.</string>
+    <string name="onboarding_step4_feature_title">Permanece no seu Dispositivo</string>
+    <string name="onboarding_step4_feature_desc">Os seus perfis de gatos, fotos, notas e memórias são armazenados localmente no seu dispositivo.</string>
+    <string name="onboarding_step4_privacy_checkbox">Li e concordo com a Política de Privacidade.</string>
+    <string name="onboarding_step4_privacy_link_text">Política de Privacidade</string>
+    <string name="onboarding_step4_terms_checkbox">Li e concordo com os Termos de Serviço.</string>
+    <string name="onboarding_step4_terms_link_text">Termos de Serviço</string>
+    <string name="onboarding_step4_btn_start">Iniciar Meowoirs →</string>
+    <string name="onboarding_step4_footer">MEOWOIRS • ARQUIVO PESSOAL</string>
+    <string name="onboarding_legal_ok">OK</string>
+
+    <string name="action_edit">Editar</string>
+    <string name="action_delete">Excluir</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_save">Salvar</string>
+    <string name="action_save_changes">Salvar alterações</string>
+    <string name="edit_cat_title">Editar gato</string>
+    <string name="edit_cat_subtitle">Atualize os detalhes.</string>
+    <string name="delete_cat_title">Tem certeza de que deseja excluir este gato?</string>
+    <string name="delete_cat_message">O perfil do gato será excluído. As memórias salvas serão preservadas.</string>
+    <string name="memory_detail_title">Detalhe da memória</string>
+    <string name="edit_memory_title">Editar memória</string>
+    <string name="edit_memory_subtitle">Atualize esta memória.</string>
+    <string name="delete_memory_title">Tem certeza de que deseja excluir esta memória?</string>
+    <string name="delete_memory_message">Esta memória será excluída permanentemente.</string>
+    <string name="error_generic_operation">Ocorreu um erro durante a operação. Tente novamente.</string>
+
+    <string name="action_back">Voltar</string>
+    <string name="action_retry">Tentar novamente</string>
+    <string name="loading">Carregando...</string>
+    <string name="cat_not_found_title">Gato não encontrado</string>
+    <string name="cat_not_found_desc">Esta história não está mais disponível ou pode ter sido excluída.</string>
+    <string name="memory_not_found_title">Lembrança não encontrada</string>
+    <string name="memory_not_found_desc">Esta lembrança não está mais disponível ou pode ter sido excluída.</string>
+    <string name="cat_save_error">Ocorreu um erro ao salvar o gato. Tente novamente.</string>
+    <string name="memory_save_error">Ocorreu um erro ao salvar a lembrança. Tente novamente.</string>
+    <string name="cat_delete_error">Ocorreu um erro ao excluir o gato. Tente novamente.</string>
+    <string name="memory_delete_error">Ocorreu um erro ao excluir a lembrança. Tente novamente.</string>
+    <string name="cat_name_required_error">Por favor, digite o nome do gato.</string>
+    <string name="memory_cat_required_error">Por favor, selecione um gato para esta lembrança.</string>
+    <string name="photo_load_failed">Não foi possível carregar a foto</string>
+</resources>
