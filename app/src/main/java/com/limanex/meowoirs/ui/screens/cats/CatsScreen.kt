@@ -130,7 +130,7 @@ fun CatsContent(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.spacedBy(MeowoirsTheme.spacing.small)
                         ) {
-                            CatFilter.values().forEach { filter ->
+                            CatFilter.entries.forEach { filter ->
                                 val isSelected = uiState.selectedFilter == filter
                                 MeowoirsChip(
                                     label = filter.label,

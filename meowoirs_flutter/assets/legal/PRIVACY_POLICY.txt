@@ -1,0 +1,173 @@
+MEOWOIRS PRIVACY POLICY
+
+Developer / Operator: LIMANEX
+Country: Türkiye
+Official Contact: limanexsoftware@outlook.com
+Website: https://limanexstudio.com
+Public URL: https://limanexstudio.com/privacy/meowoirs
+
+Version: 1.0
+Effective Date: September 7, 2026
+Last Updated: September 7, 2026
+
+================================================================================
+1. INTRODUCTION & SCOPE
+================================================================================
+Welcome to Meowoirs ("Application"). This Privacy Policy explains how information is handled when you download, install, and use the Meowoirs mobile application on Android devices (package identifier: com.limanex.meowoirs).
+
+Meowoirs is designed as a personal, local-first cat memory journal. We prioritize your privacy through architecture: your personal journal content stays on your physical device and is not collected, stored, or synchronized on remote LIMANEX servers.
+
+By installing, accessing, or using Meowoirs, you acknowledge the practices described in this Privacy Policy.
+
+================================================================================
+2. OPERATOR INFORMATION
+================================================================================
+Developer and Operator: LIMANEX
+Country: Republic of Türkiye
+Official Privacy & Support Contact: limanexsoftware@outlook.com
+Official Website: https://limanexstudio.com
+
+================================================================================
+3. DEFINITIONS
+================================================================================
+- "Application" or "Meowoirs" means the Meowoirs Android mobile software application.
+- "User", "you", or "your" means any individual accessing or using the Application.
+- "Device" means the physical Android device on which Meowoirs is installed.
+- "User Content" means all cat profiles, names, notes, journal entries, mood selections, and photos inputted or selected by the User.
+- "Local Storage" means the embedded SQLite database (managed via AndroidX Room) and local preferences (managed via AndroidX DataStore) residing within the private application sandbox on your Device.
+- "Third-Party Service" means external software development kits integrated for advertising and stability, specifically Google Mobile Ads (AdMob), Google User Messaging Platform (UMP), and Firebase Crashlytics.
+
+================================================================================
+4. WHAT MEOWOIRS STORES LOCALLY ON YOUR DEVICE
+================================================================================
+Meowoirs operates on a local-first architecture. All user-created journal entries, cat information, and preferences are stored exclusively on your physical Android Device in local SQLite/Room database files and local DataStore files:
+
+1. Cat Profiles:
+   - Cat name
+   - Classification (Home Cat or Street Cat)
+   - Photo reference (local content URI selected via system Photo Picker)
+   - Cat profile note
+   - Creation timestamp
+
+2. Memories (Journal Entries):
+   - Associated cat identifier and cat name
+   - Journal note text
+   - Memory photo reference (local content URI)
+   - Cat mood reflection selection (e.g., Happy, Curious, Sleepy, Playful, Calm, Affectionate)
+   - User mood reflection selection (e.g., Happy, Peaceful, Nostalgic, Joyful, Calm, Touched)
+   - Creation timestamp
+
+3. Profile & Display Preferences:
+   - User nickname
+   - Selected avatar identifier
+   - Favorite cat identifier
+   - Theme mode preference (System, Light, Dark)
+   - Interface language code
+   - Onboarding completion flag and accepted legal version
+
+================================================================================
+5. WHAT WE DO NOT COLLECT OR STORE REMOTELY
+================================================================================
+LIMANEX does NOT operate a cloud backend server or remote database for your journal records. Meowoirs does NOT collect, require, transmit, or store:
+- User accounts, logins, usernames, or passwords
+- Real personal names, email addresses, or phone numbers
+- Cloud synchronization across multiple devices
+- Automated remote cloud backups of journal entries
+- Contact lists or address book records
+- Audio recordings or microphone input
+- Precise or coarse GPS hardware location data
+- Camera sensor access (Photo Picker is used instead)
+- Veterinary or clinical medical health records
+
+Your journal entries, notes, photos, and reflections exist solely on the Device where they were entered.
+
+================================================================================
+6. PHOTO PRIVACY & PHOTO PICKER
+================================================================================
+Meowoirs uses Android's native system Photo Picker (ActivityResultContracts.PickVisualMedia) whenever you attach an image to a cat profile or memory:
+- The Application does NOT request broad storage or media permissions (such as READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, READ_MEDIA_IMAGES, or READ_MEDIA_VIDEO).
+- The Application does NOT request CAMERA hardware permission.
+- The Application does NOT scan or continuously access your photo library.
+- Only individual images you explicitly choose in the system picker are accessible to Meowoirs, referenced via system-managed content URIs stored locally.
+
+================================================================================
+7. DATA DELETION & RETENTION ARCHITECTURE
+================================================================================
+- In-App Deletion: When you delete a memory or cat profile using the in-app delete buttons, the corresponding record is immediately removed from the local SQLite/Room database on your Device.
+- Permanent Loss: DELETED CONTENT MAY BE PERMANENTLY LOST. Because LIMANEX does not operate a remote server or maintain cloud backups of your journal content, LIMANEX has no technical ability to restore, recover, or reconstruct deleted entries.
+- Local Data Removal & Android Backup: Meowoirs does not operate its own cloud backup or synchronization service. Clearing application data or uninstalling the application may remove locally stored Meowoirs data. Android or device-level backup and restoration behavior, where available, is controlled by the operating system and device configuration and is not operated or guaranteed by LIMANEX.
+- User Backup Responsibility: You are solely responsible for maintaining independent backups of any photos, notes, or memories you consider irreplaceable.
+
+================================================================================
+8. CAT DELETION BEHAVIOR
+================================================================================
+In accordance with Meowoirs' current database design:
+- Deleting a cat profile removes that cat's record from your cat collection.
+- Deleting a cat does NOT delete associated memory entries; journal memories remain preserved in your memories collection so your personal journal history is not unintentionally wiped out.
+- If the deleted cat was set as your Favorite Cat, that preference is automatically cleared.
+
+================================================================================
+9. THIRD-PARTY SERVICES (ADMOB, UMP, CRASHLYTICS)
+================================================================================
+Meowoirs incorporates selected third-party SDKs provided by Google. We maintain a strict separation between your local journal entries and third-party technical processing:
+
+A. Google Mobile Ads (AdMob):
+   - Displays banner and occasional interstitial advertisements to support the free application.
+   - May process technical data including Google Advertising ID (GAID), IP address, general coarse device information, and ad interaction metrics in accordance with Google's privacy policies.
+   - AdMob does NOT receive your journal notes, cat names, memories, or photos.
+   - Production AdMob Identifiers:
+     App ID: ca-app-pub-587701117866406~4355156867
+     Banner ID: ca-app-pub-587701117866406/2930394553
+     Interstitial ID: ca-app-pub-587701117866406/2195897382
+
+B. Google User Messaging Platform (UMP):
+   - Manages consent for personalized/non-personalized advertising where required by regional regulations (e.g., EEA, UK).
+   - You can review or update consent choices anytime in: Settings -> Privacy & Legal -> Ad Privacy Options.
+
+C. Firebase Crashlytics:
+   - Processes non-personal technical diagnostics (crash stack traces, OS version, device model, app version) to help LIMANEX diagnose bugs and prevent crashes.
+   - Meowoirs does NOT intentionally log or transmit journal text, cat names, mood reflections, photo URIs, or personal notes to Crashlytics.
+
+For further information on Google's privacy practices:
+https://policies.google.com/privacy
+https://policies.google.com/technologies/partner-sites
+
+================================================================================
+10. DATA RETENTION
+================================================================================
+- Local Journal Content: Retained on your physical Device for as long as the Application remains installed with storage intact, until you delete specific items or clear app storage.
+- Third-Party Diagnostics & Ad Data: Retained by Google and Firebase in accordance with Google's independent data retention policies and legal requirements. LIMANEX does not determine Google's internal retention cycles.
+
+================================================================================
+11. APPLICABLE PRIVACY RIGHTS (KVKK & INTERNATIONAL)
+================================================================================
+To the extent applicable under Turkish Law No. 6698 on the Protection of Personal Data (KVKK), the European Union GDPR, UK Data Protection Act, or California Consumer Privacy Act (CCPA/CPRA):
+- You have the right to access, edit, and delete your journal records directly within the Application UI on your Device.
+- You can reset or delete your Google Advertising ID in Android settings (Settings -> Google -> Ads).
+- Because LIMANEX does not maintain a central database containing your personal identity or journal entries, LIMANEX cannot search, export, or delete your local journal from a remote server. You control your local database directly on your Device.
+- Inquiries regarding privacy may be directed to: limanexsoftware@outlook.com.
+
+================================================================================
+12. CHILDREN'S PRIVACY
+================================================================================
+Meowoirs is a general-audience personal journaling application and is not specifically directed at children under the age of 13 (or applicable local age threshold). Meowoirs does not knowingly collect personal identifying information from children. Parents or guardians with questions may contact limanexsoftware@outlook.com.
+
+================================================================================
+13. SECURITY PRACTICES & DISCLAIMER
+================================================================================
+LIMANEX implements reasonable technical measures appropriate to the local architecture. Android protects application storage through operating system sandboxing on non-rooted devices. However, no software or mobile device environment can be guaranteed completely immune from unauthorized access, hardware defects, or physical tampering. We do not claim unbreakable, military-grade, or absolute security.
+
+================================================================================
+14. CHANGES TO THIS PRIVACY POLICY
+================================================================================
+LIMANEX reserves the right to update this Privacy Policy from time to time. When changes occur, the "Last Updated" date will be revised. Material updates will be reflected in the Application and on the public legal website (https://limanexstudio.com/privacy/meowoirs).
+
+================================================================================
+15. CONTACT INFORMATION
+================================================================================
+For questions or privacy inquiries:
+Developer / Operator: LIMANEX
+Country: Türkiye
+Email: limanexsoftware@outlook.com
+Website: https://limanexstudio.com
+Public Privacy Policy: https://limanexstudio.com/privacy/meowoirs

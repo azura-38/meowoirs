@@ -103,4 +103,19 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onPause() {
+        super.onPause()
+        AdManager.pauseBanner()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AdManager.resumeBanner()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        AdManager.destroyBanner(this)
+    }
 }

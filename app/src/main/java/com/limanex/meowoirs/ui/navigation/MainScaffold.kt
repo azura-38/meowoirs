@@ -83,6 +83,7 @@ fun MainScaffold(
                     )
                     if (shouldShowBanner) {
                         com.limanex.meowoirs.ads.MeowoirsBannerAd(
+                            activity = activity,
                             modifier = Modifier.fillMaxWidth()
                         )
                     }

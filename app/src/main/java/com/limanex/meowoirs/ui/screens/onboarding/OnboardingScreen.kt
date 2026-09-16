@@ -88,6 +88,8 @@ import com.limanex.meowoirs.config.AppConfig
 import com.limanex.meowoirs.data.preferences.UserPreferencesRepository
 import com.limanex.meowoirs.ui.theme.FullCornerShape
 import com.limanex.meowoirs.ui.theme.MeowoirsTheme
+import com.limanex.meowoirs.ui.screens.legal.LegalDocument
+import com.limanex.meowoirs.ui.screens.legal.LegalDocumentViewerDialog
 import com.limanex.meowoirs.viewmodel.OnboardingUiState
 import com.limanex.meowoirs.viewmodel.OnboardingViewModel
 
@@ -113,6 +115,7 @@ fun OnboardingScreen(
     val currentLanguageCode by preferencesRepo.languageCodeFlow.collectAsState(initial = "tr")
 
     var showPendingLegalDialog by remember { mutableStateOf<String?>(null) }
+    var activeLegalDocument by remember { mutableStateOf<LegalDocument?>(null) }
 
     LaunchedEffect(uiState.isCompleted) {
         if (uiState.isCompleted) {
@@ -123,6 +126,14 @@ fun OnboardingScreen(
     // Hardware and gesture Back press navigation between onboarding steps
     BackHandler(enabled = uiState.currentStep > 1) {
         viewModel.previousStep()
+    }
+
+    // In-App Legal Document Viewer Dialog
+    if (activeLegalDocument != null) {
+        LegalDocumentViewerDialog(
+            document = activeLegalDocument!!,
+            onDismiss = { activeLegalDocument = null }
+        )
     }
 
     // Informational dialog when legal URL is blank or pending publication
@@ -228,12 +239,8 @@ fun OnboardingScreen(
                             uiState = uiState,
                             onPrivacyToggle = { viewModel.setPrivacyAccepted(it) },
                             onTermsToggle = { viewModel.setTermsAccepted(it) },
-                            onOpenLegal = { title, url ->
-                                if (url.isBlank()) {
-                                    showPendingLegalDialog = title
-                                } else {
-                                    openUrlSafely(context, url)
-                                }
+                            onOpenDocument = { document ->
+                                activeLegalDocument = document
                             },
                             onStart = { viewModel.completeOnboarding() }
                         )
@@ -1029,7 +1036,7 @@ private fun OnboardingStepFour(
     uiState: OnboardingUiState,
     onPrivacyToggle: (Boolean) -> Unit,
     onTermsToggle: (Boolean) -> Unit,
-    onOpenLegal: (title: String, url: String) -> Unit,
+    onOpenDocument: (LegalDocument) -> Unit,
     onStart: () -> Unit
 ) {
     Column(
@@ -1112,10 +1119,7 @@ private fun OnboardingStepFour(
             fullText = stringResource(R.string.onboarding_step4_privacy_checkbox),
             linkKeyword = stringResource(R.string.onboarding_step4_privacy_link_text),
             onLinkClicked = {
-                onOpenLegal(
-                    "Gizlilik Politikası",
-                    AppConfig.PRIVACY_POLICY_URL
-                )
+                onOpenDocument(LegalDocument.PRIVACY_POLICY)
             }
         )
 
@@ -1128,10 +1132,7 @@ private fun OnboardingStepFour(
             fullText = stringResource(R.string.onboarding_step4_terms_checkbox),
             linkKeyword = stringResource(R.string.onboarding_step4_terms_link_text),
             onLinkClicked = {
-                onOpenLegal(
-                    "Kullanım Koşulları",
-                    AppConfig.TERMS_OF_SERVICE_URL
-                )
+                onOpenDocument(LegalDocument.TERMS_OF_SERVICE)
             }
         )
 

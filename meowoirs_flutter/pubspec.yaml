@@ -1,0 +1,74 @@
+name: meowoirs
+description: "Every cat has a story. Personal memory book for cats."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # State Management
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+
+  # Routing
+  go_router: ^14.8.1
+
+  # Local Storage (Phase 3 — declared now for clean pubspec)
+  drift: ^2.25.0
+  sqlite3_flutter_libs: ^0.5.31
+  shared_preferences: ^2.5.3
+  path_provider: ^2.1.5
+  path: ^1.9.1
+
+  # Utilities
+  uuid: ^4.5.1
+  intl: ^0.20.2
+  collection: ^1.19.1
+
+  # Google Fonts
+  google_fonts: ^6.2.1
+
+  # Image handling
+  image_picker: ^1.1.2
+  cached_network_image: ^3.4.1
+
+  # External launcher
+  url_launcher: ^6.3.1
+
+  # Ads & Consent (Phase 15 — declared now)
+  google_mobile_ads: ^5.3.0
+
+  # Firebase (Phase 16 — declared now)
+  firebase_core: ^3.12.1
+  firebase_crashlytics: ^4.3.3
+
+  # Icons
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.14
+  drift_dev: ^2.25.0
+  riverpod_generator: ^2.6.3
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/avatars/
+    - assets/onboarding/
+    - assets/legal/
+    - assets/fonts/
+
+  # Fonts will be loaded via google_fonts package with bundled fallback
+  # Plus Jakarta Sans is the primary typeface

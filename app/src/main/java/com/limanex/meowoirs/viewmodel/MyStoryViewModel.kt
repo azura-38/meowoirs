@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.limanex.meowoirs.MeowoirsApplication
 import com.limanex.meowoirs.data.repository.MeowoirsRepository
 import com.limanex.meowoirs.domain.model.Cat
-import com.limanex.meowoirs.domain.model.CatType
 import com.limanex.meowoirs.domain.model.Memory
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

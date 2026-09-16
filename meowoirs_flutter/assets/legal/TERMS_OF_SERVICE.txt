@@ -1,0 +1,147 @@
+MEOWOIRS TERMS OF SERVICE
+
+Developer / Operator: LIMANEX
+Country: Türkiye
+Official Contact: limanexsoftware@outlook.com
+Website: https://limanexstudio.com
+Public URL: https://limanexstudio.com/terms/meowoirs
+
+Version: 1.0
+Effective Date: September 7, 2026
+Last Updated: September 7, 2026
+
+================================================================================
+1. ACCEPTANCE OF TERMS
+================================================================================
+These Terms of Service ("Terms") constitute a legally binding agreement between you ("User", "you", or "your") and LIMANEX ("Operator", "we", "us", or "our") regarding your access to and use of the Meowoirs mobile application on Android devices (the "Application").
+
+By downloading, installing, accessing, or using Meowoirs, you agree to be bound by these Terms where legally permitted. If you do not agree to all of these Terms, you are prohibited from using the Application and must uninstall it immediately.
+
+================================================================================
+2. ELIGIBILITY
+================================================================================
+Meowoirs is intended for general-audience users. By using the Application, you represent and warrant that you are legally capable of entering into these Terms under applicable law, or that your parent or legal guardian has reviewed and agreed to these Terms if you are under the legal age of majority in your jurisdiction.
+
+================================================================================
+3. SERVICE DESCRIPTION
+================================================================================
+Meowoirs is a personal, offline-first cat memory journaling application. It provides features to:
+- Create and maintain local Cat Profiles for home and street cats.
+- Record journal memories with personal notes, dates, and local photo attachments.
+- Select personal reflections and mood observations.
+- Review personal narrative stats via the "My Story" interface.
+- Manage local preferences (theme, language, nickname, avatar).
+
+================================================================================
+4. ACCOUNT-FREE ARCHITECTURE
+================================================================================
+Meowoirs does not require registration, accounts, usernames, passwords, or cloud logins. Your use of the Application begins immediately upon installation on your Device.
+
+================================================================================
+5. LOCAL STORAGE ARCHITECTURE & RISK OF DATA LOSS
+================================================================================
+PLEASE REVIEW THIS SECTION CAREFULLY:
+- Local Storage Architecture: All journal content, cat profiles, photos, notes, and mood reflections are saved locally to the internal database and preferences on your physical Device.
+- No LIMANEX Cloud Backup: Meowoirs does not operate its own cloud backup or synchronization service. Clearing application data or uninstalling the application may remove locally stored Meowoirs data. Android or device-level backup and restoration behavior, where available, is controlled by the operating system and device configuration and is not operated or guaranteed by LIMANEX.
+- Data Loss Risks: Locally stored data may become permanently lost or irretrievable in the event of:
+  * In-app deletion of a memory or cat.
+  * Clearing application storage or data in Android system settings.
+  * Uninstalling the Application from your Device.
+  * Device hardware malfunction, physical damage, theft, or factory reset.
+  * Operating system updates, file system corruption, or expiration of local media URI grants.
+- User Backup Responsibility: You bear sole responsibility for safeguarding your Device and maintaining independent backups of any photos, notes, or memories you value. LIMANEX has no technical ability and no legal obligation to restore, recover, or reconstruct lost local data.
+
+================================================================================
+6. USER CONTENT & OWNERSHIP
+================================================================================
+- Ownership: You retain complete ownership and all copyright in the personal notes, reflections, and photographs you record in Meowoirs ("User Content").
+- No Transfer: Because Meowoirs does not transmit or store your journal records on remote servers, your User Content remains strictly in your personal possession on your Device.
+
+================================================================================
+7. LIMITED LICENSE TO THE APPLICATION
+================================================================================
+Subject to your compliance with these Terms, LIMANEX grants you a personal, revocable, non-exclusive, non-transferable, limited license to download, install, and use Meowoirs on compatible Android devices for personal, non-commercial journaling and entertainment.
+
+================================================================================
+8. ACCEPTABLE USE & PROHIBITED CONDUCT
+================================================================================
+You agree not to, and will not permit any third party to:
+1. Decompile, reverse engineer, or attempt to derive the source code of the Application, except to the extent permitted by mandatory applicable law.
+2. Modify, adapt, or create derivative works of the Application.
+3. Circumvent, disable, or tamper with application security features or advertising components.
+4. Use the Application for any unlawful, fraudulent, or abusive purpose under applicable laws.
+5. Exploit, automate, or generate fraudulent clicks or impressions on advertisements displayed within the Application.
+
+================================================================================
+9. INTELLECTUAL PROPERTY RIGHTS
+================================================================================
+The Application, its software code, UI design, icons, logos, graphic tokens, and the "Meowoirs" and "LIMANEX" brand names are the exclusive intellectual property of LIMANEX and its licensors, protected by copyright, trademark, and other applicable laws.
+
+================================================================================
+10. ADVERTISING & THIRD-PARTY SERVICES
+================================================================================
+The Application displays banner and occasional interstitial advertisements served by Google Mobile Ads (AdMob) and utilizes the Google User Messaging Platform (UMP) for regional consent. Advertisements may link to third-party websites or services. LIMANEX does not endorse, control, or assume liability for third-party products, content, or practices.
+
+================================================================================
+11. ABSOLUTE DISCLAIMER: NO MEDICAL OR VETERINARY ADVICE
+================================================================================
+IMPORTANT NOTICE REGARDING FELINE HEALTH:
+- Meowoirs is strictly a personal memory journal and reflective companion.
+- THE APPLICATION IS NOT A VETERINARY, MEDICAL, DIAGNOSTIC, CLINICAL, OR EMERGENCY SERVICE.
+- Nothing in the Application—including mood selections, prompts, summaries, or notes—constitutes veterinary advice or medical diagnosis.
+- Always consult a licensed veterinarian regarding the health, nutrition, behavioral abnormalities, or medical emergencies of any animal. Never disregard professional veterinary advice or delay seeking care because of anything recorded in or omitted by Meowoirs.
+
+================================================================================
+12. AVAILABILITY, UPDATES & CHANGES
+================================================================================
+LIMANEX reserves the right to modify, update, or discontinue the Application or any portion thereof at any time. Updates distributed through Google Play may introduce bug fixes, performance improvements, or adjustments. LIMANEX does not guarantee uninterrupted operation or compatibility with all future Android OS versions.
+
+================================================================================
+13. DISCLAIMER OF WARRANTIES
+================================================================================
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE APPLICATION IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OF ANY KIND, EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE.
+
+LIMANEX EXPRESSLY DISCLAIMS ALL WARRANTIES, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, ACCURACY, AND NON-INFRINGEMENT.
+
+Nothing in these Terms limits any statutory consumer rights or warranties that cannot lawfully be excluded under mandatory applicable law.
+
+================================================================================
+14. LIMITATION OF LIABILITY
+================================================================================
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:
+1. In no event shall LIMANEX, its affiliates, directors, employees, or licensors be liable for any indirect, incidental, special, consequential, punitive, or exemplary damages, or for any loss of data, profits, goodwill, or device malfunction arising out of your use of or inability to use the Application.
+2. LIMANEX's total aggregate liability arising out of or relating to Meowoirs or these Terms shall not exceed USD 100 (one hundred United States Dollars).
+
+However, this limitation does not apply where applicable law prohibits limitation or exclusion of such liability. Nothing in these Terms limits or excludes liability for death, personal injury resulting from negligence, intentional misconduct, fraud, or any other liability that cannot lawfully be limited or excluded under mandatory Turkish consumer protection law or other non-waivable statutory provisions.
+
+================================================================================
+15. INDEMNIFICATION
+================================================================================
+To the extent permitted by applicable law, you agree to indemnify and hold harmless LIMANEX from and against any third-party claims, liabilities, damages, and expenses (including reasonable legal fees) arising out of your intentional violation of these Terms or your violation of third-party rights.
+
+================================================================================
+16. GOVERNING LAW & JURISDICTION
+================================================================================
+These Terms and any disputes arising out of or relating to them shall be governed by and construed in accordance with the laws of the Republic of Türkiye, without regard to conflict of law principles.
+
+Subject to mandatory consumer protection laws that provide non-waivable statutory dispute resolution forums in your country or district of residence, any dispute shall be submitted to the competent Courts and Enforcement Offices of Türkiye.
+
+================================================================================
+17. SEVERABILITY & ENTIRE AGREEMENT
+================================================================================
+If any provision of these Terms is held to be invalid or unenforceable by a court of competent jurisdiction, that provision shall be enforced to the maximum extent permissible, and the remaining provisions shall remain in full force and effect. These Terms, together with the Meowoirs Privacy Policy, constitute the entire agreement between you and LIMANEX regarding Meowoirs.
+
+================================================================================
+18. CHANGES TO TERMS
+================================================================================
+LIMANEX reserves the right to amend these Terms at any time. The updated Terms will be published on the public legal portal (https://limanexstudio.com/terms/meowoirs) and reflected within the Application.
+
+================================================================================
+19. CONTACT INFORMATION
+================================================================================
+For inquiries regarding these Terms:
+Developer / Operator: LIMANEX
+Country: Türkiye
+Email: limanexsoftware@outlook.com
+Website: https://limanexstudio.com
+Public Terms of Service: https://limanexstudio.com/terms/meowoirs

@@ -12,11 +12,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-data class SettingsUiState(
-    val themeMode: ThemeMode = ThemeMode.SYSTEM,
-    val languageCode: String = ""
-)
-
 class SettingsViewModel(
     private val preferencesRepository: UserPreferencesRepository
 ) : ViewModel() {

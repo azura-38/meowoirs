@@ -33,8 +33,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.limanex.meowoirs.data.repository.PreviewSampleData
-import com.limanex.meowoirs.domain.model.Cat
-import com.limanex.meowoirs.domain.model.Memory
 import com.limanex.meowoirs.ui.components.CatPreviewCard
 import com.limanex.meowoirs.ui.components.MemoryCard
 import com.limanex.meowoirs.ui.components.MeowoirsCard

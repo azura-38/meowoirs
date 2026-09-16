@@ -56,7 +56,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.compose.AsyncImage
 import com.limanex.meowoirs.R
 import com.limanex.meowoirs.data.repository.PreviewSampleData
 import com.limanex.meowoirs.domain.model.Memory

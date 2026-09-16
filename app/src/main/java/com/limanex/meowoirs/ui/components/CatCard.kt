@@ -71,7 +71,7 @@ fun CatCard(
             .clickable(onClick = onClick)
             .semantics {
                 role = Role.Button
-                contentDescription = "${cat.name} kedisinin hikâyesini aç"
+                contentDescription = semanticsDesc
             },
         shape = MeowoirsTheme.shapes.large,
         colors = CardDefaults.cardColors(

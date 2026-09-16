@@ -61,7 +61,7 @@ fun CatPreviewCard(
             .clickable(onClick = onClick)
             .semantics {
                 role = Role.Button
-                contentDescription = "${cat.name} kedisinin hikâyesini aç"
+                contentDescription = "${cat.name}, $typeAccessibilityLabel. Hikâyesini aç"
             },
         shape = MeowoirsTheme.shapes.medium,
         colors = CardDefaults.cardColors(

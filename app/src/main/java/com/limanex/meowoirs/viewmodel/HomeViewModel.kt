@@ -3,7 +3,6 @@ package com.limanex.meowoirs.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.limanex.meowoirs.data.repository.InMemoryMeowoirsRepository
 import com.limanex.meowoirs.data.repository.MeowoirsRepository
 import com.limanex.meowoirs.domain.model.Cat
 import com.limanex.meowoirs.domain.model.Memory

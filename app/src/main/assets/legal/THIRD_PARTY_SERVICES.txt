@@ -1,0 +1,138 @@
+================================================================================
+MEOWOIRS - THIRD-PARTY SERVICES & SUB-PROCESSORS DISCLOSURE
+================================================================================
+
+Developer / Operator: LIMANEX
+Country: Türkiye
+Official Contact: limanexsoftware@outlook.com
+Official Website: https://limanexstudio.com
+Public Policy URL: https://limanexstudio.com/privacy/meowoirs
+Effective Date: September 7, 2026
+Last Updated: September 7, 2026
+Legal Version: 1.0
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION
+--------------------------------------------------------------------------------
+Meowoirs is built on a local-first architectural principle. The core journaling
+functionality—storing cat profiles, memories, notes, photos, and moods—operates
+entirely offline within your device's internal SQLite/Room database. LIMANEX
+does not operate any remote database or cloud server to receive, process, or
+store your private journal entries.
+
+However, to provide crash diagnostics and support app development via
+advertising, Meowoirs integrates verified third-party Software Development
+Kits (SDKs) provided by Google LLC and its affiliates. This document provides
+a transparent, detailed breakdown of these third-party services.
+
+--------------------------------------------------------------------------------
+2. STRICT SEPARATION OF JOURNAL DATA AND TECHNICAL METRICS
+--------------------------------------------------------------------------------
+Meowoirs maintains a strict boundary between user content and third-party SDKs:
+
+A. LOCAL USER JOURNAL DATA (NOT SHARED):
+Your cat names, diary notes, reflections, mood choices, photo file references,
+and pet milestones remain strictly on your Android device. They are NOT
+uploaded to LIMANEX, NOT indexed by Google, and NOT logged into Crashlytics.
+
+B. THIRD-PARTY TECHNICAL & ADVERTISING METRICS:
+Third-party SDKs handle automated network communication solely for technical
+stability analysis, consent verification, and advertising delivery as detailed
+below.
+
+--------------------------------------------------------------------------------
+3. FIREBASE CRASHLYTICS
+--------------------------------------------------------------------------------
+Provider: Google LLC / Firebase
+Purpose: Application stability, crash reporting, bug detection, and diagnostics.
+
+Meowoirs integrates Firebase Crashlytics to monitor application reliability.
+When an unhandled exception or critical application crash occurs, Crashlytics
+automatically generates a technical crash report.
+
+Technical Diagnostics Collected:
+- Stack traces and execution failure logs.
+- Device make, model, architecture, and hardware characteristics.
+- Android Operating System version and build number.
+- Meowoirs application version and build number.
+- System orientation, free disk space, and memory state at the moment of crash.
+- Timestamp of the crash event.
+
+Explicit Safeguard:
+Meowoirs does NOT intentionally log, attach, or send your cat names, journal
+entry text, notes, mood selections, or local photo URIs to Firebase Crashlytics.
+
+Crashlytics does collect technical diagnostic and device telemetry to help
+developers fix software defects; it does not access or inspect your personal
+journal entries.
+
+Google Privacy Policy: https://policies.google.com/privacy
+Firebase Data Processing Terms: https://firebase.google.com/terms/data-processing-terms
+
+--------------------------------------------------------------------------------
+4. GOOGLE USER MESSAGING PLATFORM (UMP) SDK
+--------------------------------------------------------------------------------
+Provider: Google LLC
+Purpose: Privacy compliance, cookie and consent management, IAB TCF 2.2 framework.
+
+Meowoirs uses Google's User Messaging Platform (UMP) SDK to manage privacy
+consent in compliance with international legal frameworks, including the
+European General Data Protection Regulation (GDPR), UK GDPR, and relevant
+digital advertising guidelines.
+
+Functionality:
+- Presents consent forms to users located in jurisdictions requiring consent
+  before loading personalized advertising.
+- Transmits consent string status (e.g., TCF string) to ad delivery networks.
+- Enables users to revisit and adjust their consent preferences at any time
+  via the in-app "Gizlilik Tercihleri" (Privacy Options) button located in
+  Settings.
+
+Google Privacy Policy: https://policies.google.com/privacy
+
+--------------------------------------------------------------------------------
+5. GOOGLE MOBILE ADS (ADMOB)
+--------------------------------------------------------------------------------
+Provider: Google LLC
+Purpose: Serving banner and interstitial advertisements to support development.
+
+Meowoirs displays non-intrusive advertisements supplied by Google Mobile Ads
+(AdMob).
+
+Identifiers & Information Processed:
+- Google Advertising ID (GAID / AAID), subject to operating system settings
+  and user consent.
+- IP address (used by Google for general geographic area routing and fraud
+  prevention).
+- Diagnostic interaction metrics (ad impressions, clicks, load performance).
+
+Ad Formats & Official Identifiers:
+- Application ID: ca-app-pub-587701117866406~4355156867
+- Banner Ad Unit: ca-app-pub-587701117866406/2930394553
+- Interstitial Ad Unit: ca-app-pub-587701117866406/2195897382
+
+Ad Personalization Control:
+Users can opt out of personalized ads or delete/reset their Advertising ID
+at any time through Android Settings -> Google -> Ads. Where regional consent
+dialogs apply, users may choose between personalized and non-personalized ads.
+
+Google Ads Policies: https://policies.google.com/technologies/ads
+
+--------------------------------------------------------------------------------
+6. SUMMARY OF INTEGRATED SERVICES
+--------------------------------------------------------------------------------
+Third-Party Service     Provider     Primary Function          Journal Data Access
+-------------------     --------     ----------------          -------------------
+Firebase Crashlytics    Google LLC   Crash diagnostic logging  NO ACCESS
+Google UMP SDK          Google LLC   Consent dialog management NO ACCESS
+Google AdMob            Google LLC   Ad display & mediation    NO ACCESS
+
+--------------------------------------------------------------------------------
+7. CONTACT
+--------------------------------------------------------------------------------
+For questions regarding third-party integrations and privacy controls, please
+contact LIMANEX at:
+
+Official Contact: limanexsoftware@outlook.com
+Website: https://limanexstudio.com
+================================================================================

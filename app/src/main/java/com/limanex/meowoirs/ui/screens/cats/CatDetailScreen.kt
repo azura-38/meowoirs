@@ -54,7 +54,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.limanex.meowoirs.R
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.compose.AsyncImage
 import com.limanex.meowoirs.data.repository.PreviewSampleData
 import com.limanex.meowoirs.domain.model.Cat
 import com.limanex.meowoirs.domain.model.CatType

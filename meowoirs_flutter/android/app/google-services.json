@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "327952023374",
+    "project_id": "meowoirs",
+    "storage_bucket": "meowoirs.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327952023374:android:eda1f2b9eb9e6c2bfd681f",
+        "android_client_info": {
+          "package_name": "com.limanex.meowoirs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8Jxnfk7n3_TxKIxetskV1xLMBkIB9etM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

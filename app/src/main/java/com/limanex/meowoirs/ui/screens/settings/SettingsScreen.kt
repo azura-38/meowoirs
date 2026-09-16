@@ -36,6 +36,9 @@ import androidx.compose.material.icons.outlined.Mail
 import androidx.compose.material.icons.outlined.Policy
 import androidx.compose.material.icons.outlined.PrivacyTip
 import androidx.compose.material.icons.outlined.Security
+import androidx.compose.material.icons.outlined.Shield
+import com.limanex.meowoirs.ui.screens.legal.LegalDocument
+import com.limanex.meowoirs.ui.screens.legal.LegalDocumentViewerDialog
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -52,8 +55,6 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -69,7 +70,6 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.limanex.meowoirs.BuildConfig
 import com.limanex.meowoirs.R
@@ -112,6 +112,7 @@ fun SettingsScreen(
     var showLanguageDialog by remember { mutableStateOf(false) }
     var showReachUsDialog by remember { mutableStateOf(false) }
     var showPendingLegalDialog by remember { mutableStateOf<String?>(null) }
+    var activeLegalDocument by remember { mutableStateOf<LegalDocument?>(null) }
 
     // 10-tap unlock detector for Hidden Debug Panel (isolated to DEBUG builds)
     val tapDetector = remember { DebugTapDetector(requiredTaps = 10, windowMillis = 4000L) }
@@ -300,6 +301,14 @@ fun SettingsScreen(
         )
     }
 
+    // In-App Legal Document Viewer Dialog
+    if (activeLegalDocument != null) {
+        LegalDocumentViewerDialog(
+            document = activeLegalDocument!!,
+            onDismiss = { activeLegalDocument = null }
+        )
+    }
+
     // Pending Legal Document Information Sheet
     if (showPendingLegalDialog != null) {
         AlertDialog(
@@ -340,17 +349,13 @@ fun SettingsScreen(
                 )
             }
 
-            // 2. Gizlilik ve Yasal (Privacy & Legal)
+            // 2. Gizlilik ve Yasal (Privacy & Legal / Privacy Center)
             SettingsGroupCard(title = stringResource(R.string.settings_section_privacy_legal)) {
                 SettingsActionRow(
                     icon = Icons.Outlined.PrivacyTip,
                     label = stringResource(R.string.settings_privacy_policy),
                     onClick = {
-                        if (AppConfig.PRIVACY_POLICY_URL.isNotBlank() && AppConfig.PRIVACY_POLICY_URL.startsWith("http")) {
-                            openUrl(context, AppConfig.PRIVACY_POLICY_URL)
-                        } else {
-                            showPendingLegalDialog = context.getString(R.string.settings_privacy_policy)
-                        }
+                        activeLegalDocument = LegalDocument.PRIVACY_POLICY
                     }
                 )
 
@@ -360,11 +365,47 @@ fun SettingsScreen(
                     icon = Icons.Outlined.Policy,
                     label = stringResource(R.string.settings_terms_of_service),
                     onClick = {
-                        if (AppConfig.TERMS_OF_SERVICE_URL.isNotBlank() && AppConfig.TERMS_OF_SERVICE_URL.startsWith("http")) {
-                            openUrl(context, AppConfig.TERMS_OF_SERVICE_URL)
-                        } else {
-                            showPendingLegalDialog = context.getString(R.string.settings_terms_of_service)
-                        }
+                        activeLegalDocument = LegalDocument.TERMS_OF_SERVICE
+                    }
+                )
+
+                Divider(color = MaterialTheme.colorScheme.outlineVariant)
+
+                SettingsActionRow(
+                    icon = Icons.Outlined.Info,
+                    label = stringResource(R.string.legal_data_deletion_policy),
+                    onClick = {
+                        activeLegalDocument = LegalDocument.DATA_DELETION
+                    }
+                )
+
+                Divider(color = MaterialTheme.colorScheme.outlineVariant)
+
+                SettingsActionRow(
+                    icon = Icons.Outlined.Shield,
+                    label = stringResource(R.string.legal_third_party_services),
+                    onClick = {
+                        activeLegalDocument = LegalDocument.THIRD_PARTY_SERVICES
+                    }
+                )
+
+                Divider(color = MaterialTheme.colorScheme.outlineVariant)
+
+                SettingsActionRow(
+                    icon = Icons.Outlined.Policy,
+                    label = stringResource(R.string.legal_advertising_consent),
+                    onClick = {
+                        activeLegalDocument = LegalDocument.ADVERTISING_AND_CONSENT
+                    }
+                )
+
+                Divider(color = MaterialTheme.colorScheme.outlineVariant)
+
+                SettingsActionRow(
+                    icon = Icons.Outlined.Info,
+                    label = stringResource(R.string.legal_disclaimer),
+                    onClick = {
+                        activeLegalDocument = LegalDocument.LEGAL_DISCLAIMER
                     }
                 )
 

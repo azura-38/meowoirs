@@ -8,26 +8,19 @@ package com.limanex.meowoirs.config
 object AppConfig {
 
     /**
-     * Primary support and reach-us contact email.
-     * DEVELOPER INPUT REQUIRED: Replace with official production contact/support email before release.
+     * Primary support and privacy contact email.
      */
-    const val MEOWOIRS_SUPPORT_EMAIL = "contact@limanex.com"
+    const val MEOWOIRS_SUPPORT_EMAIL = "limanexsoftware@outlook.com"
 
     /**
      * Hosted public URL for the Privacy Policy.
-     * DEVELOPER INPUT REQUIRED: Set to official public hosted URL when available.
-     * If blank or unconfigured, the UI presents an informational publication-pending sheet
-     * without claiming a non-existent URL.
      */
-    const val PRIVACY_POLICY_URL = ""
+    const val PRIVACY_POLICY_URL = "https://limanexstudio.com/privacy/meowoirs"
 
     /**
      * Hosted public URL for the Terms of Service.
-     * DEVELOPER INPUT REQUIRED: Set to official public hosted URL when available.
-     * If blank or unconfigured, the UI presents an informational publication-pending sheet
-     * without claiming a non-existent URL.
      */
-    const val TERMS_OF_SERVICE_URL = ""
+    const val TERMS_OF_SERVICE_URL = "https://limanexstudio.com/terms/meowoirs"
 
     /**
      * Current version of the legal terms and privacy policy.

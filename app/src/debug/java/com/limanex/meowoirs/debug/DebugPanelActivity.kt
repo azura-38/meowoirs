@@ -60,6 +60,7 @@ import com.google.android.ump.UserMessagingPlatform
 import com.limanex.meowoirs.BuildConfig
 import com.limanex.meowoirs.MeowoirsApplication
 import com.limanex.meowoirs.ads.AdConfig
+import com.limanex.meowoirs.ads.AdManager
 import com.limanex.meowoirs.ui.theme.MeowoirsTheme
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -257,6 +258,13 @@ private fun DebugPanelContent(
                 DiagnosticRow("Interstitial ID", AdConfig.INTERSTITIAL_AD_UNIT_ID)
                 DiagnosticRow("MobileAdsInitProvider", "Removed (Manual Init)")
                 DiagnosticRow("UMP Status", "Configured")
+                DiagnosticRow("Banner State", AdManager.getBannerStateName())
+                val context = androidx.compose.ui.platform.LocalContext.current
+                DiagnosticRow("Banner Consent Allowed", if (AdManager.canRequestAds(context)) "YES" else "NO")
+                DiagnosticRow("Banner Load Duration", AdManager.getBannerLoadDurationText())
+                DiagnosticRow("Banner Last Request", AdManager.getLastBannerRequestTimeText())
+                DiagnosticRow("Banner Last Loaded", AdManager.getLastBannerLoadedTimeText())
+                DiagnosticRow("Banner Last Failure", AdManager.getLastBannerFailureText())
             }
 
             // Section 4: Firebase

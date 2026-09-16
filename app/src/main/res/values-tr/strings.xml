@@ -187,4 +187,13 @@
     <string name="cat_name_required_error">Lütfen kedinin adını yazın.</string>
     <string name="memory_cat_required_error">Lütfen bu anıyı bir kediyle ilişkilendirin.</string>
     <string name="photo_load_failed">Fotoğraf yüklenemedi</string>
+
+    <!-- Legal Document Viewer & Privacy Center -->
+    <string name="legal_view_online">Web\'de Görüntüle</string>
+    <string name="legal_document_close">Kapat</string>
+    <string name="legal_data_deletion_policy">Veri ve Silme</string>
+    <string name="legal_third_party_services">Üçüncü Taraf Hizmetler</string>
+    <string name="legal_advertising_consent">Reklam ve Onay</string>
+    <string name="legal_disclaimer">Yasal Uyarı</string>
+    <string name="legal_document_load_error">Belge yüklenemedi.</string>
 </resources>

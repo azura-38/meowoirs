@@ -187,4 +187,13 @@
     <string name="cat_name_required_error">Please enter the cat\'s name.</string>
     <string name="memory_cat_required_error">Please select a cat for this memory.</string>
     <string name="photo_load_failed">Photo could not be loaded</string>
+
+    <!-- Legal Document Viewer & Privacy Center -->
+    <string name="legal_view_online">View Online</string>
+    <string name="legal_document_close">Close</string>
+    <string name="legal_data_deletion_policy">Data &amp; Deletion</string>
+    <string name="legal_third_party_services">Third-Party Services</string>
+    <string name="legal_advertising_consent">Advertising &amp; Consent</string>
+    <string name="legal_disclaimer">Legal Disclaimer</string>
+    <string name="legal_document_load_error">Could not load document.</string>
 </resources>

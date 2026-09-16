@@ -1,0 +1,1364 @@
+{
+  "@@locale": "en",
+  "appName": "Meowoirs",
+  "@appName": {
+    "description": "app name"
+  },
+  "tagline": "Every cat has a story.",
+  "@tagline": {
+    "description": "tagline"
+  },
+  "navHome": "Home",
+  "@navHome": {
+    "description": "nav home"
+  },
+  "navCats": "Cats",
+  "@navCats": {
+    "description": "nav cats"
+  },
+  "navMemories": "Memories",
+  "@navMemories": {
+    "description": "nav memories"
+  },
+  "navProfile": "Profile",
+  "@navProfile": {
+    "description": "nav profile"
+  },
+  "navMyStory": "My Story",
+  "@navMyStory": {
+    "description": "nav my story"
+  },
+  "fabAddMemory": "Add Memory",
+  "@fabAddMemory": {
+    "description": "fab add memory"
+  },
+  "homeTitle": "Meowoirs",
+  "@homeTitle": {
+    "description": "home title"
+  },
+  "homeEmptyTitle": "You don't have any memories yet...",
+  "@homeEmptyTitle": {
+    "description": "home empty title"
+  },
+  "homeEmptyDesc": "The little moments you share with your cats will eventually become your own story.",
+  "@homeEmptyDesc": {
+    "description": "home empty desc"
+  },
+  "homeEmptyAddMemory": "Add Your First Memory",
+  "@homeEmptyAddMemory": {
+    "description": "home empty add memory"
+  },
+  "homeEmptyAddCat": "Add Your First Cat",
+  "@homeEmptyAddCat": {
+    "description": "home empty add cat"
+  },
+  "homeCatsSectionTitle": "Your Cats",
+  "@homeCatsSectionTitle": {
+    "description": "home cats section title"
+  },
+  "homeCatsSectionSubtitle": "{count, plural, =1{1 cat story} other{{count} cat stories}}",
+  "@homeCatsSectionSubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeRecentMemoriesTitle": "Recent Memories",
+  "@homeRecentMemoriesTitle": {
+    "description": "home recent memories title"
+  },
+  "homeRecentMemoriesViewAll": "View All",
+  "@homeRecentMemoriesViewAll": {
+    "description": "home recent memories view all"
+  },
+  "homeCatsNoMemoriesTitle": "Your cats are here.",
+  "@homeCatsNoMemoriesTitle": {
+    "description": "home cats no memories title"
+  },
+  "homeCatsNoMemoriesDesc": "Keep the first memory you share with them.",
+  "@homeCatsNoMemoriesDesc": {
+    "description": "home cats no memories desc"
+  },
+  "catsTitle": "My Cats",
+  "@catsTitle": {
+    "description": "cats title"
+  },
+  "catsActionNewCat": "New Cat",
+  "@catsActionNewCat": {
+    "description": "cats action new cat"
+  },
+  "catsSubtitleDefault": "Little stories touching your life.",
+  "@catsSubtitleDefault": {
+    "description": "cats subtitle default"
+  },
+  "catsSubtitleWithSummary": "Touching your life: {summary}",
+  "@catsSubtitleWithSummary": {
+    "placeholders": {
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "catsFilterAll": "All",
+  "@catsFilterAll": {
+    "description": "cats filter all"
+  },
+  "catsFilterHome": "Home",
+  "@catsFilterHome": {
+    "description": "cats filter home"
+  },
+  "catsFilterStreet": "Street",
+  "@catsFilterStreet": {
+    "description": "cats filter street"
+  },
+  "catsEmptyTitle": "You don't have a cat yet.",
+  "@catsEmptyTitle": {
+    "description": "cats empty title"
+  },
+  "catsEmptyDesc": "Start your story by adding a cat from your life.",
+  "@catsEmptyDesc": {
+    "description": "cats empty desc"
+  },
+  "catsEmptyAddCat": "Add Your First Cat",
+  "@catsEmptyAddCat": {
+    "description": "cats empty add cat"
+  },
+  "catsFilterEmptyHome": "You haven't added a home cat yet.",
+  "@catsFilterEmptyHome": {
+    "description": "cats filter empty home"
+  },
+  "catsFilterEmptyHomeCta": "Add Home Cat",
+  "@catsFilterEmptyHomeCta": {
+    "description": "cats filter empty home cta"
+  },
+  "catsFilterEmptyStreet": "You haven't added a street cat yet.",
+  "@catsFilterEmptyStreet": {
+    "description": "cats filter empty street"
+  },
+  "catsFilterEmptyStreetCta": "Add Street Cat",
+  "@catsFilterEmptyStreetCta": {
+    "description": "cats filter empty street cta"
+  },
+  "catsFilterEmptyAll": "No cats found.",
+  "@catsFilterEmptyAll": {
+    "description": "cats filter empty all"
+  },
+  "catsFilterEmptyAllCta": "Add Cat",
+  "@catsFilterEmptyAllCta": {
+    "description": "cats filter empty all cta"
+  },
+  "catTypeHome": "Home Cat",
+  "@catTypeHome": {
+    "description": "cat type home"
+  },
+  "catTypeStreet": "Street Cat",
+  "@catTypeStreet": {
+    "description": "cat type street"
+  },
+  "catCardMemoryCount": "{count, plural, =1{1 memory} other{{count} memories}}",
+  "@catCardMemoryCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "catSummaryHomeAndStreet": "{homeCount} home · {streetCount} street",
+  "@catSummaryHomeAndStreet": {
+    "placeholders": {
+      "homeCount": {
+        "type": "int"
+      },
+      "streetCount": {
+        "type": "int"
+      }
+    }
+  },
+  "catSummaryTotalOnly": "{count, plural, =1{1 cat} other{{count} cats}}",
+  "@catSummaryTotalOnly": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "catPhotoContentDescription": "Photo of {name}",
+  "@catPhotoContentDescription": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "addCatTitle": "Add Cat",
+  "@addCatTitle": {
+    "description": "add cat title"
+  },
+  "addCatSubtitle": "Their story begins here.",
+  "@addCatSubtitle": {
+    "description": "add cat subtitle"
+  },
+  "editCatTitle": "Edit Cat",
+  "@editCatTitle": {
+    "description": "edit cat title"
+  },
+  "editCatSubtitle": "Update their details.",
+  "@editCatSubtitle": {
+    "description": "edit cat subtitle"
+  },
+  "catNameLabel": "Cat Name",
+  "@catNameLabel": {
+    "description": "cat name label"
+  },
+  "catNameHint": "e.g. Minnoş",
+  "@catNameHint": {
+    "description": "cat name hint"
+  },
+  "catNameRequired": "Please enter the cat's name.",
+  "@catNameRequired": {
+    "description": "cat name required"
+  },
+  "catNoteLabel": "Personal Note",
+  "@catNoteLabel": {
+    "description": "cat note label"
+  },
+  "catNoteHint": "A little about this cat...",
+  "@catNoteHint": {
+    "description": "cat note hint"
+  },
+  "catPhotoLabel": "Photo",
+  "@catPhotoLabel": {
+    "description": "cat photo label"
+  },
+  "catTypeLabel": "Cat Type",
+  "@catTypeLabel": {
+    "description": "cat type label"
+  },
+  "catTypeHomeDesc": "Your companion at home",
+  "@catTypeHomeDesc": {
+    "description": "cat type home desc"
+  },
+  "catTypeStreetDesc": "Your friend from the street",
+  "@catTypeStreetDesc": {
+    "description": "cat type street desc"
+  },
+  "addPhoto": "Add photo",
+  "@addPhoto": {
+    "description": "add photo"
+  },
+  "changePhoto": "Change",
+  "@changePhoto": {
+    "description": "change photo"
+  },
+  "removePhoto": "Remove",
+  "@removePhoto": {
+    "description": "remove photo"
+  },
+  "addPhotoSemantic": "Add cat photo",
+  "@addPhotoSemantic": {
+    "description": "add photo semantic"
+  },
+  "selectedPhotoSemantic": "Selected cat photo",
+  "@selectedPhotoSemantic": {
+    "description": "selected photo semantic"
+  },
+  "changePhotoSemantic": "Change photo",
+  "@changePhotoSemantic": {
+    "description": "change photo semantic"
+  },
+  "removePhotoSemantic": "Remove photo",
+  "@removePhotoSemantic": {
+    "description": "remove photo semantic"
+  },
+  "memoriesTitle": "Memories",
+  "@memoriesTitle": {
+    "description": "memories title"
+  },
+  "memoriesSubtitle": "Archive of little moments in your life.",
+  "@memoriesSubtitle": {
+    "description": "memories subtitle"
+  },
+  "memoriesFilterAll": "All",
+  "@memoriesFilterAll": {
+    "description": "memories filter all"
+  },
+  "memoriesEmptyTitle": "No memories yet.",
+  "@memoriesEmptyTitle": {
+    "description": "memories empty title"
+  },
+  "memoriesEmptyDesc": "Start capturing the little moments you share with your cats.",
+  "@memoriesEmptyDesc": {
+    "description": "memories empty desc"
+  },
+  "memoriesGlobalEmptyTitle": "You don't have any memories yet.",
+  "@memoriesGlobalEmptyTitle": {
+    "description": "memories global empty title"
+  },
+  "memoriesGlobalEmptyDesc": "Little moments spent with your cats will gather here.",
+  "@memoriesGlobalEmptyDesc": {
+    "description": "memories global empty desc"
+  },
+  "memoriesGlobalEmptyCta": "Add Your First Memory",
+  "@memoriesGlobalEmptyCta": {
+    "description": "memories global empty cta"
+  },
+  "memoriesFilterEmptyTitle": "No memories for {catName} yet.",
+  "@memoriesFilterEmptyTitle": {
+    "placeholders": {
+      "catName": {
+        "type": "String"
+      }
+    }
+  },
+  "memoriesFilterEmptyDesc": "Save a little memory spent with them.",
+  "@memoriesFilterEmptyDesc": {
+    "description": "memories filter empty desc"
+  },
+  "memoriesFilterEmptyCta": "Add Memory",
+  "@memoriesFilterEmptyCta": {
+    "description": "memories filter empty cta"
+  },
+  "memoriesErrorTitle": "Could not load memories",
+  "@memoriesErrorTitle": {
+    "description": "memories error title"
+  },
+  "memoriesErrorDesc": "An error occurred while loading memories. Please try again.",
+  "@memoriesErrorDesc": {
+    "description": "memories error desc"
+  },
+  "memoriesErrorRetry": "Retry",
+  "@memoriesErrorRetry": {
+    "description": "memories error retry"
+  },
+  "memoriesCardSemantic": "Open memory saved with {catName}",
+  "@memoriesCardSemantic": {
+    "placeholders": {
+      "catName": {
+        "type": "String"
+      }
+    }
+  },
+  "addMemoryTitle": "Add Memory",
+  "@addMemoryTitle": {
+    "description": "add memory title"
+  },
+  "addMemorySubtitle": "Keep a little memory from today.",
+  "@addMemorySubtitle": {
+    "description": "add memory subtitle"
+  },
+  "editMemoryTitle": "Edit Memory",
+  "@editMemoryTitle": {
+    "description": "edit memory title"
+  },
+  "editMemorySubtitle": "Update this memory.",
+  "@editMemorySubtitle": {
+    "description": "edit memory subtitle"
+  },
+  "memoryNoteLabel": "Note",
+  "@memoryNoteLabel": {
+    "description": "memory note label"
+  },
+  "memoryNoteHint": "What happened?",
+  "@memoryNoteHint": {
+    "description": "memory note hint"
+  },
+  "memoryNoteHintLong": "What happened today? e.g. Fell asleep by the window again today...",
+  "@memoryNoteHintLong": {
+    "description": "memory note hint long"
+  },
+  "memoryWhoWith": "With who?",
+  "@memoryWhoWith": {
+    "description": "memory who with"
+  },
+  "memoryPhotoSectionTitle": "A photo that reminds you of this memory",
+  "@memoryPhotoSectionTitle": {
+    "description": "memory photo section title"
+  },
+  "memoryWhatHappened": "What happened?",
+  "@memoryWhatHappened": {
+    "description": "memory what happened"
+  },
+  "memoryCatMoodSection": "Their mood",
+  "@memoryCatMoodSection": {
+    "description": "memory cat mood section"
+  },
+  "memoryUserMoodSection": "How you felt?",
+  "@memoryUserMoodSection": {
+    "description": "memory user mood section"
+  },
+  "memoryWhenSection": "When?",
+  "@memoryWhenSection": {
+    "description": "memory when section"
+  },
+  "memorySaved": "Saved ✓",
+  "@memorySaved": {
+    "description": "memory saved"
+  },
+  "memorySelectCat": "Select Cat",
+  "@memorySelectCat": {
+    "description": "memory select cat"
+  },
+  "memoryCatRequired": "Please select a cat for this memory.",
+  "@memoryCatRequired": {
+    "description": "memory cat required"
+  },
+  "memoryPhotoLabel": "Photo",
+  "@memoryPhotoLabel": {
+    "description": "memory photo label"
+  },
+  "memoryCatMoodLabel": "Cat's Mood",
+  "@memoryCatMoodLabel": {
+    "description": "memory cat mood label"
+  },
+  "memoryUserMoodLabel": "Your Mood",
+  "@memoryUserMoodLabel": {
+    "description": "memory user mood label"
+  },
+  "memoryDateLabel": "Date",
+  "@memoryDateLabel": {
+    "description": "memory date label"
+  },
+  "memoryTimeLabel": "Time",
+  "@memoryTimeLabel": {
+    "description": "memory time label"
+  },
+  "memoryDetailTitle": "Memory Detail",
+  "@memoryDetailTitle": {
+    "description": "memory detail title"
+  },
+  "memoryNotFoundTitle": "Memory not found",
+  "@memoryNotFoundTitle": {
+    "description": "memory not found title"
+  },
+  "memoryNotFoundDesc": "This memory is no longer available or may have been deleted.",
+  "@memoryNotFoundDesc": {
+    "description": "memory not found desc"
+  },
+  "memoryMoodSectionTitle": "Mood",
+  "@memoryMoodSectionTitle": {
+    "description": "memory mood section title"
+  },
+  "memoryCatMoodFormat": "Their mood: {mood}",
+  "@memoryCatMoodFormat": {
+    "placeholders": {
+      "mood": {
+        "type": "String"
+      }
+    }
+  },
+  "memoryUserMoodFormat": "Your mood: {mood}",
+  "@memoryUserMoodFormat": {
+    "placeholders": {
+      "mood": {
+        "type": "String"
+      }
+    }
+  },
+  "catDetailTitle": "Cat Story",
+  "@catDetailTitle": {
+    "description": "cat detail title"
+  },
+  "catNotFoundTitle": "Cat not found",
+  "@catNotFoundTitle": {
+    "description": "cat not found title"
+  },
+  "catNotFoundDesc": "This story is no longer available or may have been deleted.",
+  "@catNotFoundDesc": {
+    "description": "cat not found desc"
+  },
+  "catDetailStorySubtitle": "Little moments you shared together. {memoryText}",
+  "@catDetailStorySubtitle": {
+    "placeholders": {
+      "memoryText": {
+        "type": "String"
+      }
+    }
+  },
+  "catDetailMemoryCountZero": "This story will begin with its first memory.",
+  "@catDetailMemoryCountZero": {
+    "description": "cat detail memory count zero"
+  },
+  "catDetailMemoryCountSingle": "1 little moment here.",
+  "@catDetailMemoryCountSingle": {
+    "description": "cat detail memory count single"
+  },
+  "catDetailMemoryCountMultiple": "{count} little moments here.",
+  "@catDetailMemoryCountMultiple": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "catDetailMemoriesSectionTitle": "Memories",
+  "@catDetailMemoriesSectionTitle": {
+    "description": "cat detail memories section title"
+  },
+  "catDetailMemoriesSectionSubtitle": "{count, plural, =1{1 memory recorded} other{{count} memories recorded}}",
+  "@catDetailMemoriesSectionSubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "catDetailEmptyMemoriesTitle": "The story is just beginning.",
+  "@catDetailEmptyMemoriesTitle": {
+    "description": "cat detail empty memories title"
+  },
+  "catDetailEmptyMemoriesDesc": "You can save the first little moment you shared with this cat here.",
+  "@catDetailEmptyMemoriesDesc": {
+    "description": "cat detail empty memories desc"
+  },
+  "catDetailEmptyMemoriesCta": "Add First Memory",
+  "@catDetailEmptyMemoriesCta": {
+    "description": "cat detail empty memories cta"
+  },
+  "catDetailActionAddMemory": "Add Memory",
+  "@catDetailActionAddMemory": {
+    "description": "cat detail action add memory"
+  },
+  "catDetailNoteTitle": "Note",
+  "@catDetailNoteTitle": {
+    "description": "cat detail note title"
+  },
+  "catDetailPhotoSemantic": "Photo of {name}",
+  "@catDetailPhotoSemantic": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "catDetailBackSemantic": "Go back from cat details",
+  "@catDetailBackSemantic": {
+    "description": "cat detail back semantic"
+  },
+  "catDetailDeleteSemantic": "Delete cat",
+  "@catDetailDeleteSemantic": {
+    "description": "cat detail delete semantic"
+  },
+  "catDetailEditSemantic": "Edit cat",
+  "@catDetailEditSemantic": {
+    "description": "cat detail edit semantic"
+  },
+  "profileTitle": "Profile",
+  "@profileTitle": {
+    "description": "profile title"
+  },
+  "profileGreetingPrefix": "Hello",
+  "@profileGreetingPrefix": {
+    "description": "profile greeting prefix"
+  },
+  "profileDefaultTitle": "Your Story",
+  "@profileDefaultTitle": {
+    "description": "profile default title"
+  },
+  "profileSubtitle": "This is your personal space in Meowoirs.",
+  "@profileSubtitle": {
+    "description": "profile subtitle"
+  },
+  "profileEditButton": "Edit Profile",
+  "@profileEditButton": {
+    "description": "profile edit button"
+  },
+  "profileEditDialogTitle": "Edit Profile",
+  "@profileEditDialogTitle": {
+    "description": "profile edit dialog title"
+  },
+  "profileNicknameLabel": "Nickname",
+  "@profileNicknameLabel": {
+    "description": "profile nickname label"
+  },
+  "profileNicknameHint": "e.g. Luna",
+  "@profileNicknameHint": {
+    "description": "profile nickname hint"
+  },
+  "profileSelectAvatar": "Choose Avatar",
+  "@profileSelectAvatar": {
+    "description": "profile select avatar"
+  },
+  "profileSave": "Save",
+  "@profileSave": {
+    "description": "profile save"
+  },
+  "profileCancel": "Cancel",
+  "@profileCancel": {
+    "description": "profile cancel"
+  },
+  "favoriteCatTitle": "Favorite Cat",
+  "@favoriteCatTitle": {
+    "description": "favorite cat title"
+  },
+  "favoriteCatChange": "Change Favorite Cat",
+  "@favoriteCatChange": {
+    "description": "favorite cat change"
+  },
+  "favoriteCatSelect": "Select Favorite Cat",
+  "@favoriteCatSelect": {
+    "description": "favorite cat select"
+  },
+  "favoriteCatEmptyTitle": "You don't have a favorite cat yet.",
+  "@favoriteCatEmptyTitle": {
+    "description": "favorite cat empty title"
+  },
+  "favoriteCatEmptyCta": "Add Your First Cat",
+  "@favoriteCatEmptyCta": {
+    "description": "favorite cat empty cta"
+  },
+  "favoriteCatNoneSelected": "No favorite cat selected yet.",
+  "@favoriteCatNoneSelected": {
+    "description": "favorite cat none selected"
+  },
+  "favoriteCatDialogTitle": "Select Favorite Cat",
+  "@favoriteCatDialogTitle": {
+    "description": "favorite cat dialog title"
+  },
+  "myStoryTitle": "My Story",
+  "@myStoryTitle": {
+    "description": "my story title"
+  },
+  "myStorySubtitle": "Little moments gathered between you and your cats.",
+  "@myStorySubtitle": {
+    "description": "my story subtitle"
+  },
+  "myStoryViewAll": "View Full Story",
+  "@myStoryViewAll": {
+    "description": "my story view all"
+  },
+  "myStoryYourStory": "Your Meowoirs",
+  "@myStoryYourStory": {
+    "description": "my story your story"
+  },
+  "myStoryCatsSection": "Your Cats",
+  "@myStoryCatsSection": {
+    "description": "my story cats section"
+  },
+  "myStorySeeAll": "View All",
+  "@myStorySeeAll": {
+    "description": "my story see all"
+  },
+  "myStoryMostRememberedTitle": "Most remembered",
+  "@myStoryMostRememberedTitle": {
+    "description": "my story most remembered title"
+  },
+  "myStoryMostRememberedSubtitle": "{count, plural, =1{1 memory recorded} other{{count} memories recorded}}",
+  "@myStoryMostRememberedSubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "myStoryRecentMoment": "Recent Moment",
+  "@myStoryRecentMoment": {
+    "description": "my story recent moment"
+  },
+  "myStoryBeginningTitle": "Your first moment in Meowoirs",
+  "@myStoryBeginningTitle": {
+    "description": "my story beginning title"
+  },
+  "myStoryCompletelyEmptyTitle": "Your story will begin here.",
+  "@myStoryCompletelyEmptyTitle": {
+    "description": "my story completely empty title"
+  },
+  "myStoryCompletelyEmptySubtitle": "The little moments shared with your cats will turn into your own story over time.",
+  "@myStoryCompletelyEmptySubtitle": {
+    "description": "my story completely empty subtitle"
+  },
+  "myStoryCompletelyEmptyAddMemory": "Add First Memory",
+  "@myStoryCompletelyEmptyAddMemory": {
+    "description": "my story completely empty add memory"
+  },
+  "myStoryCompletelyEmptyAddCat": "Add First Cat",
+  "@myStoryCompletelyEmptyAddCat": {
+    "description": "my story completely empty add cat"
+  },
+  "myStoryPartialEmptyTitle": "No memories to tell yet.",
+  "@myStoryPartialEmptyTitle": {
+    "description": "my story partial empty title"
+  },
+  "myStoryPartialEmptySubtitle": "Your cats are here. Save the first little moment you shared with them.",
+  "@myStoryPartialEmptySubtitle": {
+    "description": "my story partial empty subtitle"
+  },
+  "myStoryPartialEmptyAddMemory": "Add First Memory",
+  "@myStoryPartialEmptyAddMemory": {
+    "description": "my story partial empty add memory"
+  },
+  "myStoryErrorTitle": "Could not load story",
+  "@myStoryErrorTitle": {
+    "description": "my story error title"
+  },
+  "myStoryErrorDesc": "A problem occurred while loading your story.",
+  "@myStoryErrorDesc": {
+    "description": "my story error desc"
+  },
+  "myStoryErrorRetry": "Retry",
+  "@myStoryErrorRetry": {
+    "description": "my story error retry"
+  },
+  "myStoryMostRememberedSemantic": "{catName}, most remembered cat. {count} memories.",
+  "@myStoryMostRememberedSemantic": {
+    "placeholders": {
+      "catName": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "myStoryBeginningSemantic": "Your first moment in Meowoirs: {date}",
+  "@myStoryBeginningSemantic": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "statCats": "Cats",
+  "@statCats": {
+    "description": "stat cats"
+  },
+  "statMemories": "Memories",
+  "@statMemories": {
+    "description": "stat memories"
+  },
+  "statHome": "Home",
+  "@statHome": {
+    "description": "stat home"
+  },
+  "statStreet": "Street",
+  "@statStreet": {
+    "description": "stat street"
+  },
+  "settingsTitle": "Settings",
+  "@settingsTitle": {
+    "description": "settings title"
+  },
+  "settingsAppearance": "Appearance",
+  "@settingsAppearance": {
+    "description": "settings appearance"
+  },
+  "settingsTheme": "Theme",
+  "@settingsTheme": {
+    "description": "settings theme"
+  },
+  "themeSystem": "System",
+  "@themeSystem": {
+    "description": "theme system"
+  },
+  "themeLight": "Light",
+  "@themeLight": {
+    "description": "theme light"
+  },
+  "themeDark": "Dark",
+  "@themeDark": {
+    "description": "theme dark"
+  },
+  "settingsPrivacyLegal": "Privacy & Legal",
+  "@settingsPrivacyLegal": {
+    "description": "settings privacy legal"
+  },
+  "settingsPrivacyPolicy": "Privacy Policy",
+  "@settingsPrivacyPolicy": {
+    "description": "settings privacy policy"
+  },
+  "settingsTermsOfService": "Terms of Service",
+  "@settingsTermsOfService": {
+    "description": "settings terms of service"
+  },
+  "settingsAdPrivacy": "Ad Privacy Options",
+  "@settingsAdPrivacy": {
+    "description": "settings ad privacy"
+  },
+  "privacyPendingTitle": "Information",
+  "@privacyPendingTitle": {
+    "description": "privacy pending title"
+  },
+  "privacyPendingDesc": "Our Privacy Policy and Terms of Service will soon be available online.",
+  "@privacyPendingDesc": {
+    "description": "privacy pending desc"
+  },
+  "umpNotRequired": "Ad privacy options are not required for your region or current session.",
+  "@umpNotRequired": {
+    "description": "ump not required"
+  },
+  "settingsLanguage": "Language",
+  "@settingsLanguage": {
+    "description": "settings language"
+  },
+  "settingsAppLanguage": "App Language",
+  "@settingsAppLanguage": {
+    "description": "settings app language"
+  },
+  "settingsReachUs": "Reach Us",
+  "@settingsReachUs": {
+    "description": "settings reach us"
+  },
+  "reachUsThankYouTitle": "Thank you for using Meowoirs.",
+  "@reachUsThankYouTitle": {
+    "description": "reach us thank you title"
+  },
+  "reachUsThankYouDesc": "We are happy that every little memory turns into a personal story with you.",
+  "@reachUsThankYouDesc": {
+    "description": "reach us thank you desc"
+  },
+  "reachUsActionSuggestion": "Send Suggestion",
+  "@reachUsActionSuggestion": {
+    "description": "reach us action suggestion"
+  },
+  "reachUsActionBug": "Report Bug",
+  "@reachUsActionBug": {
+    "description": "reach us action bug"
+  },
+  "reachUsActionContact": "Contact Us",
+  "@reachUsActionContact": {
+    "description": "reach us action contact"
+  },
+  "reachUsNoEmailApp": "No email application found on this device.",
+  "@reachUsNoEmailApp": {
+    "description": "reach us no email app"
+  },
+  "settingsApp": "Application",
+  "@settingsApp": {
+    "description": "settings app"
+  },
+  "versionFormat": "Version {version}",
+  "@versionFormat": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "versionBuildFormat": "Version {version} (Build {build})",
+  "@versionBuildFormat": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      },
+      "build": {
+        "type": "int"
+      }
+    }
+  },
+  "actionEdit": "Edit",
+  "@actionEdit": {
+    "description": "action edit"
+  },
+  "actionDelete": "Delete",
+  "@actionDelete": {
+    "description": "action delete"
+  },
+  "actionCancel": "Cancel",
+  "@actionCancel": {
+    "description": "action cancel"
+  },
+  "actionSave": "Save",
+  "@actionSave": {
+    "description": "action save"
+  },
+  "actionSaveChanges": "Save Changes",
+  "@actionSaveChanges": {
+    "description": "action save changes"
+  },
+  "actionBack": "Back",
+  "@actionBack": {
+    "description": "action back"
+  },
+  "actionRetry": "Retry",
+  "@actionRetry": {
+    "description": "action retry"
+  },
+  "loading": "Loading...",
+  "@loading": {
+    "description": "loading"
+  },
+  "deleteCatTitle": "Are you sure you want to delete this cat?",
+  "@deleteCatTitle": {
+    "description": "delete cat title"
+  },
+  "deleteCatMessage": "The cat profile will be deleted. Saved memories will be preserved.",
+  "@deleteCatMessage": {
+    "description": "delete cat message"
+  },
+  "deleteMemoryTitle": "Are you sure you want to delete this memory?",
+  "@deleteMemoryTitle": {
+    "description": "delete memory title"
+  },
+  "deleteMemoryMessage": "This memory will be permanently deleted.",
+  "@deleteMemoryMessage": {
+    "description": "delete memory message"
+  },
+  "errorGenericOperation": "An error occurred during the operation. Please try again.",
+  "@errorGenericOperation": {
+    "description": "error generic operation"
+  },
+  "catSaveError": "An error occurred while saving the cat. Please try again.",
+  "@catSaveError": {
+    "description": "cat save error"
+  },
+  "memorySaveError": "An error occurred while saving the memory. Please try again.",
+  "@memorySaveError": {
+    "description": "memory save error"
+  },
+  "catDeleteError": "An error occurred while deleting the cat. Please try again.",
+  "@catDeleteError": {
+    "description": "cat delete error"
+  },
+  "memoryDeleteError": "An error occurred while deleting the memory. Please try again.",
+  "@memoryDeleteError": {
+    "description": "memory delete error"
+  },
+  "photoLoadFailed": "Photo could not be loaded",
+  "@photoLoadFailed": {
+    "description": "photo load failed"
+  },
+  "legalViewOnline": "View Online",
+  "@legalViewOnline": {
+    "description": "legal view online"
+  },
+  "legalDocumentClose": "Close",
+  "@legalDocumentClose": {
+    "description": "legal document close"
+  },
+  "legalDataDeletion": "Data & Deletion",
+  "@legalDataDeletion": {
+    "description": "legal data deletion"
+  },
+  "legalThirdParty": "Third-Party Services",
+  "@legalThirdParty": {
+    "description": "legal third party"
+  },
+  "legalAdvertisingConsent": "Advertising & Consent",
+  "@legalAdvertisingConsent": {
+    "description": "legal advertising consent"
+  },
+  "legalDisclaimer": "Legal Disclaimer",
+  "@legalDisclaimer": {
+    "description": "legal disclaimer"
+  },
+  "legalDocumentLoadError": "Could not load document.",
+  "@legalDocumentLoadError": {
+    "description": "legal document load error"
+  },
+  "legalDocumentRetry": "Retry",
+  "@legalDocumentRetry": {
+    "description": "legal document retry"
+  },
+  "onboardingSkip": "SKIP",
+  "@onboardingSkip": {
+    "description": "onboarding skip"
+  },
+  "onboardingContinue": "Continue →",
+  "@onboardingContinue": {
+    "description": "onboarding continue"
+  },
+  "onboardingStep1Chap": "VOLUME I — CHAPTER 01",
+  "@onboardingStep1Chap": {
+    "description": "onboarding step1 chap"
+  },
+  "onboardingStep1Badge": "MORNING LIGHT",
+  "@onboardingStep1Badge": {
+    "description": "onboarding step1 badge"
+  },
+  "onboardingStep1Quote": "«Like a quiet whisper...»",
+  "@onboardingStep1Quote": {
+    "description": "onboarding step1 quote"
+  },
+  "onboardingStep1Intro": "INTRODUCTORY NOTE",
+  "@onboardingStep1Intro": {
+    "description": "onboarding step1 intro"
+  },
+  "onboardingStep1IntroSub": "OPENING",
+  "@onboardingStep1IntroSub": {
+    "description": "onboarding step1 intro sub"
+  },
+  "onboardingStep1Title": "Every cat has a story.",
+  "@onboardingStep1Title": {
+    "description": "onboarding step1 title"
+  },
+  "onboardingStep1Desc": "Meowoirs is your personal space to keep the little moments, photos, and stories you share with your cats.",
+  "@onboardingStep1Desc": {
+    "description": "onboarding step1 desc"
+  },
+  "onboardingStep1FeatureTitle": "Create Your Personal Archive",
+  "@onboardingStep1FeatureTitle": {
+    "description": "onboarding step1 feature title"
+  },
+  "onboardingStep1FeatureDesc": "Build your own memory archive with photos, notes, and little moments.",
+  "@onboardingStep1FeatureDesc": {
+    "description": "onboarding step1 feature desc"
+  },
+  "onboardingStep1Footer1": "MEOWOIRS ARCHIVE",
+  "@onboardingStep1Footer1": {
+    "description": "onboarding step1 footer1"
+  },
+  "onboardingStep1Footer2": "FIRST PAGE",
+  "@onboardingStep1Footer2": {
+    "description": "onboarding step1 footer2"
+  },
+  "onboardingStep2Chap": "CHAPTER II — DIARY FRAGMENTS",
+  "@onboardingStep2Chap": {
+    "description": "onboarding step2 chap"
+  },
+  "onboardingStep2Title": "Keep the little moments.",
+  "@onboardingStep2Title": {
+    "description": "onboarding step2 title"
+  },
+  "onboardingStep2Subtitle": "A photo, a few words, and the feeling of that moment.",
+  "@onboardingStep2Subtitle": {
+    "description": "onboarding step2 subtitle"
+  },
+  "onboardingStep2Badge1": "ANNO. 128",
+  "@onboardingStep2Badge1": {
+    "description": "onboarding step2 badge1"
+  },
+  "onboardingStep2Badge2": "08:45 Morning Sleep",
+  "@onboardingStep2Badge2": {
+    "description": "onboarding step2 badge2"
+  },
+  "onboardingStep2Date": "October 14",
+  "@onboardingStep2Date": {
+    "description": "onboarding step2 date"
+  },
+  "onboardingStep2Mood": "Peaceful",
+  "@onboardingStep2Mood": {
+    "description": "onboarding step2 mood"
+  },
+  "onboardingStep2EditorialText": "Meowoirs turns ordinary moments into little stories you won't want to forget.",
+  "@onboardingStep2EditorialText": {
+    "description": "onboarding step2 editorial text"
+  },
+  "onboardingStep2Footer1": "PERSONAL ARCHIVE",
+  "@onboardingStep2Footer1": {
+    "description": "onboarding step2 footer1"
+  },
+  "onboardingStep2Footer2": "LITTLE MOMENTS",
+  "@onboardingStep2Footer2": {
+    "description": "onboarding step2 footer2"
+  },
+  "onboardingStep3Chap": "CHAPTER III — IN YOUR STORY",
+  "@onboardingStep3Chap": {
+    "description": "onboarding step3 chap"
+  },
+  "onboardingStep3Title": "Every cat can be in your story.",
+  "@onboardingStep3Title": {
+    "description": "onboarding step3 title"
+  },
+  "onboardingStep3Desc": "From the cat in your home to a friend you met on the street, keep the little moments that touch your life.",
+  "@onboardingStep3Desc": {
+    "description": "onboarding step3 desc"
+  },
+  "onboardingStep3HomeBadge": "AT HOME",
+  "@onboardingStep3HomeBadge": {
+    "description": "onboarding step3 home badge"
+  },
+  "onboardingStep3HomeTitle": "Our Home's Story",
+  "@onboardingStep3HomeTitle": {
+    "description": "onboarding step3 home title"
+  },
+  "onboardingStep3StreetBadge": "STREET STORY",
+  "@onboardingStep3StreetBadge": {
+    "description": "onboarding step3 street badge"
+  },
+  "onboardingStep3StreetTitle": "Spirit of the Street",
+  "@onboardingStep3StreetTitle": {
+    "description": "onboarding step3 street title"
+  },
+  "onboardingStep3StreetSubtitle": "Olive — Old friend from the neighborhood",
+  "@onboardingStep3StreetSubtitle": {
+    "description": "onboarding step3 street subtitle"
+  },
+  "onboardingStep3FeatureTitle": "At Home or On the Street",
+  "@onboardingStep3FeatureTitle": {
+    "description": "onboarding step3 feature title"
+  },
+  "onboardingStep3FeatureDesc": "Include the cats in your home or those you meet on the street in your own story.",
+  "@onboardingStep3FeatureDesc": {
+    "description": "onboarding step3 feature desc"
+  },
+  "onboardingStep3Footer1": "MEOWOIRS ARCHIVE",
+  "@onboardingStep3Footer1": {
+    "description": "onboarding step3 footer1"
+  },
+  "onboardingStep3Footer2": "EVERY CAT",
+  "@onboardingStep3Footer2": {
+    "description": "onboarding step3 footer2"
+  },
+  "onboardingStep4Chap": "CHAPTER IV • PRIVACY & TRUST",
+  "@onboardingStep4Chap": {
+    "description": "onboarding step4 chap"
+  },
+  "onboardingStep4Title": "Your story is yours.",
+  "@onboardingStep4Title": {
+    "description": "onboarding step4 title"
+  },
+  "onboardingStep4Desc": "Your memories and photos stay on your device. Meowoirs does not store them on its servers and does not require an account or cloud sync.",
+  "@onboardingStep4Desc": {
+    "description": "onboarding step4 desc"
+  },
+  "onboardingStep4FeatureTitle": "Stays on Your Device",
+  "@onboardingStep4FeatureTitle": {
+    "description": "onboarding step4 feature title"
+  },
+  "onboardingStep4FeatureDesc": "Your cat profiles, photos, notes, and memories are stored locally on your device.",
+  "@onboardingStep4FeatureDesc": {
+    "description": "onboarding step4 feature desc"
+  },
+  "onboardingStep4PrivacyCheckbox": "I have read and agree to the Privacy Policy.",
+  "@onboardingStep4PrivacyCheckbox": {
+    "description": "onboarding step4 privacy checkbox"
+  },
+  "onboardingStep4PrivacyLink": "Privacy Policy",
+  "@onboardingStep4PrivacyLink": {
+    "description": "onboarding step4 privacy link"
+  },
+  "onboardingStep4TermsCheckbox": "I have read and agree to the Terms of Service.",
+  "@onboardingStep4TermsCheckbox": {
+    "description": "onboarding step4 terms checkbox"
+  },
+  "onboardingStep4TermsLink": "Terms of Service",
+  "@onboardingStep4TermsLink": {
+    "description": "onboarding step4 terms link"
+  },
+  "onboardingStep4Start": "Start Meowoirs →",
+  "@onboardingStep4Start": {
+    "description": "onboarding step4 start"
+  },
+  "onboardingStep4Footer": "MEOWOIRS • PERSONAL ARCHIVE",
+  "@onboardingStep4Footer": {
+    "description": "onboarding step4 footer"
+  },
+  "onboardingLegalOk": "OK",
+  "@onboardingLegalOk": {
+    "description": "onboarding legal ok"
+  },
+  "avatarDescWarmCat": "Warm ginger cat",
+  "@avatarDescWarmCat": {
+    "description": "avatar desc warm cat"
+  },
+  "avatarDescSageCat": "Calm sage cat",
+  "@avatarDescSageCat": {
+    "description": "avatar desc sage cat"
+  },
+  "avatarDescLavenderCat": "Dreamy lavender cat",
+  "@avatarDescLavenderCat": {
+    "description": "avatar desc lavender cat"
+  },
+  "avatarDescCuriousCat": "Curious cat",
+  "@avatarDescCuriousCat": {
+    "description": "avatar desc curious cat"
+  },
+  "avatarDescCozyCat": "Cozy sleeping cat",
+  "@avatarDescCozyCat": {
+    "description": "avatar desc cozy cat"
+  },
+  "avatarDescGentlePaw": "Gentle paw print",
+  "@avatarDescGentlePaw": {
+    "description": "avatar desc gentle paw"
+  },
+  "avatarDescStarGazer": "Star gazing cat",
+  "@avatarDescStarGazer": {
+    "description": "avatar desc star gazer"
+  },
+  "avatarDescBookCat": "Book lover cat",
+  "@avatarDescBookCat": {
+    "description": "avatar desc book cat"
+  },
+  "avatarDescSunlitCat": "Sunlit resting cat",
+  "@avatarDescSunlitCat": {
+    "description": "avatar desc sunlit cat"
+  },
+  "avatarDescWhiskerHeart": "Whisker heart",
+  "@avatarDescWhiskerHeart": {
+    "description": "avatar desc whisker heart"
+  },
+  "debugPanelUnlocked": "Developer panel unlocked",
+  "@debugPanelUnlocked": {
+    "description": "debug panel unlocked"
+  },
+  "debugOnboardingCompleted": "Onboarding Completed",
+  "@debugOnboardingCompleted": {
+    "description": "debug onboarding completed"
+  },
+  "debugAcceptedLegalVersion": "Accepted Legal Version",
+  "@debugAcceptedLegalVersion": {
+    "description": "debug accepted legal version"
+  },
+  "debugResetOnboarding": "DEVELOPER: RESET ONBOARDING",
+  "@debugResetOnboarding": {
+    "description": "debug reset onboarding"
+  },
+  "debugOnboardingResetToast": "Onboarding status reset",
+  "@debugOnboardingResetToast": {
+    "description": "debug onboarding reset toast"
+  },
+  "profileNicknamePlaceholder": "e.g. Luna",
+  "@profileNicknamePlaceholder": {
+    "description": "profile nickname placeholder"
+  },
+  "favoriteCatSectionTitle": "Favorite Cat",
+  "@favoriteCatSectionTitle": {
+    "description": "favorite cat section title"
+  },
+  "favoriteCatChangeButton": "Change Favorite Cat",
+  "@favoriteCatChangeButton": {
+    "description": "favorite cat change button"
+  },
+  "favoriteCatSelectButton": "Select Favorite Cat",
+  "@favoriteCatSelectButton": {
+    "description": "favorite cat select button"
+  },
+  "myStorySectionTitle": "My Story",
+  "@myStorySectionTitle": {
+    "description": "my story section title"
+  },
+  "profileSettingsButton": "Settings",
+  "@profileSettingsButton": {
+    "description": "profile settings button"
+  },
+  "tooltipBack": "Go back",
+  "@tooltipBack": {
+    "description": "tooltip back"
+  },
+  "semanticsSelected": "selected",
+  "@semanticsSelected": {
+    "description": "semantics selected"
+  },
+  "semanticsNotSelected": "not selected",
+  "@semanticsNotSelected": {
+    "description": "semantics not selected"
+  },
+  "moodHappy": "Happy",
+  "@moodHappy": {
+    "description": "mood happy"
+  },
+  "moodCurious": "Curious",
+  "@moodCurious": {
+    "description": "mood curious"
+  },
+  "moodSleepy": "Sleepy",
+  "@moodSleepy": {
+    "description": "mood sleepy"
+  },
+  "moodPlayful": "Playful",
+  "@moodPlayful": {
+    "description": "mood playful"
+  },
+  "moodCalm": "Calm",
+  "@moodCalm": {
+    "description": "mood calm"
+  },
+  "moodAffectionate": "Affectionate",
+  "@moodAffectionate": {
+    "description": "mood affectionate"
+  },
+  "moodPeaceful": "Peaceful",
+  "@moodPeaceful": {
+    "description": "mood peaceful"
+  },
+  "moodNostalgic": "Nostalgic",
+  "@moodNostalgic": {
+    "description": "mood nostalgic"
+  },
+  "moodJoyful": "Joyful",
+  "@moodJoyful": {
+    "description": "mood joyful"
+  },
+  "moodEmotional": "Emotional",
+  "@moodEmotional": {
+    "description": "mood emotional"
+  },
+  "addMemorySelectDate": "Select date: {date}",
+  "@addMemorySelectDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "addMemoryCatEmptyAction": "Add Cat",
+  "@addMemoryCatEmptyAction": {
+    "description": "add memory cat empty action"
+  },
+  "memoryCatNoteLabel": "{catName}'s memory: {note}",
+  "@memoryCatNoteLabel": {
+    "placeholders": {
+      "catName": {
+        "type": "String"
+      },
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "storyNarrativeEmpty": "The little moments you share with your cats will eventually become your own story.",
+  "@storyNarrativeEmpty": {
+    "description": "story narrative empty"
+  },
+  "storyNarrativeCatsNoMemories": "Your cats are here. Keep the first little moment you share with them.",
+  "@storyNarrativeCatsNoMemories": {
+    "description": "story narrative cats no memories"
+  },
+  "storyNarrativeSingleCat": "{catName} has {count, plural, =1{1 little moment} other{{count} little moments}} kept here.",
+  "@storyNarrativeSingleCat": {
+    "placeholders": {
+      "catName": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storyNarrativeHomeAndStreet": "You've gathered {memoriesCount} little moments with {catsCount} friends. Warm moments at home and little street stories together.",
+  "@storyNarrativeHomeAndStreet": {
+    "placeholders": {
+      "memoriesCount": {
+        "type": "int"
+      },
+      "catsCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storyNarrativeGeneral": "You've gathered {memoriesCount} little moments with {catsCount} cats. Over time, these moments form your Meowoirs story.",
+  "@storyNarrativeGeneral": {
+    "placeholders": {
+      "memoriesCount": {
+        "type": "int"
+      },
+      "catsCount": {
+        "type": "int"
+      }
+    }
+  },
+  "legalTitlePrivacyPolicy": "Privacy Policy",
+  "@legalTitlePrivacyPolicy": {
+    "description": "legal title privacy policy"
+  },
+  "legalTitleTermsOfService": "Terms of Service",
+  "@legalTitleTermsOfService": {
+    "description": "legal title terms of service"
+  },
+  "legalTitleDataDeletion": "Data Deletion Policy",
+  "@legalTitleDataDeletion": {
+    "description": "legal title data deletion"
+  },
+  "legalTitleThirdPartyServices": "Third-Party Services",
+  "@legalTitleThirdPartyServices": {
+    "description": "legal title third party services"
+  },
+  "legalTitleAdvertisingAndConsent": "Advertising & Consent Policy",
+  "@legalTitleAdvertisingAndConsent": {
+    "description": "legal title advertising and consent"
+  },
+  "legalTitleLegalDisclaimer": "Legal Disclaimer",
+  "@legalTitleLegalDisclaimer": {
+    "description": "legal title legal disclaimer"
+  }
+}
