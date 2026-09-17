@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:meowoirs/core/config/app_config.dart';
 import 'package:meowoirs/core/localization/app_localizations.dart';
 import 'package:meowoirs/core/localization/supported_languages.dart';
 import 'package:meowoirs/core/routing/app_router.dart';
@@ -583,7 +584,7 @@ void main() {
       await tester.pumpWidget(createDirectSettingsWidget(tester: tester, container: container));
       await tester.pump(const Duration(milliseconds: 300));
 
-      final versionRow = find.textContaining('Sürüm 0.1.0');
+      final versionRow = find.textContaining('Sürüm ${AppConfig.versionName}');
 
       expect(find.text('Meowoirs'), findsWidgets);
       expect(versionRow, findsOneWidget);
@@ -789,7 +790,7 @@ void main() {
       await tester.pumpWidget(createDirectSettingsWidget(tester: tester, container: container));
       await tester.pump(const Duration(milliseconds: 300));
 
-      final versionRow = find.textContaining('Sürüm 0.1.0');
+      final versionRow = find.textContaining('Sürüm ${AppConfig.versionName}');
 
       // Tap 10 times rapidly
       for (int i = 0; i < 10; i++) {

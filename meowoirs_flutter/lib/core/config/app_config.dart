@@ -16,10 +16,10 @@ class AppConfig {
   static const String currentLegalVersion = '1';
 
   /// Application version name.
-  static const String versionName = '0.1.0';
+  static const String versionName = '0.1.1';
 
   /// Application build number.
-  static const int versionCode = 1;
+  static const int versionCode = 2;
 
   /// Debug panel enabled flag. Strictly guarded behind kDebugMode in caller sites.
   static const bool meowoirsDebugPanelEnabled = true;

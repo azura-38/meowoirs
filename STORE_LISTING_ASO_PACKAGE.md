@@ -346,7 +346,7 @@ Every cat has a story worth remembering. Preserve theirs with Meowoirs.
 
 ---
 
-## 13. APP UPDATE NOTES (Version 0.1.0 Release Notes)
+## 13. APP UPDATE NOTES (Version 0.1.1 Release Notes)
 
 ### Google Play "What's New":
 ```text
@@ -464,7 +464,7 @@ Every cat has a story. Begin preserving yours today with Meowoirs.
 
 ---
 
-### [COPY TO PLAY CONSOLE] What's New (Version 0.1.0)
+### [COPY TO PLAY CONSOLE] What's New (Version 0.1.1)
 ```text
 Welcome to the first official release of Meowoirs!
 
