@@ -12,6 +12,7 @@ class MeowoirsPrimaryButton extends StatelessWidget {
     this.leadingIcon,
     this.icon,
     this.width,
+    this.height = 48.0,
   });
 
   final String text;
@@ -20,6 +21,7 @@ class MeowoirsPrimaryButton extends StatelessWidget {
   final Widget? leadingIcon;
   final IconData? icon;
   final double? width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -38,19 +40,23 @@ class MeowoirsPrimaryButton extends StatelessWidget {
           Icon(icon, size: 18),
           SizedBox(width: spacing.small),
         ],
-        Text(
-          text,
-          style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-              ),
+        Flexible(
+          child: Text(
+            text,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
         ),
       ],
     );
 
     return SizedBox(
       width: width,
-      height: 48,
+      height: height,
       child: ElevatedButton(
         onPressed: enabled ? onPressed : null,
         style: ElevatedButton.styleFrom(
@@ -108,12 +114,16 @@ class MeowoirsSecondaryButton extends StatelessWidget {
           Icon(icon, size: 18),
           SizedBox(width: spacing.small),
         ],
-        Text(
-          text,
-          style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                color: enabled ? colors.textPrimary : colors.textTertiary,
-                fontWeight: FontWeight.w600,
-              ),
+        Flexible(
+          child: Text(
+            text,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  color: enabled ? colors.textPrimary : colors.textTertiary,
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
         ),
       ],
     );

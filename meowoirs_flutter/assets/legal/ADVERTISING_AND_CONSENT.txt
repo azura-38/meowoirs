@@ -1,141 +1,17 @@
-================================================================================
-MEOWOIRS - ADVERTISING, CONSENT & PRIVACY CHOICES DISCLOSURE
-================================================================================
+MEOWOIRS - ADVERTISING, CONSENT & PRIVACY CHOICES
+(Consolidated into Meowoirs Privacy Policy)
 
 Developer / Operator: LIMANEX
 Country: Türkiye
 Official Contact: limanexsoftware@outlook.com
 Official Website: https://limanexstudio.com
 Public Policy URL: https://limanexstudio.com/privacy/meowoirs
-Effective Date: September 7, 2026
-Last Updated: September 7, 2026
-Legal Version: 1.0
 
---------------------------------------------------------------------------------
-1. INTRODUCTION
---------------------------------------------------------------------------------
-Meowoirs is provided as a free application supported by digital advertising.
-To maintain the app, ensure continuous compatibility with modern Android
-releases, and cover ongoing development costs, Meowoirs displays advertisements
-served by Google Mobile Ads (AdMob).
+1. ADVERTISING IN MEOWOIRS
+Meowoirs is a free application supported by digital advertising from Google AdMob. AdMob does not receive your cat records or personal journal entries.
 
-This document explains how advertising operates in Meowoirs, how consent is
-managed, how you can exercise your privacy rights, and the technologies used.
+2. PRIVACY CHOICES & UMP
+You may review, update, or revoke consent for personalized advertising at any time using the in-app Privacy Options (via Settings or the Privacy Policy dialog), or by resetting/deleting your Advertising ID in Android system settings.
 
---------------------------------------------------------------------------------
-2. ADVERTISING PLATFORM & OFFICIAL IDENTIFIERS
---------------------------------------------------------------------------------
-Meowoirs integrates Google Mobile Ads (AdMob), a service provided by Google LLC.
-
-Official Advertising Identifiers for Meowoirs:
-- AdMob Application ID: ca-app-pub-587701117866406~4355156867
-- Banner Ad Unit: ca-app-pub-587701117866406/2930394553
-- Interstitial Ad Unit: ca-app-pub-587701117866406/2195897382
-
-These ad units are configured directly in the application build and are delivered
-dynamically by Google's advertising network.
-
---------------------------------------------------------------------------------
-3. ADVERTISING TYPES & USER EXPERIENCE
---------------------------------------------------------------------------------
-Meowoirs utilizes two standard, non-disruptive ad formats:
-
-3.1. Banner Advertisements:
-Small banner advertisements may appear at designated layout positions, such as
-the bottom of selected screens, designed to avoid obstructing user journaling
-tasks.
-
-3.2. Interstitial Advertisements:
-Full-screen interstitial advertisements may occasionally appear at appropriate
-natural transition points according to the application's configured ad frequency
-rules. Interstitial advertisements are not intentionally presented while the
-user is actively filling out a form, typing content, selecting media, or
-performing a critical save/delete confirmation action. These ads include a
-standard close ("X") button provided by Google's SDK.
-
-IMPORTANT NOTE:
-Meowoirs does NOT currently include rewarded video ads, paid ad-free purchases,
-or recurring subscriptions.
-
---------------------------------------------------------------------------------
-4. GOOGLE ADVERTISING ID & TECHNICAL TELEMETRY
---------------------------------------------------------------------------------
-Depending on your device configuration and regional regulations, Google AdMob
-may process:
-- Google Advertising ID (GAID / AAID): A resettable pseudonymous identifier
-  provided by Android used for ad attribution, frequency capping, and ad
-  relevance.
-- Coarse IP Address: Used by Google to determine approximate country or city
-  for ad localization and click fraud prevention.
-- Technical Interaction Data: Ad impression timestamps, clicks, and rendering
-  metrics.
-
-STRICT ISOLATION GUARANTEE:
-Your personal cat profiles, journal notes, pet photos, and mood tags are strictly
-isolated from AdMob. LIMANEX does not provide or sell your journal contents to
-advertisers or ad networks.
-
---------------------------------------------------------------------------------
-5. CONSENT MANAGEMENT & USER MESSAGING PLATFORM (UMP)
---------------------------------------------------------------------------------
-Consent requirements differ significantly around the world. In jurisdictions
-such as the European Economic Area (EEA), United Kingdom (UK), and Switzerland,
-applicable regulations require explicit user consent before storing or accessing
-information on a device (e.g., using identifiers) and before serving
-personalized advertisements.
-
-To comply with these legal requirements, Meowoirs incorporates Google's User
-Messaging Platform (UMP) SDK, adhering to the IAB Europe Transparency and
-Consent Framework (TCF v2.2):
-- First Launch Detection: The SDK evaluates your geographic location and local
-  legal requirements to display a certified consent form where mandatory.
-- Consent Choices: You may consent to personalized advertising, choose
-  non-personalized ads, or configure individual vendor options.
-- Non-Personalized Ads: If you decline personalized advertising, ads will still
-  be shown, but they will be based on contextual information (such as general
-  app context) rather than past user behavior or ad profiles.
-
---------------------------------------------------------------------------------
-6. HOW TO MANAGE OR REVOKE YOUR PRIVACY CHOICES
---------------------------------------------------------------------------------
-You are always in control of your advertising choices:
-
-6.1. In-App Privacy Options (Settings):
-You can review, change, or revoke your consent preferences at any time by
-navigating within Meowoirs to:
-Settings -> "Gizlilik Tercihleri" (Privacy Options)
-Tapping this option will reopen the official Google UMP consent dialogue,
-allowing you to adjust your choices.
-
-6.2. Android Operating System Controls:
-You can manage or delete your advertising identifier at the system level on
-your Android device:
-- Navigate to Android Settings -> Google -> Ads (or Privacy -> Ads).
-- Select "Reset advertising ID" to generate a new pseudonymous identifier.
-- Select "Delete advertising ID" to prevent apps from accessing your GAID.
-- Toggle "Opt out of Ads Personalization" where supported by your OS version.
-
---------------------------------------------------------------------------------
-7. REGIONAL PRIVACY NOTICES
---------------------------------------------------------------------------------
-7.1. EEA & UK (GDPR):
-Legal basis for ad personalization and identifier use is user consent obtained
-via UMP. Non-personalized advertising relies on legitimate interest for fraud
-prevention and basic frequency capping as defined under Google's policies.
-
-7.2. United States (California / CCPA / CPRA & Other State Laws):
-Meowoirs does not sell personal information in exchange for monetary payment.
-Where the use of advertising identifiers is classified as "sharing" for
-cross-context behavioral advertising, you can opt out via your Android device's
-privacy settings or the in-app Privacy Options.
-
---------------------------------------------------------------------------------
-8. CONTACT INFORMATION
---------------------------------------------------------------------------------
-If you have inquiries regarding advertising, consent mechanisms, or privacy
-controls in Meowoirs, please reach out to:
-
-Developer: LIMANEX
-Email: limanexsoftware@outlook.com
-Website: https://limanexstudio.com
-================================================================================
+For complete disclosures, please refer to the primary Meowoirs Privacy Policy:
+https://limanexstudio.com/privacy/meowoirs

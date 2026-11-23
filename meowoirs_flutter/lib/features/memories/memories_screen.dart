@@ -5,12 +5,13 @@ import '../../core/localization/app_localizations.dart';
 import '../../core/theme/meowoirs_theme.dart';
 import '../../data/models/cat.dart';
 import '../../data/providers/database_provider.dart';
-import '../../widgets/memory_card.dart';
 import '../../widgets/meowoirs_button.dart';
 import '../../widgets/meowoirs_card.dart';
 import '../../widgets/meowoirs_chip.dart';
 import '../../widgets/subtle_motion.dart';
 import 'memories_provider.dart';
+import 'widgets/memories_view_menu.dart';
+import 'widgets/memories_view_switcher.dart';
 
 /// MemoriesScreen: Chronological archive of memories with cat filter chips.
 /// Direct parity with MemoriesScreen.kt.
@@ -107,22 +108,45 @@ class MemoriesScreen extends ConsumerWidget {
           ),
           children: [
             // 1. Editorial Header
-            Semantics(
-              header: true,
-              child: Text(
-                l10n.memoriesTitle,
-                style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: colors.textPrimary,
-                    ),
-              ),
-            ),
-            SizedBox(height: spacing.xxSmall),
-            Text(
-              l10n.memoriesSubtitle,
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: colors.textSecondary,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Semantics(
+                        header: true,
+                        child: Text(
+                          l10n.memoriesTitle,
+                          style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: colors.textPrimary,
+                              ),
+                        ),
+                      ),
+                      SizedBox(height: spacing.xxSmall),
+                      Text(
+                        l10n.memoriesSubtitle,
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                              color: colors.textSecondary,
+                            ),
+                      ),
+                    ],
                   ),
+                ),
+                SizedBox(width: spacing.small),
+                MemoriesViewMenu(
+                  currentMode: uiState.viewMode,
+                  onModeSelected: (mode) {
+                    ref
+                        .read(memoriesViewModeProvider.notifier)
+                        .setViewMode(mode);
+                  },
+                ),
+              ],
             ),
             SizedBox(height: spacing.medium),
 
@@ -173,16 +197,11 @@ class MemoriesScreen extends ConsumerWidget {
                     onNavigateToAddMemory(uiState.selectedCatFilterId),
               )
             else
-              ...uiState.filteredMemories.map((memory) {
-                return Padding(
-                  padding: EdgeInsets.only(bottom: spacing.medium),
-                  child: MemoryCard(
-                    memory: memory,
-                    showCatName: true,
-                    onTap: () => onNavigateToMemoryDetail(memory.id),
-                  ),
-                );
-              }),
+              MemoriesViewSwitcher(
+                viewMode: uiState.viewMode,
+                memories: uiState.filteredMemories,
+                onNavigateToMemoryDetail: onNavigateToMemoryDetail,
+              ),
           ],
         ),
       ),

@@ -161,9 +161,9 @@ Meowoirs uses minimal permissions:
 
 ### 24. Google Mobile Ads (AdMob)
 Meowoirs displays non-intrusive banner and interstitial ads provided by Google Mobile Ads (AdMob) to support ongoing development:
-- Application ID: `ca-app-pub-587701117866406~4355156867`
-- Banner Ad Unit: `ca-app-pub-587701117866406/2930394553`
-- Interstitial Ad Unit: `ca-app-pub-587701117866406/2195897382`
+- Application ID: `ca-app-pub-5877011177866406~4355156867`
+- Banner Ad Unit: `ca-app-pub-5877011177866406/2930394553`
+- Interstitial Ad Unit: `ca-app-pub-5877011177866406/2195897382`
 Full-screen interstitial advertisements may occasionally appear at appropriate natural transition points according to the application's configured ad frequency rules. Interstitial advertisements are not intentionally presented while the user is actively filling out a form, typing content, selecting media, or performing a critical save/delete confirmation action. Google may process technical identifiers such as your IP address and Google Advertising ID (GAID) in accordance with Google's privacy policies.
 
 ---

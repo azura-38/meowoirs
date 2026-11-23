@@ -742,7 +742,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 500));
 
       // Renders Image smoothly without unhandled exceptions
-      expect(find.byType(Image), findsOneWidget);
+      expect(find.byWidgetPredicate((w) => w is Image && w.image is FileImage), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
 

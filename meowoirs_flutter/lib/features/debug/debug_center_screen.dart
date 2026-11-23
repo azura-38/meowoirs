@@ -20,7 +20,7 @@ import '../legal/legal_document_viewer.dart';
 /// App process initialization timestamp for uptime calculation.
 final DateTime _appInitTimestamp = DateTime.now();
 
-/// VitaCase V1.1-style Diagnostic Debug Center.
+/// Meowoirs Diagnostic Debug Center.
 /// Strictly guarded behind kDebugMode && AppConfig.meowoirsDebugPanelEnabled.
 /// Provides 16 diagnostic sections covering full runtime, database, storage,
 /// ads, localization, errors, and release gate checks.
@@ -131,6 +131,11 @@ class _DebugCenterScreenState extends ConsumerState<DebugCenterScreen> {
       _sharedPrefsDump = dump;
 
       // 4. Consent & UMP status
+      await AdManager.instance
+          .refreshConsentDiagnostics()
+          .timeout(const Duration(milliseconds: 300), onTimeout: () {});
+      _consentStatus = AdManager.instance.umpConsentStatus;
+      _privacyStatus = AdManager.instance.privacyOptionsStatus;
       if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
         try {
           _consentStatus = await ConsentInformation.instance
@@ -207,7 +212,7 @@ class _DebugCenterScreenState extends ConsumerState<DebugCenterScreen> {
                       SizedBox(width: spacing.small),
                       Expanded(
                         child: Text(
-                          'INTERNAL DIAGNOSTIC TOOL — VitaCase V1.1 Parity. '
+                          'INTERNAL DIAGNOSTIC TOOL — Meowoirs Diagnostic. '
                           'Diagnostic only. Drift schema version reports actual DB.',
                           style: TextStyle(
                             color: Colors.amber.shade900,
@@ -275,46 +280,164 @@ class _DebugCenterScreenState extends ConsumerState<DebugCenterScreen> {
                   ],
                 ),
 
-                // 5. AdMob & Monetization
-                _DiagnosticSection(
-                  title: '5. AdMob & Monetization',
-                  icon: Icons.monetization_on,
-                  children: [
-                    _InfoRow('SDK Initialized', '${AdManager.instance.isMobileAdsInitialized}'),
-                    _InfoRow('Can Request Ads', '${AdManager.instance.canRequestAdsValue}'),
-                    _InfoRow('Banner Ad State', AdManager.instance.bannerState.name),
-                    _InfoRow('Banner Retry Attempt', '${AdManager.instance.bannerRetryAttempt}'),
-                    _InfoRow('Banner Unit ID', AdConfig.bannerAdUnitId),
-                    _InfoRow('Interstitial Unit ID', AdConfig.interstitialAdUnitId),
-                    _InfoRow('Ad Policy Exclusion', 'No fake placeholders; 0dp on failure'),
-                  ],
+                // 5. AdMob & Monetization (Live Diagnostics via diagnosticsRevisionNotifier)
+                ValueListenableBuilder<int>(
+                  valueListenable: AdManager.instance.diagnosticsRevisionNotifier,
+                  builder: (context, _, _) {
+                    final adMgr = AdManager.instance;
+                    final effectiveConsentStatus =
+                        adMgr.umpConsentStatus != ConsentStatus.unknown
+                            ? adMgr.umpConsentStatus
+                            : _consentStatus;
+                    final effectivePrivacyStatus =
+                        adMgr.privacyOptionsStatus !=
+                                PrivacyOptionsRequirementStatus.unknown
+                            ? adMgr.privacyOptionsStatus
+                            : _privacyStatus;
+                    final bannerNetworkStatus = !adMgr.bannerRequested
+                        ? 'NOT_REQUESTED'
+                        : (adMgr.bannerNetworkRequestSent
+                            ? 'SENT'
+                            : 'NOT_SENT (Waiting for SDK/Consent)');
+
+                    return _DiagnosticSection(
+                      title: '5. AdMob & Monetization',
+                      icon: Icons.monetization_on,
+                      children: [
+                        _InfoRow(
+                          'AdMob Initialized',
+                          adMgr.isMobileAdsInitialized ? 'YES' : 'NO',
+                        ),
+                        _InfoRow(
+                          'SDK Initialization State',
+                          adMgr.initializationState.diagnosticName,
+                          isHighlight: adMgr.initializationState ==
+                              AdInitializationState.initializationFailed,
+                        ),
+                        _InfoRow(
+                          'SDK Initialization Error',
+                          adMgr.lastInitializationError ?? 'NONE',
+                          isHighlight: adMgr.lastInitializationError != null,
+                        ),
+                        _InfoRow(
+                          'SDK Init Retry Attempt',
+                          '${adMgr.initRetryAttempt}',
+                        ),
+                        _InfoRow(
+                          'canRequestAds',
+                          adMgr.canRequestAdsValue ? 'YES' : 'NO',
+                        ),
+                        _InfoRow(
+                          'UMP Consent Status',
+                          effectiveConsentStatus.name,
+                        ),
+                        _InfoRow(
+                          'Privacy Options Required',
+                          effectivePrivacyStatus.name,
+                        ),
+                        if (adMgr.lastConsentError != null)
+                          _InfoRow(
+                            'UMP Consent Error',
+                            adMgr.lastConsentError!,
+                            isHighlight: true,
+                          ),
+                        _InfoRow(
+                          'Banner Requested',
+                          adMgr.bannerRequested ? 'YES' : 'NO',
+                        ),
+                        _InfoRow(
+                          'Banner Network Request',
+                          bannerNetworkStatus,
+                        ),
+                        _InfoRow('Banner State', adMgr.bannerState.name),
+                        _InfoRow(
+                          'Banner Retry Attempt',
+                          '${adMgr.bannerRetryAttempt}',
+                        ),
+                        if (adMgr.lastBannerErrorCode != null ||
+                            adMgr.lastBannerErrorMessage != null)
+                          _InfoRow(
+                            'Banner Error',
+                            '[${adMgr.lastBannerErrorCode ?? 'NONE'}] ${adMgr.lastBannerErrorMessage ?? 'Unknown error'}',
+                            isHighlight: true,
+                          ),
+                        _InfoRow(
+                          'Interstitial State',
+                          adMgr.interstitialState.diagnosticName,
+                          isHighlight: adMgr.interstitialState ==
+                              InterstitialLoadState.failed,
+                        ),
+                        if (adMgr.lastInterstitialErrorCode != null ||
+                            adMgr.lastInterstitialErrorMessage != null)
+                          _InfoRow(
+                            'Interstitial Error',
+                            '[${adMgr.lastInterstitialErrorCode ?? 'NONE'}] ${adMgr.lastInterstitialErrorMessage ?? 'Unknown error'}',
+                            isHighlight: true,
+                          ),
+                        _InfoRow('Ad Environment', AdConfig.environmentName),
+                        _InfoRow('Banner ID', AdConfig.bannerAdUnitId),
+                        _InfoRow('Interstitial ID', AdConfig.interstitialAdUnitId),
+                        _InfoRow(
+                          'Ad Policy Exclusion',
+                          'No fake placeholders; 0dp on failure',
+                        ),
+                      ],
+                    );
+                  },
                 ),
 
                 // 6. Consent & UMP
-                _DiagnosticSection(
-                  title: '6. Consent & UMP',
-                  icon: Icons.security,
-                  children: [
-                    _InfoRow('Consent Status', _consentStatus.name),
-                    _InfoRow('Privacy Options Required', _privacyStatus.name),
-                    SizedBox(height: spacing.small),
-                    ElevatedButton.icon(
-                      icon: const Icon(Icons.restart_alt, size: 16),
-                      label: const Text('Reset UMP Consent State'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: colors.orange,
-                        foregroundColor: Colors.white,
-                      ),
-                      onPressed: () async {
-                        final messenger = ScaffoldMessenger.of(context);
-                        await ConsentInformation.instance.reset();
-                        messenger.showSnackBar(
-                          const SnackBar(content: Text('UMP Consent State Reset.')),
-                        );
-                        _loadDiagnostics();
-                      },
-                    ),
-                  ],
+                ValueListenableBuilder<int>(
+                  valueListenable: AdManager.instance.diagnosticsRevisionNotifier,
+                  builder: (context, _, _) {
+                    final adMgr = AdManager.instance;
+                    final effectiveConsentStatus =
+                        adMgr.umpConsentStatus != ConsentStatus.unknown
+                            ? adMgr.umpConsentStatus
+                            : _consentStatus;
+                    final effectivePrivacyStatus =
+                        adMgr.privacyOptionsStatus !=
+                                PrivacyOptionsRequirementStatus.unknown
+                            ? adMgr.privacyOptionsStatus
+                            : _privacyStatus;
+
+                    return _DiagnosticSection(
+                      title: '6. Consent & UMP',
+                      icon: Icons.security,
+                      children: [
+                        _InfoRow('Consent Status', effectiveConsentStatus.name),
+                        _InfoRow(
+                          'Privacy Options Required',
+                          effectivePrivacyStatus.name,
+                        ),
+                        if (adMgr.lastConsentError != null)
+                          _InfoRow(
+                            'Last UMP Error',
+                            adMgr.lastConsentError!,
+                            isHighlight: true,
+                          ),
+                        SizedBox(height: spacing.small),
+                        ElevatedButton.icon(
+                          icon: const Icon(Icons.restart_alt, size: 16),
+                          label: const Text('Reset UMP Consent State'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: colors.orange,
+                            foregroundColor: Colors.white,
+                          ),
+                          onPressed: () async {
+                            final messenger = ScaffoldMessenger.of(context);
+                            await ConsentInformation.instance.reset();
+                            messenger.showSnackBar(
+                              const SnackBar(
+                                content: Text('UMP Consent State Reset.'),
+                              ),
+                            );
+                            _loadDiagnostics();
+                          },
+                        ),
+                      ],
+                    );
+                  },
                 ),
 
                 // 7. Localization
@@ -453,7 +576,7 @@ class _DebugCenterScreenState extends ConsumerState<DebugCenterScreen> {
                     Wrap(
                       spacing: spacing.small,
                       runSpacing: spacing.xxSmall,
-                      children: LegalDocument.values.map((doc) {
+                      children: LegalDocument.userFacing.map((doc) {
                         return ActionChip(
                           label: Text(doc.localizedTitle(l10n), style: const TextStyle(fontSize: 11)),
                           onPressed: () => LegalDocumentViewerDialog.show(context, doc),
@@ -473,11 +596,17 @@ class _DebugCenterScreenState extends ConsumerState<DebugCenterScreen> {
                     _GateItem(title: '3. All 10 Locales Supported & Validated', passed: AppLocalizations.supportedLocales.length == 10),
                     _GateItem(title: '4. Legal Documents Bundled (6/6 assets present)', passed: LegalDocument.values.length == 6),
                     _GateItem(title: '5. No Fake Ad Placeholders (0dp on failure)', passed: true),
-                    _GateItem(title: '6. Debug Panel Gated (kDebugMode && enabled)', passed: kDebugMode && AppConfig.meowoirsDebugPanelEnabled),
+                    _GateItem(title: '6. Debug Panel Gated (Hidden 7-tap gesture & AppConfig.meowoirsDebugPanelEnabled)', passed: AppConfig.meowoirsDebugPanelEnabled),
                     _GateItem(
                       title: '7. Build Mode Verification',
                       passed: kReleaseMode,
                       detail: kReleaseMode ? 'RELEASE' : 'DEBUG (Current Session)',
+                    ),
+                    _GateItem(
+                      title: '8. Ad Environment',
+                      passed: true,
+                      tag: kReleaseMode ? 'PASS' : 'INFO/PASS',
+                      detail: '${AdConfig.environmentName} (${AdConfig.isTestAds ? "Test Ads" : "Production Ads"})',
                     ),
                   ],
                 ),
@@ -630,14 +759,18 @@ class _GateItem extends StatelessWidget {
     required this.title,
     required this.passed,
     this.detail,
+    this.tag,
   });
 
   final String title;
   final bool passed;
   final String? detail;
+  final String? tag;
 
   @override
   Widget build(BuildContext context) {
+    final statusText = tag ?? (passed ? 'PASS' : 'INFO');
+    final isPass = statusText == 'PASS' || statusText == 'INFO/PASS';
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
@@ -661,15 +794,15 @@ class _GateItem extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
             decoration: BoxDecoration(
-              color: passed ? Colors.green.shade100 : Colors.amber.shade100,
+              color: isPass ? Colors.green.shade100 : Colors.amber.shade100,
               borderRadius: BorderRadius.circular(4),
             ),
             child: Text(
-              passed ? 'PASS' : 'INFO',
+              statusText,
               style: TextStyle(
                 fontSize: 10,
                 fontWeight: FontWeight.bold,
-                color: passed ? Colors.green.shade900 : Colors.amber.shade900,
+                color: isPass ? Colors.green.shade900 : Colors.amber.shade900,
               ),
             ),
           ),

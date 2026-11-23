@@ -13,6 +13,8 @@ import '../../features/memories/memories_screen.dart';
 import '../../features/memories/memory_detail_screen.dart';
 import '../../features/my_story/my_story_screen.dart';
 import '../../features/onboarding/onboarding_screen.dart';
+import '../../features/profile/coming_soon_screen.dart';
+import '../../features/profile/limanex_apps_showcase_screen.dart';
 import '../../features/profile/profile_screen.dart';
 import '../../features/settings/settings_screen.dart';
 import '../../widgets/main_scaffold.dart';
@@ -125,6 +127,8 @@ final routerProvider = Provider<GoRouter>((ref) {
                   onNavigateToAddCat: () => context.push('/cats/add'),
                   onNavigateToCatDetail: (catId) =>
                       context.push('/cats/$catId'),
+                  onNavigateToOtherApps: () => context.push('/other_apps'),
+                  onNavigateToComingSoon: () => context.push('/coming_soon'),
                 ),
               ),
             ],
@@ -202,6 +206,18 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/settings',
         builder: (context, state) => SettingsScreen(
+          onBack: () => context.pop(),
+        ),
+      ),
+      GoRoute(
+        path: '/other_apps',
+        builder: (context, state) => LimanexAppsShowcaseScreen(
+          onBack: () => context.pop(),
+        ),
+      ),
+      GoRoute(
+        path: '/coming_soon',
+        builder: (context, state) => ComingSoonScreen(
           onBack: () => context.pop(),
         ),
       ),

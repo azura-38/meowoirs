@@ -1,40 +1,14 @@
 import 'package:flutter/material.dart';
 import '../../../core/theme/meowoirs_theme.dart';
 import '../../../core/localization/app_localizations.dart';
+import '../mood_helper.dart';
 
 class MoodConstants {
-  static const List<String> catMoods = [
-    "Mutlu", "Meraklı", "Uykulu", "Oyuncu", "Sakin", "Sevecen"
-  ];
-  static const List<String> userMoods = [
-    "Mutlu", "Huzurlu", "Özlemli", "Neşeli", "Sakin", "Duygusal"
-  ];
+  static const List<String> catMoods = CatMoodConstants.canonicalCatMoods;
+  static const List<String> userMoods = CatMoodConstants.canonicalUserMoods;
 
   static String localizedMood(String mood, AppLocalizations l10n) {
-    switch (mood) {
-      case "Mutlu":
-        return l10n.moodHappy;
-      case "Meraklı":
-        return l10n.moodCurious;
-      case "Uykulu":
-        return l10n.moodSleepy;
-      case "Oyuncu":
-        return l10n.moodPlayful;
-      case "Sakin":
-        return l10n.moodCalm;
-      case "Sevecen":
-        return l10n.moodAffectionate;
-      case "Huzurlu":
-        return l10n.moodPeaceful;
-      case "Özlemli":
-        return l10n.moodNostalgic;
-      case "Neşeli":
-        return l10n.moodJoyful;
-      case "Duygusal":
-        return l10n.moodEmotional;
-      default:
-        return mood;
-    }
+    return getLocalizedCatMood(mood, l10n);
   }
 }
 
@@ -67,11 +41,13 @@ class DualMoodSelector extends StatelessWidget {
           children: [
             Icon(Icons.pets_outlined, color: colors.orange, size: 16),
             SizedBox(width: spacing.extraSmall),
-            Text(
-              l10n.memoryCatMoodSection,
-              style: typography.titleMedium?.copyWith(
-                fontWeight: FontWeight.w600,
-                color: colors.textPrimary,
+            Flexible(
+              child: Text(
+                l10n.memoryCatMoodSection,
+                style: typography.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: colors.textPrimary,
+                ),
               ),
             ),
           ],
@@ -82,10 +58,16 @@ class DualMoodSelector extends StatelessWidget {
           runSpacing: spacing.small,
           children: MoodConstants.catMoods.map((mood) {
             final isSelected = selectedCatMood == mood;
-            final displayMood = MoodConstants.localizedMood(mood, l10n);
+            final displayMood = getLocalizedCatMood(mood, l10n);
+            final stickerWidget = CatMoodStickerMapper.buildSticker(
+              mood: mood,
+              size: 24.0,
+              isDecorative: true,
+            );
             return _MoodSelectChip(
               label: displayMood,
               isSelected: isSelected,
+              leadingWidget: stickerWidget,
               selectedContainerColor: colors.accentOrangeContainer,
               selectedContentColor: colors.orange,
               onClick: () => onSelectCatMood(mood),
@@ -100,11 +82,13 @@ class DualMoodSelector extends StatelessWidget {
           children: [
             Icon(Icons.favorite_outline, color: colors.lavender, size: 16),
             SizedBox(width: spacing.extraSmall),
-            Text(
-              l10n.memoryUserMoodSection,
-              style: typography.titleMedium?.copyWith(
-                fontWeight: FontWeight.w600,
-                color: colors.textPrimary,
+            Flexible(
+              child: Text(
+                l10n.memoryUserMoodSection,
+                style: typography.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: colors.textPrimary,
+                ),
               ),
             ),
           ],
@@ -115,7 +99,7 @@ class DualMoodSelector extends StatelessWidget {
           runSpacing: spacing.small,
           children: MoodConstants.userMoods.map((mood) {
             final isSelected = selectedUserMood == mood;
-            final displayMood = MoodConstants.localizedMood(mood, l10n);
+            final displayMood = getLocalizedUserMood(mood, l10n);
             return _MoodSelectChip(
               label: "♡ $displayMood",
               isSelected: isSelected,
@@ -133,6 +117,7 @@ class DualMoodSelector extends StatelessWidget {
 class _MoodSelectChip extends StatelessWidget {
   final String label;
   final bool isSelected;
+  final Widget? leadingWidget;
   final Color selectedContainerColor;
   final Color selectedContentColor;
   final VoidCallback onClick;
@@ -140,6 +125,7 @@ class _MoodSelectChip extends StatelessWidget {
   const _MoodSelectChip({
     required this.label,
     required this.isSelected,
+    this.leadingWidget,
     required this.selectedContainerColor,
     required this.selectedContentColor,
     required this.onClick,
@@ -164,23 +150,32 @@ class _MoodSelectChip extends StatelessWidget {
       child: Material(
         color: containerColor,
         shape: shapes.fullShape.copyWith(
-          side: BorderSide(color: borderColor, width: 1),
+          side: BorderSide(
+            color: borderColor,
+            width: isSelected ? 1.5 : 1.0,
+          ),
         ),
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: onClick,
-          child: Padding(
+          child: Container(
+            constraints: const BoxConstraints(minHeight: 44),
             padding: EdgeInsets.symmetric(
-              horizontal: spacing.mediumSmall,
-              vertical: spacing.extraSmall + 2,
+              horizontal: leadingWidget != null ? spacing.small : spacing.mediumSmall,
+              vertical: spacing.extraSmall + 1,
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                if (leadingWidget != null) ...[
+                  leadingWidget!,
+                  SizedBox(width: spacing.extraSmall),
+                ],
                 Text(
                   label,
                   style: typography.labelMedium?.copyWith(
-                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
                     color: contentColor,
                   ),
                 ),

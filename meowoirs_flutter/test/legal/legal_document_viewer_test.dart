@@ -197,8 +197,8 @@ void main() {
       expect(find.byTooltip('Back'), findsOneWidget);
     });
 
-    // 8. Bundled legal content renders in SelectableText when loaded successfully
-    testWidgets('8. Bundled legal content renders in SelectableText when loaded successfully', (tester) async {
+    // 8. Bundled legal content renders via LegalTextRenderer when loaded successfully
+    testWidgets('8. Bundled legal content renders via LegalTextRenderer when loaded successfully', (tester) async {
       await tester.pumpWidget(
         createDirectViewerWidget(
           locale: const Locale('tr'),
@@ -209,9 +209,11 @@ void main() {
       await tester.pump();
       await tester.pump();
 
-      expect(find.byType(SelectableText), findsOneWidget);
+      // Content is rendered through LegalTextRenderer (inside SelectionArea)
+      expect(find.byType(SelectionArea), findsOneWidget);
       expect(find.text('LIMANEX Studio Legal'), findsOneWidget);
       expect(find.text(LegalDocument.privacyPolicy.webUrl), findsOneWidget);
+      // The title from the parser should be the first line
       expect(find.text('PRIVACY POLICY LEGAL TEXT CONTENT'), findsOneWidget);
     });
 

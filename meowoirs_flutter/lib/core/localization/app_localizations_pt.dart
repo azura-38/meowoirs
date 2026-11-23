@@ -624,6 +624,10 @@ class AppLocalizationsPt extends AppLocalizations {
       'Opções de privacidade de anúncios não são necessárias na sua região.';
 
   @override
+  String get umpPrivacySubtitle =>
+      'Gerencie suas preferências e permissões de anúncios';
+
+  @override
   String get settingsLanguage => 'Idioma do Aplicativo';
 
   @override
@@ -884,14 +888,18 @@ class AppLocalizationsPt extends AppLocalizations {
       'Li e concordo com a Política de Privacidade.';
 
   @override
-  String get onboardingStep4PrivacyLink => 'Privacy Policy';
+  String get onboardingStep4PrivacyLink => 'Política de Privacidade';
 
   @override
   String get onboardingStep4TermsCheckbox =>
       'Li e concordo com os Termos de Serviço.';
 
   @override
-  String get onboardingStep4TermsLink => 'Terms of Service';
+  String get onboardingStep4TermsLink => 'Termos de Serviço';
+
+  @override
+  String get onboardingStep4CombinedCheckbox =>
+      'Li e concordo com a Política de Privacidade e os Termos de Serviço.';
 
   @override
   String get onboardingStep4Start => 'Start Meowoirs →';
@@ -975,34 +983,34 @@ class AppLocalizationsPt extends AppLocalizations {
   String get semanticsNotSelected => 'not selected';
 
   @override
-  String get moodHappy => 'Happy';
+  String get moodHappy => 'Feliz';
 
   @override
-  String get moodCurious => 'Curious';
+  String get moodCurious => 'Curioso';
 
   @override
-  String get moodSleepy => 'Sleepy';
+  String get moodSleepy => 'Sonolento';
 
   @override
-  String get moodPlayful => 'Playful';
+  String get moodPlayful => 'Brincalhão';
 
   @override
-  String get moodCalm => 'Calm';
+  String get moodCalm => 'Calmo';
 
   @override
-  String get moodAffectionate => 'Affectionate';
+  String get moodAffectionate => 'Carinhoso';
 
   @override
-  String get moodPeaceful => 'Peaceful';
+  String get moodPeaceful => 'Tranquilo';
 
   @override
-  String get moodNostalgic => 'Nostalgic';
+  String get moodNostalgic => 'Nostálgico';
 
   @override
-  String get moodJoyful => 'Joyful';
+  String get moodJoyful => 'Alegre';
 
   @override
-  String get moodEmotional => 'Emotional';
+  String get moodEmotional => 'Emocionado';
 
   @override
   String addMemorySelectDate(String date) {
@@ -1063,4 +1071,132 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get legalTitleLegalDisclaimer => 'Legal Disclaimer';
+
+  @override
+  String get memoriesViewMenuLabel => 'Visualização';
+
+  @override
+  String get memoriesViewMenuSemantic => 'Opções de visualização';
+
+  @override
+  String get memoriesViewModeTiles => 'Mosaicos';
+
+  @override
+  String get memoriesViewModeLargeIcons => 'Ícones grandes';
+
+  @override
+  String get memoriesViewModeSmallIcons => 'Ícones pequenos';
+
+  @override
+  String get memoriesViewModeList => 'Lista';
+
+  @override
+  String get memoriesViewModeContent => 'Conteúdo';
+
+  @override
+  String get profileTryOtherAppsTitle =>
+      'Experimente nossos outros aplicativos';
+
+  @override
+  String get profileTryOtherAppsSubtitle =>
+      'Descubra mais aplicativos da LIMANEX';
+
+  @override
+  String get profileComingSoonTitle => 'Em breve';
+
+  @override
+  String get profileComingSoonSubtitle => 'Veja os próximos recursos';
+
+  @override
+  String get limanexAppsPageTitle => 'Experimente nossos outros aplicativos';
+
+  @override
+  String get limanexStudioBadge => 'LIMANEX STUDIO';
+
+  @override
+  String get limanexStudioWelcome =>
+      'Criado com carinho pela LIMANEX. Descubra outros aplicativos cuidadosamente desenvolvidos pelo nosso estúdio.';
+
+  @override
+  String get vitaCaseAppName => 'VitaCase';
+
+  @override
+  String get vitaCaseTagline => 'Your Personal Health & Wellness Companion';
+
+  @override
+  String get vitaCaseDescription =>
+      'Organize seus documentos médicos, acompanhe consultas e gerencie lembretes diários de medicamentos com privacidade no seu dispositivo.';
+
+  @override
+  String get vitaCaseCtaExplore => 'Explorar VitaCase';
+
+  @override
+  String get vitaCaseLaunchFallbackMessage =>
+      'Não foi possível abrir o link da loja neste dispositivo.';
+
+  @override
+  String get vitaCasePromoPlaceholderLabel => 'Prévia do VitaCase';
+
+  @override
+  String get comingSoonPageTitle => 'Em breve';
+
+  @override
+  String get comingSoonHeaderIntro =>
+      'Novos recursos incríveis estão a caminho para tornar o Meowoirs ainda mais especial!';
+
+  @override
+  String get comingSoonFeature1Title => 'Colagem de memórias';
+
+  @override
+  String get comingSoonFeature1Desc =>
+      'Crie, edite, salve, reabra, exclua e exporte belas colagens de memórias usando de 2 a 6 fotos e três modelos, com título, data e gato associado opcionais.';
+
+  @override
+  String get comingSoonFeature2Title => 'Linha do tempo do gato';
+
+  @override
+  String get comingSoonFeature2Desc =>
+      'Reúna as memórias de um gato em ordem cronológica, com navegação por data, primeiros encontros e momentos importantes.';
+
+  @override
+  String get comingSoonFeature3Title => 'Neste dia';
+
+  @override
+  String get comingSoonFeature3Desc =>
+      'Redescubra memórias salvas na mesma data em anos anteriores, trazendo fotos antigas e momentos significativos de volta à superfície.';
+
+  @override
+  String get comingSoonFeature4Title => 'Nossa história';
+
+  @override
+  String get comingSoonFeature4Desc =>
+      'Uma página de história pessoal com a data em que você conheceu seu gato, marcos significativos, fotos selecionadas e memórias especiais.';
+
+  @override
+  String get comingSoonFeature5Title => 'Lembretes de memórias';
+
+  @override
+  String get comingSoonFeature5Desc =>
+      'Lembretes locais opcionais, preferências de aviso e notificações controladas para revisitar memórias significativas.';
+
+  @override
+  String get comingSoonFeature6Title => 'Melhorias no arquivo';
+
+  @override
+  String get comingSoonFeature6Desc =>
+      'Busca de memórias aprimorada, filtros por data e gato, favoritos e navegação mais rápida pelo arquivo.';
+
+  @override
+  String get comingSoonFeature7Title => 'Designs compartilháveis';
+
+  @override
+  String get comingSoonFeature7Desc =>
+      'Mais layouts de colagem, temas visuais adicionais e formatos de exportação estilo story para compartilhar memórias selecionadas.';
+
+  @override
+  String get comingSoonFeature8Title => 'Ferramentas de arquivo pessoal';
+
+  @override
+  String get comingSoonFeature8Desc =>
+      'Opções locais de exportação e restauração do arquivo, melhoria na integridade de arquivos, gerenciamento de armazenamento e proteção contra perda de dados.';
 }

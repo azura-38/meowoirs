@@ -1,6 +1,9 @@
+import 'dart:io';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/config/app_config.dart';
@@ -9,6 +12,7 @@ import '../../core/localization/supported_languages.dart';
 import '../../core/theme/meowoirs_theme.dart';
 import '../../data/providers/database_provider.dart';
 import '../../services/ads/ad_manager.dart';
+import '../../services/crashlytics/crashlytics_service.dart';
 import '../../widgets/meowoirs_card.dart';
 import '../../widgets/subtle_motion.dart';
 import '../debug/debug_center_screen.dart';
@@ -16,8 +20,8 @@ import '../legal/legal_document.dart';
 import '../legal/legal_document_viewer.dart';
 import 'debug_tap_detector.dart';
 
-/// SettingsScreen: Appearance, Privacy & Legal, Language, Reach Us, and App Info.
-/// Direct parity with SettingsScreen.kt.
+/// SettingsScreen: Appearance, Privacy & Legal, Language, Reach Us, and Application Info.
+/// Redesigned to reflect the premium personal cat memory archive aesthetic.
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({
     super.key,
@@ -36,11 +40,12 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   @override
   void initState() {
     super.initState();
-    _debugTapDetector = DebugTapDetector(requiredTaps: 10, windowMillis: 4000);
+    // 7 taps within 5000ms for hidden release-safe debug access
+    _debugTapDetector = DebugTapDetector(requiredTaps: 7, windowMillis: 5000);
   }
 
   void _handleAppInfoTap(AppLocalizations loc) {
-    if (!kDebugMode || !AppConfig.meowoirsDebugPanelEnabled) return;
+    if (!AppConfig.meowoirsDebugPanelEnabled) return;
 
     final isUnlocked = _debugTapDetector.onUserTap();
     if (isUnlocked) {
@@ -48,6 +53,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         SnackBar(
           content: Text(loc.debugPanelUnlocked),
           duration: const Duration(seconds: 2),
+          backgroundColor: context.meowoirsColors.orange,
         ),
       );
       Navigator.of(context).push(
@@ -59,10 +65,21 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   }
 
   void _showThemeDialog(AppThemeMode currentMode, AppLocalizations loc) {
+    final colors = context.meowoirsColors;
+    final shapes = context.meowoirsShapes;
+
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text(loc.settingsTheme),
+        backgroundColor: Theme.of(context).cardColor,
+        shape: RoundedRectangleBorder(borderRadius: shapes.extraLargeRadius),
+        title: Text(
+          loc.settingsTheme,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: colors.textPrimary,
+          ),
+        ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -101,7 +118,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: Text(loc.profileCancel),
+            child: Text(
+              loc.profileCancel,
+              style: TextStyle(color: colors.orange),
+            ),
           ),
         ],
       ),
@@ -109,10 +129,21 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   }
 
   void _showLanguageDialog(String currentLangCode, AppLocalizations loc) {
+    final colors = context.meowoirsColors;
+    final shapes = context.meowoirsShapes;
+
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text(loc.settingsLanguage),
+        backgroundColor: Theme.of(context).cardColor,
+        shape: RoundedRectangleBorder(borderRadius: shapes.extraLargeRadius),
+        title: Text(
+          loc.settingsLanguage,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: colors.textPrimary,
+          ),
+        ),
         content: SizedBox(
           width: double.maxFinite,
           child: ListView.builder(
@@ -123,19 +154,19 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               final isSelected = lang.code == currentLangCode;
 
               return ListTile(
+                shape: RoundedRectangleBorder(
+                  borderRadius: shapes.mediumRadius,
+                ),
                 title: Text(
                   lang.displayName,
                   style: TextStyle(
                     fontWeight:
                         isSelected ? FontWeight.bold : FontWeight.normal,
-                    color: isSelected
-                        ? Theme.of(context).colorScheme.primary
-                        : null,
+                    color: isSelected ? colors.orange : colors.textPrimary,
                   ),
                 ),
                 trailing: isSelected
-                    ? Icon(Icons.check,
-                        color: Theme.of(context).colorScheme.primary)
+                    ? Icon(Icons.check, color: colors.orange)
                     : null,
                 onTap: () {
                   ref
@@ -150,7 +181,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: Text(loc.profileCancel),
+            child: Text(
+              loc.profileCancel,
+              style: TextStyle(color: colors.orange),
+            ),
           ),
         ],
       ),
@@ -159,14 +193,28 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   void _showReachUsDialog(AppLocalizations loc) {
     final colors = context.meowoirsColors;
+    final shapes = context.meowoirsShapes;
 
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        icon: Icon(Icons.mail_outline, size: 32, color: colors.orange),
+        backgroundColor: Theme.of(context).cardColor,
+        shape: RoundedRectangleBorder(borderRadius: shapes.extraLargeRadius),
+        icon: Container(
+          width: 52,
+          height: 52,
+          decoration: BoxDecoration(
+            color: colors.accentOrangeContainer,
+            shape: BoxShape.circle,
+          ),
+          child: Icon(Icons.mail_outline, size: 28, color: colors.orange),
+        ),
         title: Text(
           loc.reachUsThankYouTitle,
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: colors.textPrimary,
+          ),
           textAlign: TextAlign.center,
         ),
         content: Column(
@@ -175,7 +223,11 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           children: [
             Text(
               loc.reachUsThankYouDesc,
-              style: TextStyle(color: colors.textSecondary),
+              style: TextStyle(
+                color: colors.textSecondary,
+                fontSize: 13,
+                height: 1.5,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
@@ -183,7 +235,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: colors.orange,
                 foregroundColor: Colors.white,
-                minimumSize: const Size(double.infinity, 44),
+                shape: RoundedRectangleBorder(
+                  borderRadius: shapes.mediumRadius,
+                ),
+                minimumSize: const Size(double.infinity, 46),
               ),
               onPressed: () {
                 Navigator.of(dialogContext).pop();
@@ -194,15 +249,16 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             const SizedBox(height: 10),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 44),
+                foregroundColor: colors.textPrimary,
+                side: BorderSide(color: colors.cardBorder),
+                shape: RoundedRectangleBorder(
+                  borderRadius: shapes.mediumRadius,
+                ),
+                minimumSize: const Size(double.infinity, 46),
               ),
-              onPressed: () {
+              onPressed: () async {
                 Navigator.of(dialogContext).pop();
-                _sendEmail(
-                  'Meowoirs Bug Report',
-                  'App Version: ${AppConfig.versionName} (${AppConfig.versionCode})\nDevice: \n\nDescription of issue:\n',
-                  loc,
-                );
+                await _handleBugReport(loc);
               },
               child: Text(loc.reachUsActionBug),
             ),
@@ -212,21 +268,97 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 Navigator.of(dialogContext).pop();
                 _sendEmail('Meowoirs Contact', '', loc);
               },
-              child: Text(loc.reachUsActionContact),
+              child: Text(
+                loc.reachUsActionContact,
+                style: TextStyle(color: colors.orange),
+              ),
             ),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: Text(loc.legalDocumentClose),
+            child: Text(
+              loc.legalDocumentClose,
+              style: TextStyle(color: colors.textSecondary),
+            ),
           ),
         ],
       ),
     );
   }
 
-  Future<void> _sendEmail(String subject, String body, AppLocalizations loc) async {
+  Future<void> _handleBugReport(AppLocalizations loc) async {
+    String manufacturer = 'Unknown';
+    String model = 'Unknown';
+    String osVersion = Platform.operatingSystemVersion;
+
+    try {
+      final deviceInfo = DeviceInfoPlugin();
+      if (Platform.isAndroid) {
+        final androidInfo = await deviceInfo.androidInfo;
+        manufacturer = androidInfo.manufacturer;
+        model = androidInfo.model;
+        osVersion =
+            'Android ${androidInfo.version.release} (SDK ${androidInfo.version.sdkInt})';
+      } else if (Platform.isIOS) {
+        final iosInfo = await deviceInfo.iosInfo;
+        manufacturer = 'Apple';
+        model = iosInfo.utsname.machine;
+        osVersion = '${iosInfo.systemName} ${iosInfo.systemVersion}';
+      }
+    } catch (_) {
+      // Fallback to platform properties
+    }
+
+    final crashService = CrashlyticsService.instance;
+    final lastErrorType = crashService.lastErrorType ?? 'None';
+    final lastErrorMsg =
+        crashService.lastErrorMessage ?? 'No recent crash recorded';
+    final lastErrorTime =
+        crashService.lastErrorTimestamp?.toIso8601String() ?? 'None';
+
+    final adManager = AdManager.instance;
+    final adMobInitialized = adManager.isMobileAdsInitialized ? 'YES' : 'NO';
+    final canRequestAds = adManager.canRequestAds ? 'YES' : 'NO';
+    final bannerState = adManager.bannerState.name;
+
+    String umpState = 'Unknown';
+    if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
+      try {
+        final consentStatus =
+            await ConsentInformation.instance.getConsentStatus();
+        umpState = consentStatus.name;
+      } catch (_) {}
+    }
+
+    final body = StringBuffer()
+      ..writeln('App Version: ${AppConfig.versionName}')
+      ..writeln('Build: ${AppConfig.versionCode}')
+      ..writeln('Platform: ${Platform.operatingSystem}')
+      ..writeln('Device Manufacturer: $manufacturer')
+      ..writeln('Device Model: $model')
+      ..writeln('OS Version: $osVersion')
+      ..writeln()
+      ..writeln('Last Error:')
+      ..writeln('Error Type: $lastErrorType')
+      ..writeln('Error Message: $lastErrorMsg')
+      ..writeln('Timestamp: $lastErrorTime')
+      ..writeln()
+      ..writeln('AdMob:')
+      ..writeln('Initialized: $adMobInitialized')
+      ..writeln('canRequestAds: $canRequestAds')
+      ..writeln('Banner State: $bannerState')
+      ..writeln('UMP Consent State: $umpState')
+      ..writeln()
+      ..writeln('Description of issue:')
+      ..writeln();
+
+    await _sendEmail('Meowoirs Bug Report', body.toString(), loc);
+  }
+
+  Future<void> _sendEmail(
+      String subject, String body, AppLocalizations loc) async {
     final uri = Uri(
       scheme: 'mailto',
       path: AppConfig.supportEmail,
@@ -290,6 +422,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       appBar: AppBar(
         backgroundColor: colors.cream,
         elevation: 0,
+        scrolledUnderElevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: colors.textPrimary),
           tooltip: loc.actionBack,
@@ -299,6 +432,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           loc.settingsTitle,
           style: TextStyle(
             fontWeight: FontWeight.bold,
+            fontSize: 20,
             color: colors.textPrimary,
           ),
         ),
@@ -306,11 +440,15 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       body: SafeArea(
         child: SubtleContentEntrance(
           child: ListView(
-            padding: EdgeInsets.all(spacing.medium),
+            padding: EdgeInsets.symmetric(
+              horizontal: spacing.medium,
+              vertical: spacing.small,
+            ),
             children: [
               // 1. Görünüm (Appearance)
               _SettingsSection(
                 title: loc.settingsAppearance,
+                icon: Icons.palette_outlined,
                 children: [
                   _SettingsRow(
                     icon: Icons.color_lens_outlined,
@@ -322,9 +460,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               ),
               SizedBox(height: spacing.large),
 
-              // 2. Gizlilik ve Yasal (Privacy & Legal)
+              // 2. Gizlilik ve Yasal (Privacy & Legal) — STRICTLY ONLY 3 PRIMARY DOCUMENTS
               _SettingsSection(
                 title: loc.settingsPrivacyLegal,
+                icon: Icons.shield_outlined,
                 children: [
                   _SettingsRow(
                     icon: Icons.privacy_tip_outlined,
@@ -334,7 +473,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       LegalDocument.privacyPolicy,
                     ),
                   ),
-                  Divider(color: colors.cardBorder, height: 1),
+                  Divider(color: colors.cardBorder, height: 1, indent: 56),
                   _SettingsRow(
                     icon: Icons.policy_outlined,
                     label: loc.settingsTermsOfService,
@@ -343,34 +482,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       LegalDocument.termsOfService,
                     ),
                   ),
-                  Divider(color: colors.cardBorder, height: 1),
-                  _SettingsRow(
-                    icon: Icons.info_outline,
-                    label: loc.legalDataDeletion,
-                    onTap: () => LegalDocumentViewerDialog.show(
-                      context,
-                      LegalDocument.dataDeletion,
-                    ),
-                  ),
-                  Divider(color: colors.cardBorder, height: 1),
-                  _SettingsRow(
-                    icon: Icons.shield_outlined,
-                    label: loc.legalThirdParty,
-                    onTap: () => LegalDocumentViewerDialog.show(
-                      context,
-                      LegalDocument.thirdPartyServices,
-                    ),
-                  ),
-                  Divider(color: colors.cardBorder, height: 1),
-                  _SettingsRow(
-                    icon: Icons.security_outlined,
-                    label: loc.legalAdvertisingConsent,
-                    onTap: () => LegalDocumentViewerDialog.show(
-                      context,
-                      LegalDocument.advertisingAndConsent,
-                    ),
-                  ),
-                  Divider(color: colors.cardBorder, height: 1),
+                  Divider(color: colors.cardBorder, height: 1, indent: 56),
                   _SettingsRow(
                     icon: Icons.gavel_outlined,
                     label: loc.legalDisclaimer,
@@ -379,25 +491,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       LegalDocument.legalDisclaimer,
                     ),
                   ),
-                  Divider(color: colors.cardBorder, height: 1),
-                  _SettingsRow(
-                    icon: Icons.security_outlined,
-                    label: loc.settingsAdPrivacy,
-                    onTap: () {
-                      AdManager.instance.showPrivacyOptions(
-                        onComplete: (isAvailable, error) {
-                          if (!isAvailable && mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(loc.umpNotRequired),
-                                duration: const Duration(seconds: 2),
-                              ),
-                            );
-                          }
-                        },
-                      );
-                    },
-                  ),
                 ],
               ),
               SizedBox(height: spacing.large),
@@ -405,9 +498,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               // 3. Dil (Language)
               _SettingsSection(
                 title: loc.settingsLanguage,
+                icon: Icons.language_outlined,
                 children: [
                   _SettingsRow(
-                    icon: Icons.language_outlined,
+                    icon: Icons.translate_outlined,
                     label: loc.settingsAppLanguage,
                     value: currentLang,
                     onTap: () => _showLanguageDialog(currentLangCode, loc),
@@ -419,9 +513,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               // 4. Bize Ulaşın (Reach Us)
               _SettingsSection(
                 title: loc.settingsReachUs,
+                icon: Icons.support_agent_outlined,
                 children: [
                   _SettingsRow(
-                    icon: Icons.mail_outline,
+                    icon: Icons.chat_bubble_outline,
                     label: loc.settingsReachUs,
                     onTap: () => _showReachUsDialog(loc),
                   ),
@@ -429,64 +524,72 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               ),
               SizedBox(height: spacing.large),
 
-              // 5. Uygulama Bilgisi (Application & Debug Tap Detector)
+              // 5. Uygulama Bilgisi (Application & Hidden 7-Tap Debug Detector)
               _SettingsSection(
                 title: loc.settingsApp,
+                icon: Icons.info_outline,
                 children: [
-                  InkWell(
-                    onTap: () => _handleAppInfoTap(loc),
-                    borderRadius: shapes.largeRadius,
-                    child: Padding(
-                      padding: EdgeInsets.all(spacing.medium),
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 44,
-                            height: 44,
-                            decoration: BoxDecoration(
-                              color: colors.accentOrangeContainer,
-                              borderRadius: shapes.mediumRadius,
-                            ),
-                            child: Icon(
-                              Icons.pets_outlined,
-                              size: 24,
-                              color: colors.orange,
-                            ),
-                          ),
-                          SizedBox(width: spacing.medium),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Meowoirs',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleMedium
-                                      ?.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                        color: colors.textPrimary,
-                                      ),
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () => _handleAppInfoTap(loc),
+                      borderRadius: shapes.largeRadius,
+                      child: Padding(
+                        padding: EdgeInsets.all(spacing.medium),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 48,
+                              height: 48,
+                              decoration: BoxDecoration(
+                                color: colors.accentOrangeContainer,
+                                borderRadius: shapes.mediumRadius,
+                                border: Border.all(
+                                  color: colors.orange.withValues(alpha: 0.2),
                                 ),
-                                Text(
-                                  versionString,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall
-                                      ?.copyWith(
-                                        color: colors.textSecondary,
-                                      ),
-                                ),
-                              ],
+                              ),
+                              child: Icon(
+                                Icons.pets,
+                                size: 26,
+                                color: colors.orange,
+                              ),
                             ),
-                          ),
-                        ],
+                            SizedBox(width: spacing.medium),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Meowoirs',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(
+                                          fontWeight: FontWeight.bold,
+                                          color: colors.textPrimary,
+                                        ),
+                                  ),
+                                  SizedBox(height: spacing.xxSmall),
+                                  Text(
+                                    versionString,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall
+                                        ?.copyWith(
+                                          color: colors.textSecondary,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: spacing.large),
+              SizedBox(height: spacing.extraLarge),
             ],
           ),
         ),
@@ -498,10 +601,12 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 class _SettingsSection extends StatelessWidget {
   const _SettingsSection({
     required this.title,
+    required this.icon,
     required this.children,
   });
 
   final String title;
+  final IconData icon;
   final List<Widget> children;
 
   @override
@@ -514,24 +619,33 @@ class _SettingsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: spacing.extraSmall),
-          child: Semantics(
-            header: true,
-            child: Text(
-              title,
-              style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: colors.orange,
-                  ),
-            ),
+          padding: EdgeInsets.only(left: spacing.small, bottom: spacing.small),
+          child: Row(
+            children: [
+              Icon(icon, size: 16, color: colors.orange),
+              SizedBox(width: spacing.extraSmall),
+              Semantics(
+                header: true,
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 0.5,
+                        color: colors.orange,
+                      ),
+                ),
+              ),
+            ],
           ),
         ),
-        SizedBox(height: spacing.small),
         MeowoirsCard(
           shape: shapes.largeShape,
           padding: EdgeInsets.zero,
-          child: Column(
-            children: children,
+          child: ClipRRect(
+            borderRadius: shapes.largeRadius,
+            child: Column(
+              children: children,
+            ),
           ),
         ),
       ],
@@ -561,37 +675,49 @@ class _SettingsRow extends StatelessWidget {
     return Semantics(
       button: true,
       label: value != null ? '$label, $value' : label,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: shapes.largeRadius,
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: spacing.medium,
-            vertical: spacing.medium,
-          ),
-          child: Row(
-            children: [
-              Icon(icon, size: 22, color: colors.textSecondary),
-              SizedBox(width: spacing.medium),
-              Expanded(
-                child: Text(
-                  label,
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: colors.textPrimary,
-                      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: shapes.largeRadius,
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: spacing.medium,
+              vertical: spacing.medium,
+            ),
+            child: Row(
+              children: [
+                Container(
+                  width: 36,
+                  height: 36,
+                  decoration: BoxDecoration(
+                    color: colors.surfaceContainer,
+                    borderRadius: shapes.smallRadius,
+                  ),
+                  child: Icon(icon, size: 20, color: colors.sage),
                 ),
-              ),
-              if (value != null) ...[
-                Text(
-                  value!,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: colors.textSecondary,
-                      ),
+                SizedBox(width: spacing.medium),
+                Expanded(
+                  child: Text(
+                    label,
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: colors.textPrimary,
+                        ),
+                  ),
                 ),
-                SizedBox(width: spacing.extraSmall),
+                if (value != null) ...[
+                  Text(
+                    value!,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: colors.textSecondary,
+                        ),
+                  ),
+                  SizedBox(width: spacing.extraSmall),
+                ],
+                Icon(Icons.chevron_right, size: 20, color: colors.textTertiary),
               ],
-              Icon(Icons.chevron_right, size: 20, color: colors.textTertiary),
-            ],
+            ),
           ),
         ),
       ),
@@ -612,13 +738,21 @@ class _ThemeOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.meowoirsColors;
+    final shapes = context.meowoirsShapes;
+
     return Semantics(
       selected: isSelected,
       child: ListTile(
-        title: Text(label),
-        trailing: isSelected
-            ? Icon(Icons.check, color: Theme.of(context).colorScheme.primary)
-            : null,
+        shape: RoundedRectangleBorder(borderRadius: shapes.mediumRadius),
+        title: Text(
+          label,
+          style: TextStyle(
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+            color: isSelected ? colors.orange : colors.textPrimary,
+          ),
+        ),
+        trailing: isSelected ? Icon(Icons.check, color: colors.orange) : null,
         onTap: onTap,
       ),
     );

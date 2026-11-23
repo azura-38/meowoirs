@@ -1182,6 +1182,12 @@ abstract class AppLocalizations {
   /// **'Ad privacy options are not required for your region or current session.'**
   String get umpNotRequired;
 
+  /// subtitle for UMP privacy options card
+  ///
+  /// In en, this message translates to:
+  /// **'Manage ad preferences and permissions'**
+  String get umpPrivacySubtitle;
+
   /// settings language
   ///
   /// In en, this message translates to:
@@ -1674,6 +1680,12 @@ abstract class AppLocalizations {
   /// **'Terms of Service'**
   String get onboardingStep4TermsLink;
 
+  /// onboarding step4 combined legal acceptance checkbox
+  ///
+  /// In en, this message translates to:
+  /// **'I have read and agree to the Privacy Policy and Terms of Service.'**
+  String get onboardingStep4CombinedCheckbox;
+
   /// onboarding step4 start
   ///
   /// In en, this message translates to:
@@ -1979,6 +1991,234 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Legal Disclaimer'**
   String get legalTitleLegalDisclaimer;
+
+  /// Label for the memories view menu
+  ///
+  /// In en, this message translates to:
+  /// **'View'**
+  String get memoriesViewMenuLabel;
+
+  /// Accessibility semantic for the memories view menu
+  ///
+  /// In en, this message translates to:
+  /// **'View options'**
+  String get memoriesViewMenuSemantic;
+
+  /// Tiles view mode
+  ///
+  /// In en, this message translates to:
+  /// **'Tiles'**
+  String get memoriesViewModeTiles;
+
+  /// Large Icons view mode
+  ///
+  /// In en, this message translates to:
+  /// **'Large Icons'**
+  String get memoriesViewModeLargeIcons;
+
+  /// Small Icons view mode
+  ///
+  /// In en, this message translates to:
+  /// **'Small Icons'**
+  String get memoriesViewModeSmallIcons;
+
+  /// List view mode
+  ///
+  /// In en, this message translates to:
+  /// **'List'**
+  String get memoriesViewModeList;
+
+  /// Content view mode
+  ///
+  /// In en, this message translates to:
+  /// **'Content'**
+  String get memoriesViewModeContent;
+
+  /// No description provided for @profileTryOtherAppsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Our Other Apps'**
+  String get profileTryOtherAppsTitle;
+
+  /// No description provided for @profileTryOtherAppsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover more apps from LIMANEX'**
+  String get profileTryOtherAppsSubtitle;
+
+  /// No description provided for @profileComingSoonTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming Soon'**
+  String get profileComingSoonTitle;
+
+  /// No description provided for @profileComingSoonSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'See upcoming features'**
+  String get profileComingSoonSubtitle;
+
+  /// No description provided for @limanexAppsPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Our Other Apps'**
+  String get limanexAppsPageTitle;
+
+  /// No description provided for @limanexStudioBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'LIMANEX STUDIO'**
+  String get limanexStudioBadge;
+
+  /// No description provided for @limanexStudioWelcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Crafted with care by LIMANEX. Discover other thoughtful applications from our studio.'**
+  String get limanexStudioWelcome;
+
+  /// No description provided for @vitaCaseAppName.
+  ///
+  /// In en, this message translates to:
+  /// **'VitaCase'**
+  String get vitaCaseAppName;
+
+  /// No description provided for @vitaCaseTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Personal Health & Wellness Companion'**
+  String get vitaCaseTagline;
+
+  /// No description provided for @vitaCaseDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Organize your medical documents, track appointments, and manage daily medication reminders privately on your device.'**
+  String get vitaCaseDescription;
+
+  /// No description provided for @vitaCaseCtaExplore.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore VitaCase'**
+  String get vitaCaseCtaExplore;
+
+  /// No description provided for @vitaCaseLaunchFallbackMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open the store link on this device.'**
+  String get vitaCaseLaunchFallbackMessage;
+
+  /// No description provided for @vitaCasePromoPlaceholderLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'VitaCase Preview'**
+  String get vitaCasePromoPlaceholderLabel;
+
+  /// No description provided for @comingSoonPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming Soon'**
+  String get comingSoonPageTitle;
+
+  /// No description provided for @comingSoonHeaderIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Exciting new features are on the way to make Meowoirs even more special!'**
+  String get comingSoonHeaderIntro;
+
+  /// No description provided for @comingSoonFeature1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Memory Collage'**
+  String get comingSoonFeature1Title;
+
+  /// No description provided for @comingSoonFeature1Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Create, edit, save, reopen, delete, and export beautiful memory collages using 2–6 photos and three templates, with optional title, date, and cat association.'**
+  String get comingSoonFeature1Desc;
+
+  /// No description provided for @comingSoonFeature2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Cat Timeline'**
+  String get comingSoonFeature2Title;
+
+  /// No description provided for @comingSoonFeature2Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Bring a cat\'s memories together in chronological order, with date-based navigation, first encounters, and important moments.'**
+  String get comingSoonFeature2Desc;
+
+  /// No description provided for @comingSoonFeature3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'On This Day'**
+  String get comingSoonFeature3Title;
+
+  /// No description provided for @comingSoonFeature3Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Rediscover memories saved on the same date in previous years, bringing old photos and meaningful moments back to the surface.'**
+  String get comingSoonFeature3Desc;
+
+  /// No description provided for @comingSoonFeature4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Our Story'**
+  String get comingSoonFeature4Title;
+
+  /// No description provided for @comingSoonFeature4Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'A personal story page featuring the date a user met their cat, meaningful milestones, selected photos, and special memories.'**
+  String get comingSoonFeature4Desc;
+
+  /// No description provided for @comingSoonFeature5Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Memory Reminders'**
+  String get comingSoonFeature5Title;
+
+  /// No description provided for @comingSoonFeature5Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional local reminders, reminder preferences, and controlled notifications to revisit meaningful memories.'**
+  String get comingSoonFeature5Desc;
+
+  /// No description provided for @comingSoonFeature6Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive Improvements'**
+  String get comingSoonFeature6Title;
+
+  /// No description provided for @comingSoonFeature6Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Improved memory search, date and cat filters, favorites, and faster archive navigation.'**
+  String get comingSoonFeature6Desc;
+
+  /// No description provided for @comingSoonFeature7Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Shareable Memory Designs'**
+  String get comingSoonFeature7Title;
+
+  /// No description provided for @comingSoonFeature7Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'More collage layouts, additional visual themes, and story-style export formats for sharing selected memories.'**
+  String get comingSoonFeature7Desc;
+
+  /// No description provided for @comingSoonFeature8Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Archive Tools'**
+  String get comingSoonFeature8Title;
+
+  /// No description provided for @comingSoonFeature8Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore local archive export and restore options, improve file integrity, storage management, and protection against data loss.'**
+  String get comingSoonFeature8Desc;
 }
 
 class _AppLocalizationsDelegate

@@ -616,6 +616,9 @@ class AppLocalizationsTr extends AppLocalizations {
       'Reklam gizlilik seçenekleri bölgeniz veya mevcut oturumunuz için gerekli değildir.';
 
   @override
+  String get umpPrivacySubtitle => 'Reklam izinlerini ve tercihlerini yönet';
+
+  @override
   String get settingsLanguage => 'Dil';
 
   @override
@@ -885,6 +888,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get onboardingStep4TermsLink => 'Kullanım Koşulları';
 
   @override
+  String get onboardingStep4CombinedCheckbox =>
+      'Gizlilik Politikası\'nı ve Kullanım Koşulları\'nı okudum ve kabul ediyorum.';
+
+  @override
   String get onboardingStep4Start => 'Meowoirs\'e Başla →';
 
   @override
@@ -1048,4 +1055,131 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get legalTitleLegalDisclaimer => 'Yasal Uyarı';
+
+  @override
+  String get memoriesViewMenuLabel => 'Görünüm';
+
+  @override
+  String get memoriesViewMenuSemantic => 'Görünüm seçenekleri';
+
+  @override
+  String get memoriesViewModeTiles => 'Döşeme';
+
+  @override
+  String get memoriesViewModeLargeIcons => 'Büyük Simgeler';
+
+  @override
+  String get memoriesViewModeSmallIcons => 'Küçük Simgeler';
+
+  @override
+  String get memoriesViewModeList => 'Liste';
+
+  @override
+  String get memoriesViewModeContent => 'İçerik';
+
+  @override
+  String get profileTryOtherAppsTitle => 'Diğer Uygulamalarımızı Deneyin';
+
+  @override
+  String get profileTryOtherAppsSubtitle => 'LIMANEX uygulamalarını keşfedin';
+
+  @override
+  String get profileComingSoonTitle => 'Yakında';
+
+  @override
+  String get profileComingSoonSubtitle =>
+      'Yakında gelecek özellikleri keşfedin';
+
+  @override
+  String get limanexAppsPageTitle => 'Diğer Uygulamalarımızı Deneyin';
+
+  @override
+  String get limanexStudioBadge => 'LIMANEX STUDIO';
+
+  @override
+  String get limanexStudioWelcome =>
+      'LIMANEX tarafından özenle geliştirildi. Stüdyomuzun diğer özenli uygulamalarını keşfedin.';
+
+  @override
+  String get vitaCaseAppName => 'VitaCase';
+
+  @override
+  String get vitaCaseTagline => 'Your Personal Health & Wellness Companion';
+
+  @override
+  String get vitaCaseDescription =>
+      'Tıbbi belgelerinizi düzenleyin, randevularınızı takip edin ve günlük ilaç hatırlatıcılarınızı cihazınızda güvenle yönetin.';
+
+  @override
+  String get vitaCaseCtaExplore => 'VitaCase\'i Keşfet';
+
+  @override
+  String get vitaCaseLaunchFallbackMessage =>
+      'Mağaza bağlantısı bu cihazda açılamadı.';
+
+  @override
+  String get vitaCasePromoPlaceholderLabel => 'VitaCase Önizlemesi';
+
+  @override
+  String get comingSoonPageTitle => 'Yakında';
+
+  @override
+  String get comingSoonHeaderIntro =>
+      'Meowoirs\'i daha da özel hale getirecek yeni özellikler yolda!';
+
+  @override
+  String get comingSoonFeature1Title => 'Anı Kolajı';
+
+  @override
+  String get comingSoonFeature1Desc =>
+      '2–6 fotoğraf ve üç farklı şablon kullanarak isteğe bağlı başlık, tarih ve kedi eşleştirmesiyle güzel anı kolajları oluşturun, düzenleyin, kaydedin, yeniden açın, silin ve dışa aktarın.';
+
+  @override
+  String get comingSoonFeature2Title => 'Kedi Hikâyesi';
+
+  @override
+  String get comingSoonFeature2Desc =>
+      'Bir kedinin anılarını tarih bazlı gezinme, ilk karşılaşmalar ve önemli anlarla kronolojik sırayla bir araya getirin.';
+
+  @override
+  String get comingSoonFeature3Title => 'Bu Günün Anısı';
+
+  @override
+  String get comingSoonFeature3Desc =>
+      'Önceki yıllarda aynı tarihte kaydedilen anıları yeniden keşfedin; eski fotoğrafları ve anlamlı anları tekrar gün yüzüne çıkarın.';
+
+  @override
+  String get comingSoonFeature4Title => 'Bizim Hikâyemiz';
+
+  @override
+  String get comingSoonFeature4Desc =>
+      'Kedinizle tanıştığınız tarihi, anlamlı dönüm noktalarını, seçilmiş fotoğrafları ve özel anıları içeren kişisel bir hikâye sayfası.';
+
+  @override
+  String get comingSoonFeature5Title => 'Anı Hatırlatmaları';
+
+  @override
+  String get comingSoonFeature5Desc =>
+      'Anlamlı anıları yeniden ziyaret etmek için isteğe bağlı yerel hatırlatıcılar, hatırlatma tercihleri ve kontrollü bildirimler.';
+
+  @override
+  String get comingSoonFeature6Title => 'Anı Arşivi İyileştirmeleri';
+
+  @override
+  String get comingSoonFeature6Desc =>
+      'Gelişmiş anı arama, tarih ve kedi filtreleri, favoriler ve daha hızlı arşiv gezinmesi.';
+
+  @override
+  String get comingSoonFeature7Title => 'Paylaşılabilir Anı Tasarımları';
+
+  @override
+  String get comingSoonFeature7Desc =>
+      'Seçilen anıları paylaşmak için daha fazla kolaj düzeni, ek görsel temalar ve hikâye tarzı dışa aktarma formatları.';
+
+  @override
+  String get comingSoonFeature8Title => 'Kişisel Arşiv Araçları';
+
+  @override
+  String get comingSoonFeature8Desc =>
+      'Yerel arşiv dışa aktarma ve geri yükleme seçeneklerini keşfedin; dosya bütünlüğünü, depolama yönetimini ve veri kaybına karşı korumayı güçlendirin.';
 }

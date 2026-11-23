@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../core/localization/app_localizations.dart';
 import '../core/theme/meowoirs_theme.dart';
 import '../data/models/memory.dart';
+import '../features/memories/mood_helper.dart';
 import 'meowoirs_chip.dart';
 
 /// Editorial MemoryCard: Priority on photo, cat name, personal note, moods, and date.
@@ -108,23 +109,35 @@ class MemoryCard extends StatelessWidget {
                   SizedBox(height: spacing.mediumSmall),
 
                   // Mood Indicators & Context
-                  if ((memory.catMood != null && memory.catMood!.isNotEmpty) ||
-                      (memory.userMood != null && memory.userMood!.isNotEmpty)) ...[
-                    Wrap(
-                      spacing: spacing.small,
-                      runSpacing: spacing.extraSmall,
-                      children: [
-                        if (memory.catMood != null && memory.catMood!.isNotEmpty)
-                          MeowoirsChip(
-                            label: memory.catMood!,
-                            isSelected: true,
-                          ),
-                        if (memory.userMood != null && memory.userMood!.isNotEmpty)
-                          MeowoirsChip(
-                            label: '♡ ${memory.userMood!}',
-                            isSelected: false,
-                          ),
-                      ],
+                  if ((memory.catMood != null && memory.catMood!.trim().isNotEmpty) ||
+                      (memory.userMood != null && memory.userMood!.trim().isNotEmpty)) ...[
+                    Builder(
+                      builder: (context) {
+                        final catMoodSticker = CatMoodStickerMapper.buildSticker(
+                          mood: memory.catMood,
+                          size: 24.0,
+                          isDecorative: true,
+                        );
+                        return Wrap(
+                          spacing: spacing.small,
+                          runSpacing: spacing.extraSmall,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            if (memory.catMood != null && memory.catMood!.trim().isNotEmpty) ...[
+                              if (catMoodSticker != null) catMoodSticker,
+                              MeowoirsChip(
+                                label: getLocalizedCatMood(memory.catMood, l10n),
+                                isSelected: true,
+                              ),
+                            ],
+                            if (memory.userMood != null && memory.userMood!.trim().isNotEmpty)
+                              MeowoirsChip(
+                                label: '♡ ${getLocalizedUserMood(memory.userMood, l10n)}',
+                                isSelected: false,
+                              ),
+                          ],
+                        );
+                      },
                     ),
                     SizedBox(height: spacing.small),
                   ],

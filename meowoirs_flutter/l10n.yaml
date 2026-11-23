@@ -4,3 +4,5 @@ output-localization-file: app_localizations.dart
 output-class: AppLocalizations
 output-dir: lib/core/localization
 nullable-getter: false
+suppress-warnings: true
+untranslated-messages-file: untranslated_messages.json

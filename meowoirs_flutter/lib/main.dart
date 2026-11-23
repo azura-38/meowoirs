@@ -38,7 +38,6 @@ Future<void> main() async {
   AdManager.instance.setLaunchCounterManager(launchCounter);
   final sessionId = const Uuid().v4();
   launchCounter.recordGenuineLaunch(sessionId);
-  AdManager.instance.requestConsentAndInitialize();
 
   // Initialize local SQLite database
   final db = MeowoirsDatabase();
@@ -58,6 +57,12 @@ Future<void> main() async {
       child: const MeowoirsApp(),
     ),
   );
+
+  // Schedule UMP consent & AdMob SDK initialization after the first frame
+  // so Android Activity attachment to GoogleMobileAdsPlugin is guaranteed.
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    AdManager.instance.requestConsentAndInitialize();
+  });
 }
 
 class MeowoirsApp extends ConsumerWidget {

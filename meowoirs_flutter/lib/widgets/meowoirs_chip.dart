@@ -65,12 +65,16 @@ class MeowoirsChip extends StatelessWidget {
                   icon!,
                   SizedBox(width: spacing.extraSmall),
                 ],
-                Text(
-                  label,
-                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                        color: targetContentColor,
-                        fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-                      ),
+                Flexible(
+                  child: Text(
+                    label,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                          color: targetContentColor,
+                          fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
+                        ),
+                  ),
                 ),
               ],
             ),
@@ -156,12 +160,16 @@ class MeowoirsMoodChip extends StatelessWidget {
                 ),
               ),
               SizedBox(width: spacing.small),
-              Text(
-                label,
-                style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                      color: tintColor,
-                      fontWeight: FontWeight.w600,
-                    ),
+              Flexible(
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                        color: tintColor,
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
               ),
             ],
           ),

@@ -1,11 +1,19 @@
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../core/localization/app_localizations.dart';
 import '../../core/theme/meowoirs_theme.dart';
+import '../../services/ads/ad_manager.dart';
 import 'legal_document.dart';
+import 'legal_text_parser.dart';
+import 'legal_text_renderer.dart';
 
-/// Modal popup overlay legal document viewer dialog.
-/// Displays local plain-text legal assets within a floating centered modal
-/// without full-screen navigation takeover.
+/// Modal overlay legal document viewer dialog designed for Meowoirs.
+/// Displays bundled legal documents with custom Meowoirs aesthetics,
+/// scrolling, full light/dark theme support, public authoritative web links,
+/// and in-flow UMP privacy options management for the Privacy Policy.
 class LegalDocumentViewerDialog extends StatefulWidget {
   const LegalDocumentViewerDialog({
     super.key,
@@ -33,13 +41,32 @@ class _LegalDocumentViewerDialogState extends State<LegalDocumentViewerDialog> {
   String? _documentText;
   bool _isLoading = true;
   bool _hasError = false;
+  PrivacyOptionsRequirementStatus _privacyStatus =
+      PrivacyOptionsRequirementStatus.unknown;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) _loadDocument();
+      if (mounted) {
+        _loadDocument();
+        _loadPrivacyStatus();
+      }
     });
+  }
+
+  Future<void> _loadPrivacyStatus() async {
+    if (kIsWeb || (!Platform.isAndroid && !Platform.isIOS)) return;
+    try {
+      final status = await ConsentInformation.instance
+          .getPrivacyOptionsRequirementStatus()
+          .timeout(const Duration(milliseconds: 500));
+      if (mounted) {
+        setState(() => _privacyStatus = status);
+      }
+    } catch (_) {
+      // Keep unknown state — card will be hidden
+    }
   }
 
   Future<void> _loadDocument() async {
@@ -49,8 +76,8 @@ class _LegalDocumentViewerDialogState extends State<LegalDocumentViewerDialog> {
     });
 
     try {
-      final content =
-          await DefaultAssetBundle.of(context).loadString(widget.document.assetPath);
+      final content = await DefaultAssetBundle.of(context)
+          .loadString(widget.document.assetPath);
       if (mounted) {
         setState(() {
           _documentText = content;
@@ -67,6 +94,27 @@ class _LegalDocumentViewerDialogState extends State<LegalDocumentViewerDialog> {
     }
   }
 
+  Future<void> _launchWebUrl() async {
+    final uri = Uri.parse(widget.document.webUrl);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
+  }
+
+  IconData _getDocumentIcon() {
+    switch (widget.document) {
+      case LegalDocument.privacyPolicy:
+      case LegalDocument.dataDeletion:
+      case LegalDocument.thirdPartyServices:
+      case LegalDocument.advertisingAndConsent:
+        return Icons.privacy_tip_outlined;
+      case LegalDocument.termsOfService:
+        return Icons.policy_outlined;
+      case LegalDocument.legalDisclaimer:
+        return Icons.gavel_outlined;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = context.meowoirsColors;
@@ -77,13 +125,16 @@ class _LegalDocumentViewerDialogState extends State<LegalDocumentViewerDialog> {
     final screenHeight = mediaQuery.size.height;
 
     final documentTitle = widget.document.localizedTitle(l10n);
+    final isPrivacyDoc = widget.document == LegalDocument.privacyPolicy;
+    final showUmpCard = isPrivacyDoc &&
+        _privacyStatus == PrivacyOptionsRequirementStatus.required;
 
     return Dialog(
       backgroundColor: Theme.of(context).cardColor,
-      elevation: 8,
+      elevation: 6,
       insetPadding: EdgeInsets.symmetric(
         horizontal: spacing.medium,
-        vertical: spacing.medium,
+        vertical: spacing.mediumLarge,
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(24),
@@ -91,23 +142,43 @@ class _LegalDocumentViewerDialogState extends State<LegalDocumentViewerDialog> {
       clipBehavior: Clip.antiAlias,
       child: ConstrainedBox(
         constraints: BoxConstraints(
-          maxWidth: 560,
-          maxHeight: screenHeight * 0.85,
+          maxWidth: 580,
+          maxHeight: screenHeight * 0.88,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // 1. Header
-            Padding(
+            // 1. Header with Meowoirs Branding
+            Container(
               padding: EdgeInsets.fromLTRB(
                 spacing.mediumLarge,
                 spacing.medium,
                 spacing.small,
                 spacing.mediumSmall,
               ),
+              decoration: BoxDecoration(
+                color: colors.surfaceContainer,
+                border: Border(
+                  bottom: BorderSide(color: colors.cardBorder),
+                ),
+              ),
               child: Row(
                 children: [
+                  Container(
+                    width: 36,
+                    height: 36,
+                    decoration: BoxDecoration(
+                      color: colors.accentOrangeContainer,
+                      borderRadius: shapes.smallRadius,
+                    ),
+                    child: Icon(
+                      _getDocumentIcon(),
+                      size: 20,
+                      color: colors.orange,
+                    ),
+                  ),
+                  SizedBox(width: spacing.mediumSmall),
                   Expanded(
                     child: Text(
                       documentTitle,
@@ -128,23 +199,46 @@ class _LegalDocumentViewerDialogState extends State<LegalDocumentViewerDialog> {
                 ],
               ),
             ),
-            Divider(height: 1, thickness: 1, color: colors.cardBorder),
 
             // 2. Scrollable Body
             Flexible(
-              child: _buildBody(context, colors, spacing, shapes, l10n),
+              child: _buildBody(
+                context,
+                colors,
+                spacing,
+                shapes,
+                l10n,
+                showUmpCard,
+              ),
             ),
 
-            // 3. Footer
-            Divider(height: 1, thickness: 1, color: colors.cardBorder),
-            Padding(
+            // 3. Footer with External Web Link & Close Action
+            Container(
               padding: EdgeInsets.symmetric(
                 horizontal: spacing.mediumLarge,
                 vertical: spacing.mediumSmall,
               ),
+              decoration: BoxDecoration(
+                color: colors.surfaceContainer,
+                border: Border(
+                  top: BorderSide(color: colors.cardBorder),
+                ),
+              ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+                  TextButton.icon(
+                    onPressed: _launchWebUrl,
+                    icon: Icon(Icons.open_in_browser, size: 16, color: colors.orange),
+                    label: Text(
+                      'Web',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                        color: colors.orange,
+                      ),
+                    ),
+                  ),
+                  const Spacer(),
                   OutlinedButton(
                     onPressed: () => Navigator.of(context).pop(),
                     style: OutlinedButton.styleFrom(
@@ -154,7 +248,7 @@ class _LegalDocumentViewerDialogState extends State<LegalDocumentViewerDialog> {
                         borderRadius: shapes.mediumRadius,
                       ),
                       padding: EdgeInsets.symmetric(
-                        horizontal: spacing.mediumLarge,
+                        horizontal: spacing.large,
                         vertical: spacing.small,
                       ),
                     ),
@@ -175,6 +269,7 @@ class _LegalDocumentViewerDialogState extends State<LegalDocumentViewerDialog> {
     MeowoirsSpacing spacing,
     MeowoirsShapes shapes,
     AppLocalizations l10n,
+    bool showUmpCard,
   ) {
     if (_isLoading) {
       return Center(
@@ -221,52 +316,121 @@ class _LegalDocumentViewerDialogState extends State<LegalDocumentViewerDialog> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Authoritative Public Notice Card
-          Container(
-            padding: EdgeInsets.all(spacing.mediumSmall),
-            decoration: BoxDecoration(
-              color: colors.surfaceContainer,
-              borderRadius: shapes.smallRadius,
-              border: Border.all(color: colors.cardBorder),
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'LIMANEX Studio Legal',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: colors.orange,
-                          fontSize: 12,
+          InkWell(
+            onTap: _launchWebUrl,
+            borderRadius: shapes.smallRadius,
+            child: Container(
+              padding: EdgeInsets.all(spacing.mediumSmall),
+              decoration: BoxDecoration(
+                color: colors.surfaceContainer,
+                borderRadius: shapes.smallRadius,
+                border: Border.all(color: colors.cardBorder),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'LIMANEX Studio Legal',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: colors.orange,
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: spacing.xxSmall),
-                      Text(
-                        widget.document.webUrl,
-                        style: TextStyle(
-                          color: colors.textSecondary,
-                          fontSize: 12,
+                        SizedBox(height: spacing.xxSmall),
+                        Text(
+                          widget.document.webUrl,
+                          style: TextStyle(
+                            color: colors.textSecondary,
+                            fontSize: 12,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                  Icon(Icons.open_in_new, size: 16, color: colors.textTertiary),
+                ],
+              ),
             ),
           ),
           SizedBox(height: spacing.medium),
 
-          // Plain Text Content with High Readability
-          SelectableText(
-            _documentText!,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  height: 1.6,
-                  color: colors.textPrimary,
-                ),
+          // UMP Privacy Options In-Flow Action (Conditional on actual SDK state)
+          if (showUmpCard) ...[
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: colors.surfaceContainer,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: colors.cardBorder),
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.shield_outlined, size: 22, color: colors.sage),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          l10n.settingsAdPrivacy,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13,
+                            color: colors.textPrimary,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          l10n.umpPrivacySubtitle,
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: colors.textSecondary,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 48,
+                    child: TextButton(
+                      onPressed: () {
+                        AdManager.instance.showPrivacyOptions(
+                          onComplete: (isAvailable, error) {
+                            if (!isAvailable && context.mounted) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(l10n.umpNotRequired),
+                                  duration: const Duration(seconds: 2),
+                                ),
+                              );
+                            }
+                          },
+                        );
+                      },
+                      style: TextButton.styleFrom(
+                        foregroundColor: colors.orange,
+                      ),
+                      child: Text(
+                        l10n.actionEdit,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: spacing.medium),
+          ],
+
+          // Parsed and Rendered Legal Content
+          LegalTextRenderer(
+            elements: LegalTextParser.parse(_documentText!),
           ),
           SizedBox(height: spacing.medium),
         ],

@@ -12,6 +12,8 @@ import '../../domain/story/story_metrics.dart';
 import '../../domain/story/story_metrics_calculator.dart';
 import '../../widgets/meowoirs_card.dart';
 import '../../widgets/subtle_motion.dart';
+import 'coming_soon_screen.dart';
+import 'limanex_apps_showcase_screen.dart';
 import 'profile_avatars.dart';
 
 /// ProfileScreen: User identity, favorite cat, story preview, settings link.
@@ -23,18 +25,67 @@ class ProfileScreen extends ConsumerStatefulWidget {
     required this.onNavigateToMyStory,
     required this.onNavigateToAddCat,
     required this.onNavigateToCatDetail,
+    this.onNavigateToOtherApps,
+    this.onNavigateToComingSoon,
   });
 
   final VoidCallback onNavigateToSettings;
   final VoidCallback onNavigateToMyStory;
   final VoidCallback onNavigateToAddCat;
   final ValueChanged<String> onNavigateToCatDetail;
+  final VoidCallback? onNavigateToOtherApps;
+  final VoidCallback? onNavigateToComingSoon;
 
   @override
   ConsumerState<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends ConsumerState<ProfileScreen> {
+  bool _isNavigating = false;
+
+  void _runGuardedNavigation(VoidCallback action) {
+    if (_isNavigating) return;
+    _isNavigating = true;
+    action();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        _isNavigating = false;
+      }
+    });
+  }
+
+  void _handleNavigateToOtherApps() {
+    _runGuardedNavigation(() {
+      if (widget.onNavigateToOtherApps != null) {
+        widget.onNavigateToOtherApps!();
+        return;
+      }
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (routeContext) => LimanexAppsShowcaseScreen(
+            onBack: () => Navigator.of(routeContext).pop(),
+          ),
+        ),
+      );
+    });
+  }
+
+  void _handleNavigateToComingSoon() {
+    _runGuardedNavigation(() {
+      if (widget.onNavigateToComingSoon != null) {
+        widget.onNavigateToComingSoon!();
+        return;
+      }
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (routeContext) => ComingSoonScreen(
+            onBack: () => Navigator.of(routeContext).pop(),
+          ),
+        ),
+      );
+    });
+  }
+
   void _showEditProfileDialog(UserProfile profile) {
     showDialog(
       context: context,
@@ -126,7 +177,22 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
               // 4. Settings Entry Card
               _SettingsEntryCard(
-                onNavigateToSettings: widget.onNavigateToSettings,
+                onNavigateToSettings: () =>
+                    _runGuardedNavigation(widget.onNavigateToSettings),
+              ),
+              SizedBox(height: spacing.medium),
+
+              // 5. Button 1 — Try Our Other Apps (LIMANEX Showcase)
+              _TryOtherAppsEntryCard(
+                key: const Key('profile_try_other_apps_button'),
+                onTap: _handleNavigateToOtherApps,
+              ),
+              SizedBox(height: spacing.medium),
+
+              // 6. Button 2 — Coming Soon
+              _ComingSoonEntryCard(
+                key: const Key('profile_coming_soon_button'),
+                onTap: _handleNavigateToComingSoon,
               ),
             ],
           ),
@@ -170,15 +236,48 @@ class _ProfileHeaderCard extends StatelessWidget {
             label: l10n.profileSelectAvatar,
             child: GestureDetector(
               onTap: onEditProfile,
-              child: Container(
-                width: 96,
-                height: 96,
-                decoration: BoxDecoration(
-                  color: avatar.backgroundColor,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: colors.orange, width: 3),
-                ),
-                child: Icon(avatar.icon, size: 48, color: avatar.iconColor),
+              child: Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  Container(
+                    width: 96,
+                    height: 96,
+                    decoration: BoxDecoration(
+                      color: avatar.backgroundColor,
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: colors.orange,
+                        width: 3,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: colors.orange.withValues(alpha: 0.15),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: ClipOval(
+                      child: Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: avatar.buildAvatar(size: 72),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: colors.orange,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: colors.cardBackground, width: 2),
+                    ),
+                    child: const Icon(
+                      Icons.edit,
+                      size: 14,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -641,6 +740,172 @@ class _SettingsEntryCard extends StatelessWidget {
   }
 }
 
+class _TryOtherAppsEntryCard extends StatelessWidget {
+  const _TryOtherAppsEntryCard({
+    super.key,
+    required this.onTap,
+  });
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.meowoirsColors;
+    final spacing = context.meowoirsSpacing;
+    final shapes = context.meowoirsShapes;
+    final l10n = AppLocalizations.of(context);
+
+    return Semantics(
+      button: true,
+      label: '${l10n.profileTryOtherAppsTitle}. ${l10n.profileTryOtherAppsSubtitle}',
+      child: MeowoirsCard(
+        shape: shapes.largeShape,
+        backgroundColor: colors.cardBackground,
+        borderColor: colors.orange.withValues(alpha: 0.28),
+        padding: EdgeInsets.symmetric(
+          horizontal: spacing.medium,
+          vertical: spacing.small,
+        ),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: shapes.largeRadius,
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: spacing.small),
+            child: Row(
+              children: [
+                Container(
+                  width: 44,
+                  height: 44,
+                  decoration: BoxDecoration(
+                    color: colors.accentOrangeContainer,
+                    borderRadius: shapes.mediumRadius,
+                  ),
+                  child: Icon(
+                    Icons.apps_rounded,
+                    size: 24,
+                    color: colors.orange,
+                  ),
+                ),
+                SizedBox(width: spacing.medium),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        l10n.profileTryOtherAppsTitle,
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: colors.textPrimary,
+                            ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        l10n.profileTryOtherAppsSubtitle,
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: colors.textSecondary,
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(width: spacing.small),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 16,
+                  color: colors.orange,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ComingSoonEntryCard extends StatelessWidget {
+  const _ComingSoonEntryCard({
+    super.key,
+    required this.onTap,
+  });
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.meowoirsColors;
+    final spacing = context.meowoirsSpacing;
+    final shapes = context.meowoirsShapes;
+    final l10n = AppLocalizations.of(context);
+
+    return Semantics(
+      button: true,
+      label: '${l10n.profileComingSoonTitle}. ${l10n.profileComingSoonSubtitle}',
+      child: MeowoirsCard(
+        shape: shapes.largeShape,
+        backgroundColor: colors.cardBackground,
+        borderColor: colors.lavender.withValues(alpha: 0.35),
+        padding: EdgeInsets.symmetric(
+          horizontal: spacing.medium,
+          vertical: spacing.small,
+        ),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: shapes.largeRadius,
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: spacing.small),
+            child: Row(
+              children: [
+                Container(
+                  width: 44,
+                  height: 44,
+                  decoration: BoxDecoration(
+                    color: colors.accentLavenderContainer,
+                    borderRadius: shapes.mediumRadius,
+                  ),
+                  child: Icon(
+                    Icons.auto_awesome_rounded,
+                    size: 24,
+                    color: colors.lavender,
+                  ),
+                ),
+                SizedBox(width: spacing.medium),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        l10n.profileComingSoonTitle,
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: colors.textPrimary,
+                            ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        l10n.profileComingSoonSubtitle,
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: colors.textSecondary,
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(width: spacing.small),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 16,
+                  color: colors.lavender,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _EditProfileDialog extends StatefulWidget {
   const _EditProfileDialog({
     required this.initialNickname,
@@ -673,6 +938,51 @@ class _EditProfileDialogState extends State<_EditProfileDialog> {
     super.dispose();
   }
 
+  Widget _buildAvatarItem(
+    AvatarItem avatar,
+    MeowoirsColors colors,
+    AppLocalizations l10n,
+  ) {
+    final isSelected = avatar.id == _selectedAvatarId;
+    return Semantics(
+      inMutuallyExclusiveGroup: true,
+      selected: isSelected,
+      button: true,
+      label: avatar.localizedName(l10n),
+      child: InkResponse(
+        onTap: () => setState(() => _selectedAvatarId = avatar.id),
+        radius: 24,
+        child: Container(
+          width: 46,
+          height: 46,
+          decoration: BoxDecoration(
+            color: avatar.backgroundColor,
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: isSelected ? colors.orange : colors.cardBorder,
+              width: isSelected ? 2.5 : 1,
+            ),
+            boxShadow: isSelected
+                ? [
+                    BoxShadow(
+                      color: colors.orange.withValues(alpha: 0.35),
+                      blurRadius: 6,
+                      offset: const Offset(0, 2),
+                    ),
+                  ]
+                : null,
+          ),
+          child: ClipOval(
+            child: Padding(
+              padding: const EdgeInsets.all(5),
+              child: avatar.buildAvatar(size: 32),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = context.meowoirsColors;
@@ -681,6 +991,7 @@ class _EditProfileDialogState extends State<_EditProfileDialog> {
     final l10n = AppLocalizations.of(context);
 
     return AlertDialog(
+      insetPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       title: Text(l10n.profileEditDialogTitle),
       content: SingleChildScrollView(
         child: Column(
@@ -705,45 +1016,25 @@ class _EditProfileDialogState extends State<_EditProfileDialog> {
             ),
             SizedBox(height: spacing.small),
 
-            SizedBox(
-              width: 280,
-              height: 120,
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 5,
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8,
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    for (int i = 0; i < 5; i++)
+                      _buildAvatarItem(ProfileAvatars.all[i], colors, l10n),
+                  ],
                 ),
-                itemCount: ProfileAvatars.all.length,
-                itemBuilder: (context, index) {
-                  final avatar = ProfileAvatars.all[index];
-                  final isSelected = avatar.id == _selectedAvatarId;
-
-                  return Semantics(
-                    inMutuallyExclusiveGroup: true,
-                    selected: isSelected,
-                    button: true,
-                    label: avatar.localizedName(l10n),
-                    child: GestureDetector(
-                      onTap: () =>
-                          setState(() => _selectedAvatarId = avatar.id),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: avatar.backgroundColor,
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color:
-                                isSelected ? colors.orange : colors.cardBorder,
-                            width: isSelected ? 2.5 : 1,
-                          ),
-                        ),
-                        child: Icon(avatar.icon,
-                            size: 20, color: avatar.iconColor),
-                      ),
-                    ),
-                  );
-                },
-              ),
+                SizedBox(height: spacing.small),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    for (int i = 5; i < 10; i++)
+                      _buildAvatarItem(ProfileAvatars.all[i], colors, l10n),
+                  ],
+                ),
+              ],
             ),
           ],
         ),

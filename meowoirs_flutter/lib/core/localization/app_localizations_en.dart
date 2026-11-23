@@ -624,6 +624,9 @@ class AppLocalizationsEn extends AppLocalizations {
       'Ad privacy options are not required for your region or current session.';
 
   @override
+  String get umpPrivacySubtitle => 'Manage ad preferences and permissions';
+
+  @override
   String get settingsLanguage => 'Language';
 
   @override
@@ -893,6 +896,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get onboardingStep4TermsLink => 'Terms of Service';
 
   @override
+  String get onboardingStep4CombinedCheckbox =>
+      'I have read and agree to the Privacy Policy and Terms of Service.';
+
+  @override
   String get onboardingStep4Start => 'Start Meowoirs →';
 
   @override
@@ -1062,4 +1069,130 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get legalTitleLegalDisclaimer => 'Legal Disclaimer';
+
+  @override
+  String get memoriesViewMenuLabel => 'View';
+
+  @override
+  String get memoriesViewMenuSemantic => 'View options';
+
+  @override
+  String get memoriesViewModeTiles => 'Tiles';
+
+  @override
+  String get memoriesViewModeLargeIcons => 'Large Icons';
+
+  @override
+  String get memoriesViewModeSmallIcons => 'Small Icons';
+
+  @override
+  String get memoriesViewModeList => 'List';
+
+  @override
+  String get memoriesViewModeContent => 'Content';
+
+  @override
+  String get profileTryOtherAppsTitle => 'Try Our Other Apps';
+
+  @override
+  String get profileTryOtherAppsSubtitle => 'Discover more apps from LIMANEX';
+
+  @override
+  String get profileComingSoonTitle => 'Coming Soon';
+
+  @override
+  String get profileComingSoonSubtitle => 'See upcoming features';
+
+  @override
+  String get limanexAppsPageTitle => 'Try Our Other Apps';
+
+  @override
+  String get limanexStudioBadge => 'LIMANEX STUDIO';
+
+  @override
+  String get limanexStudioWelcome =>
+      'Crafted with care by LIMANEX. Discover other thoughtful applications from our studio.';
+
+  @override
+  String get vitaCaseAppName => 'VitaCase';
+
+  @override
+  String get vitaCaseTagline => 'Your Personal Health & Wellness Companion';
+
+  @override
+  String get vitaCaseDescription =>
+      'Organize your medical documents, track appointments, and manage daily medication reminders privately on your device.';
+
+  @override
+  String get vitaCaseCtaExplore => 'Explore VitaCase';
+
+  @override
+  String get vitaCaseLaunchFallbackMessage =>
+      'Could not open the store link on this device.';
+
+  @override
+  String get vitaCasePromoPlaceholderLabel => 'VitaCase Preview';
+
+  @override
+  String get comingSoonPageTitle => 'Coming Soon';
+
+  @override
+  String get comingSoonHeaderIntro =>
+      'Exciting new features are on the way to make Meowoirs even more special!';
+
+  @override
+  String get comingSoonFeature1Title => 'Memory Collage';
+
+  @override
+  String get comingSoonFeature1Desc =>
+      'Create, edit, save, reopen, delete, and export beautiful memory collages using 2–6 photos and three templates, with optional title, date, and cat association.';
+
+  @override
+  String get comingSoonFeature2Title => 'Cat Timeline';
+
+  @override
+  String get comingSoonFeature2Desc =>
+      'Bring a cat\'s memories together in chronological order, with date-based navigation, first encounters, and important moments.';
+
+  @override
+  String get comingSoonFeature3Title => 'On This Day';
+
+  @override
+  String get comingSoonFeature3Desc =>
+      'Rediscover memories saved on the same date in previous years, bringing old photos and meaningful moments back to the surface.';
+
+  @override
+  String get comingSoonFeature4Title => 'Our Story';
+
+  @override
+  String get comingSoonFeature4Desc =>
+      'A personal story page featuring the date a user met their cat, meaningful milestones, selected photos, and special memories.';
+
+  @override
+  String get comingSoonFeature5Title => 'Memory Reminders';
+
+  @override
+  String get comingSoonFeature5Desc =>
+      'Optional local reminders, reminder preferences, and controlled notifications to revisit meaningful memories.';
+
+  @override
+  String get comingSoonFeature6Title => 'Archive Improvements';
+
+  @override
+  String get comingSoonFeature6Desc =>
+      'Improved memory search, date and cat filters, favorites, and faster archive navigation.';
+
+  @override
+  String get comingSoonFeature7Title => 'Shareable Memory Designs';
+
+  @override
+  String get comingSoonFeature7Desc =>
+      'More collage layouts, additional visual themes, and story-style export formats for sharing selected memories.';
+
+  @override
+  String get comingSoonFeature8Title => 'Personal Archive Tools';
+
+  @override
+  String get comingSoonFeature8Desc =>
+      'Explore local archive export and restore options, improve file integrity, storage management, and protection against data loss.';
 }

@@ -287,7 +287,8 @@ class _AddMemoryContent extends StatelessWidget {
 
               if (uiState.photoUri != null) ...[
                 SizedBox(height: spacing.small),
-                Row(
+                Wrap(
+                  spacing: spacing.medium,
                   children: [
                     TextButton(
                       onPressed: onPickPhotoClick,
@@ -296,7 +297,6 @@ class _AddMemoryContent extends StatelessWidget {
                         style: typography.labelMedium?.copyWith(color: colors.orange),
                       ),
                     ),
-                    SizedBox(width: spacing.medium),
                     TextButton(
                       onPressed: onRemovePhotoClick,
                       child: Text(
@@ -384,11 +384,14 @@ class _AddMemoryContent extends StatelessWidget {
                         children: [
                           Icon(Icons.calendar_today_outlined, size: 20, color: colors.orange),
                           SizedBox(width: spacing.small),
-                          Text(
-                            formattedDate,
-                            style: typography.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.w500,
-                              color: colors.textPrimary,
+                          Flexible(
+                            child: Text(
+                              formattedDate,
+                              style: typography.bodyMedium?.copyWith(
+                                fontWeight: FontWeight.w500,
+                                color: colors.textPrimary,
+                              ),
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                         ],
@@ -409,8 +412,10 @@ class _AddMemoryContent extends StatelessWidget {
 
               SizedBox(height: spacing.extraLarge),
 
-              // Step 7: Save Button
+              // Step 7: Save Button (Prominent 56dp primary CTA, full width, safe area respected)
               MeowoirsPrimaryButton(
+                width: double.infinity,
+                height: 56,
                 text: uiState.isSaved 
                   ? l10n.memorySaved 
                   : uiState.isSaving 
@@ -418,6 +423,16 @@ class _AddMemoryContent extends StatelessWidget {
                     : uiState.isEditMode 
                       ? l10n.actionSaveChanges 
                       : l10n.actionSave,
+                leadingIcon: uiState.isSaving
+                  ? const SizedBox(
+                      width: 18,
+                      height: 18,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                      ),
+                    )
+                  : (uiState.isSaved ? const Icon(Icons.check, size: 20, color: Colors.white) : null),
                 onPressed: (uiState.isSaving || uiState.isSaved || !uiState.hasCats) 
                   ? null 
                   : onSaveClick,
@@ -476,6 +491,7 @@ class _AddCatShortcut extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: spacing.mediumSmall, vertical: spacing.small),
           child: Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Icon(Icons.add, size: 16, color: colors.orange),
               SizedBox(width: spacing.extraSmall),
@@ -527,6 +543,7 @@ class _CatSelectionChip extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: spacing.mediumSmall, vertical: spacing.small),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
                   isSelected ? Icons.pets : Icons.pets_outlined, 

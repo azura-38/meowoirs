@@ -92,6 +92,8 @@ class OnboardingScreen extends ConsumerWidget {
                               notifier.setPrivacyAccepted(val),
                           onTermsToggle: (val) =>
                               notifier.setTermsAccepted(val),
+                          onCombinedLegalToggle: (val) =>
+                              notifier.setCombinedLegalAccepted(val),
                           onOpenDocument: (doc) {
                             LegalDocumentViewerDialog.show(context, doc);
                           },

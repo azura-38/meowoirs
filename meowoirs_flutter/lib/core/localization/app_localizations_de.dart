@@ -625,6 +625,10 @@ class AppLocalizationsDe extends AppLocalizations {
       'Datenschutzoptionen sind für Ihre Region oder Sitzung nicht erforderlich.';
 
   @override
+  String get umpPrivacySubtitle =>
+      'Werbeeinstellungen und Berechtigungen verwalten';
+
+  @override
   String get settingsLanguage => 'App-Sprache';
 
   @override
@@ -886,14 +890,18 @@ class AppLocalizationsDe extends AppLocalizations {
       'Ich habe die Datenschutzrichtlinie gelesen und stimme zu.';
 
   @override
-  String get onboardingStep4PrivacyLink => 'Privacy Policy';
+  String get onboardingStep4PrivacyLink => 'Datenschutzrichtlinie';
 
   @override
   String get onboardingStep4TermsCheckbox =>
       'Ich habe die Nutzungsbedingungen gelesen und stimme zu.';
 
   @override
-  String get onboardingStep4TermsLink => 'Terms of Service';
+  String get onboardingStep4TermsLink => 'Nutzungsbedingungen';
+
+  @override
+  String get onboardingStep4CombinedCheckbox =>
+      'Ich habe die Datenschutzrichtlinie und die Nutzungsbedingungen gelesen und stimme zu.';
 
   @override
   String get onboardingStep4Start => 'Start Meowoirs →';
@@ -977,31 +985,31 @@ class AppLocalizationsDe extends AppLocalizations {
   String get semanticsNotSelected => 'not selected';
 
   @override
-  String get moodHappy => 'Happy';
+  String get moodHappy => 'Glücklich';
 
   @override
-  String get moodCurious => 'Curious';
+  String get moodCurious => 'Neugierig';
 
   @override
-  String get moodSleepy => 'Sleepy';
+  String get moodSleepy => 'Schläfrig';
 
   @override
-  String get moodPlayful => 'Playful';
+  String get moodPlayful => 'Verspielt';
 
   @override
-  String get moodCalm => 'Calm';
+  String get moodCalm => 'Ruhig';
 
   @override
-  String get moodAffectionate => 'Affectionate';
+  String get moodAffectionate => 'Liebevoll';
 
   @override
-  String get moodPeaceful => 'Peaceful';
+  String get moodPeaceful => 'Friedlich';
 
   @override
-  String get moodNostalgic => 'Nostalgic';
+  String get moodNostalgic => 'Sehnsuchtsvoll';
 
   @override
-  String get moodJoyful => 'Joyful';
+  String get moodJoyful => 'Fröhlich';
 
   @override
   String get moodEmotional => 'Emotional';
@@ -1065,4 +1073,130 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get legalTitleLegalDisclaimer => 'Legal Disclaimer';
+
+  @override
+  String get memoriesViewMenuLabel => 'Ansicht';
+
+  @override
+  String get memoriesViewMenuSemantic => 'Ansichtsoptionen';
+
+  @override
+  String get memoriesViewModeTiles => 'Kacheln';
+
+  @override
+  String get memoriesViewModeLargeIcons => 'Große Symbole';
+
+  @override
+  String get memoriesViewModeSmallIcons => 'Kleine Symbole';
+
+  @override
+  String get memoriesViewModeList => 'Liste';
+
+  @override
+  String get memoriesViewModeContent => 'Inhalt';
+
+  @override
+  String get profileTryOtherAppsTitle => 'Unsere anderen Apps testen';
+
+  @override
+  String get profileTryOtherAppsSubtitle => 'Entdecke weitere Apps von LIMANEX';
+
+  @override
+  String get profileComingSoonTitle => 'Demnächst';
+
+  @override
+  String get profileComingSoonSubtitle => 'Kommende Funktionen ansehen';
+
+  @override
+  String get limanexAppsPageTitle => 'Unsere anderen Apps testen';
+
+  @override
+  String get limanexStudioBadge => 'LIMANEX STUDIO';
+
+  @override
+  String get limanexStudioWelcome =>
+      'Mit Sorgfalt von LIMANEX entwickelt. Entdecke weitere durchdachte Apps unseres Studios.';
+
+  @override
+  String get vitaCaseAppName => 'VitaCase';
+
+  @override
+  String get vitaCaseTagline => 'Your Personal Health & Wellness Companion';
+
+  @override
+  String get vitaCaseDescription =>
+      'Organisiere medizinische Dokumente, verwalte Termine und tägliche Medikamentenerinnerungen privat auf deinem Gerät.';
+
+  @override
+  String get vitaCaseCtaExplore => 'VitaCase entdecken';
+
+  @override
+  String get vitaCaseLaunchFallbackMessage =>
+      'Der Store-Link konnte auf diesem Gerät nicht geöffnet werden.';
+
+  @override
+  String get vitaCasePromoPlaceholderLabel => 'VitaCase-Vorschau';
+
+  @override
+  String get comingSoonPageTitle => 'Demnächst';
+
+  @override
+  String get comingSoonHeaderIntro =>
+      'Spannende neue Funktionen sind unterwegs, um Meowoirs noch besonderer zu machen!';
+
+  @override
+  String get comingSoonFeature1Title => 'Erinnerungscollage';
+
+  @override
+  String get comingSoonFeature1Desc =>
+      'Erstelle, bearbeite, speichere und exportiere wunderschöne Erinnerungscollagen mit 2–6 Fotos und drei Vorlagen, optional mit Titel, Datum und Katzenzuordnung.';
+
+  @override
+  String get comingSoonFeature2Title => 'Katzen-Chronik';
+
+  @override
+  String get comingSoonFeature2Desc =>
+      'Führe die Erinnerungen einer Katze chronologisch zusammen – mit Datumsnavigation, ersten Begegnungen und besonderen Momenten.';
+
+  @override
+  String get comingSoonFeature3Title => 'An diesem Tag';
+
+  @override
+  String get comingSoonFeature3Desc =>
+      'Entdecke Erinnerungen wieder, die in früheren Jahren am selben Datum gespeichert wurden, und hole besondere Momente zurück.';
+
+  @override
+  String get comingSoonFeature4Title => 'Unsere Geschichte';
+
+  @override
+  String get comingSoonFeature4Desc =>
+      'Eine persönliche Geschichtsseite mit dem Kennenlerndatum, wichtigen Meilensteinen, ausgewählten Fotos und besonderen Erinnerungen.';
+
+  @override
+  String get comingSoonFeature5Title => 'Erinnerungsmeldungen';
+
+  @override
+  String get comingSoonFeature5Desc =>
+      'Optionale lokale Erinnerungen, individuelle Einstellungen und dezente Benachrichtigungen, um bedeutsame Momente erneut zu erleben.';
+
+  @override
+  String get comingSoonFeature6Title => 'Archiv-Verbesserungen';
+
+  @override
+  String get comingSoonFeature6Desc =>
+      'Verbesserte Suche, Datums- und Katzenfilter, Favoriten und schnellere Navigation im Erinnerungsarchiv.';
+
+  @override
+  String get comingSoonFeature7Title => 'Teilbare Erinnerungsdesigns';
+
+  @override
+  String get comingSoonFeature7Desc =>
+      'Mehr Collagen-Layouts, zusätzliche visuelle Themen und Story-Exportformate zum Teilen ausgewählter Erinnerungen.';
+
+  @override
+  String get comingSoonFeature8Title => 'Persönliche Archiv-Werkzeuge';
+
+  @override
+  String get comingSoonFeature8Desc =>
+      'Optionen zum lokalen Exportieren und Wiederherstellen des Archivs, verbesserte Dateiintegrität, Speicherverwaltung und Schutz vor Datenverlust.';
 }

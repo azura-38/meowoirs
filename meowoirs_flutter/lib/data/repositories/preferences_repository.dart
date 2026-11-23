@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/theme_mode.dart';
 import '../models/user_profile.dart';
+import '../../features/memories/models/memories_view_mode.dart';
 
 /// SharedPreferences-backed repository for user settings and preferences.
 /// Exact parity with UserPreferencesRepository.kt.
@@ -19,12 +20,14 @@ class PreferencesRepository {
   static const String _keyLanguageCode = 'language_code';
   static const String _keyOnboardingCompleted = 'onboarding_completed';
   static const String _keyAcceptedLegalVersion = 'accepted_legal_version';
+  static const String _keyMemoriesViewMode = 'memories_view_mode';
 
   final _userProfileController = StreamController<UserProfile>.broadcast();
   final _themeModeController = StreamController<AppThemeMode>.broadcast();
   final _languageCodeController = StreamController<String>.broadcast();
   final _onboardingCompletedController = StreamController<bool>.broadcast();
   final _acceptedLegalVersionController = StreamController<String>.broadcast();
+  final _memoriesViewModeController = StreamController<MemoriesViewMode>.broadcast();
 
   void _initStreams() {
     _userProfileController.add(getUserProfile());
@@ -32,6 +35,7 @@ class PreferencesRepository {
     _languageCodeController.add(getLanguageCode());
     _onboardingCompletedController.add(isOnboardingCompleted());
     _acceptedLegalVersionController.add(getAcceptedLegalVersion());
+    _memoriesViewModeController.add(getMemoriesViewMode());
   }
 
   // ─── Getters ────────────────────────────────────────────────
@@ -63,13 +67,20 @@ class PreferencesRepository {
     return _prefs.getString(_keyAcceptedLegalVersion) ?? '';
   }
 
+  MemoriesViewMode getMemoriesViewMode() {
+    final raw = _prefs.getString(_keyMemoriesViewMode);
+    return MemoriesViewMode.fromString(raw);
+  }
+
   UserProfile get userProfile => getUserProfile();
   AppThemeMode get themeMode => getThemeMode();
   String get languageCode => getLanguageCode();
   String get acceptedLegalVersion => getAcceptedLegalVersion();
+  MemoriesViewMode get memoriesViewMode => getMemoriesViewMode();
 
   Future<void> setThemeMode(AppThemeMode mode) => updateThemeMode(mode);
   Future<void> setLanguageCode(String code) => updateLanguageCode(code);
+  Future<void> setMemoriesViewMode(MemoriesViewMode mode) => updateMemoriesViewMode(mode);
   Future<void> setUserProfile(UserProfile profile) async {
     await updateNickname(profile.nickname);
     await updateAvatarId(profile.avatarId);
@@ -83,6 +94,7 @@ class PreferencesRepository {
   Stream<String> get languageCodeStream => _languageCodeController.stream;
   Stream<bool> get onboardingCompletedStream => _onboardingCompletedController.stream;
   Stream<String> get acceptedLegalVersionStream => _acceptedLegalVersionController.stream;
+  Stream<MemoriesViewMode> get memoriesViewModeStream => _memoriesViewModeController.stream;
 
   // ─── Mutations ──────────────────────────────────────────────
 
@@ -124,6 +136,11 @@ class PreferencesRepository {
     _languageCodeController.add(code);
   }
 
+  Future<void> updateMemoriesViewMode(MemoriesViewMode mode) async {
+    await _prefs.setString(_keyMemoriesViewMode, mode.toStorageString());
+    _memoriesViewModeController.add(mode);
+  }
+
   Future<void> completeOnboarding(String legalVersion) async {
     await _prefs.setBool(_keyOnboardingCompleted, true);
     await _prefs.setString(_keyAcceptedLegalVersion, legalVersion);
@@ -144,5 +161,6 @@ class PreferencesRepository {
     _languageCodeController.close();
     _onboardingCompletedController.close();
     _acceptedLegalVersionController.close();
+    _memoriesViewModeController.close();
   }
 }

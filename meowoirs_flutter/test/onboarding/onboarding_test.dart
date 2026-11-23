@@ -227,8 +227,7 @@ void main() {
         find.text('Kedi profillerin, fotoğrafların, notların ve anıların cihazında yerel olarak saklanır.'),
         findsOneWidget,
       );
-      expect(find.bySemanticsLabel("Gizlilik Politikası'nı okudum ve kabul ediyorum."), findsOneWidget);
-      expect(find.bySemanticsLabel("Kullanım Koşulları'nı okudum ve kabul ediyorum."), findsOneWidget);
+      expect(find.bySemanticsLabel("Gizlilik Politikası'nı ve Kullanım Koşulları'nı okudum ve kabul ediyorum."), findsOneWidget);
       expect(find.text("Meowoirs'e Başla →"), findsOneWidget);
     });
 

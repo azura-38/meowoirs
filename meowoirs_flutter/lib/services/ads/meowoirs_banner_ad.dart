@@ -34,8 +34,8 @@ class _MeowoirsBannerAdState extends State<MeowoirsBannerAd> {
     return ValueListenableBuilder<BannerState>(
       valueListenable: AdManager.instance.bannerStateNotifier,
       builder: (context, state, _) {
-        final isLoaded = state == BannerState.loaded &&
-            AdManager.instance.activeBannerAd != null;
+        final bannerAd = AdManager.instance.activeBannerAd;
+        final isLoaded = state == BannerState.loaded && bannerAd != null;
 
         return AnimatedContainer(
           duration: const Duration(milliseconds: 200),
@@ -45,9 +45,12 @@ class _MeowoirsBannerAdState extends State<MeowoirsBannerAd> {
           child: isLoaded
               ? Center(
                   child: SizedBox(
-                    width: AdManager.instance.activeBannerAd!.size.width.toDouble(),
-                    height: AdManager.instance.activeBannerAd!.size.height.toDouble(),
-                    child: AdWidget(ad: AdManager.instance.activeBannerAd!),
+                    width: bannerAd.size.width.toDouble(),
+                    height: bannerAd.size.height.toDouble(),
+                    child: KeyedSubtree(
+                      key: ValueKey<int>(bannerAd.hashCode),
+                      child: AdWidget(ad: bannerAd),
+                    ),
                   ),
                 )
               : const SizedBox.shrink(),

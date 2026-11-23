@@ -39,6 +39,14 @@ class OnboardingNotifier extends StateNotifier<OnboardingUiState> {
     state = state.copyWith(termsAccepted: accepted);
   }
 
+  void setCombinedLegalAccepted(bool accepted) {
+    state = state.copyWith(
+      combinedLegalAccepted: accepted,
+      privacyAccepted: accepted,
+      termsAccepted: accepted,
+    );
+  }
+
   Future<void> completeOnboarding() async {
     if (!state.canStart) return;
     await _preferencesRepository.completeOnboarding(AppConfig.currentLegalVersion);

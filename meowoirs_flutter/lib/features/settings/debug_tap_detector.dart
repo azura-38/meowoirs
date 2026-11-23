@@ -10,8 +10,8 @@
 /// - Accidental taps or slow taps never unlock the panel.
 class DebugTapDetector {
   DebugTapDetector({
-    this.requiredTaps = 10,
-    this.windowMillis = 4000,
+    this.requiredTaps = 7,
+    this.windowMillis = 5000,
   });
 
   final int requiredTaps;

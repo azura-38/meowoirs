@@ -1050,5 +1050,55 @@ void main() {
       final padding = listView.padding as EdgeInsets;
       expect(padding.bottom, 100);
     });
+
+    testWidgets('43. Memory card renders cat mood sticker beside localized mood label',
+        (tester) async {
+      final mem = makeMemory(
+        catMood: 'Mutlu',
+        userMood: 'Huzurlu',
+        note: 'Sticker test memory',
+      );
+      await repo.addMemory(mem);
+
+      await pumpContainer(
+        tester,
+        createDirectMemoriesWidget(
+          container: container,
+          locale: const Locale('en'),
+        ),
+      );
+
+      // Verify localized label in English
+      expect(find.text('Happy'), findsOneWidget);
+      expect(find.text('♡ Peaceful'), findsOneWidget);
+
+      // Verify sticker image is rendered
+      final imageFinders = find.byWidgetPredicate(
+        (w) => w is Image && w.image is AssetImage && (w.image as AssetImage).assetName == 'assets/images/moods/cat_mood_happy.png',
+      );
+      expect(imageFinders, findsOneWidget);
+    });
+
+    testWidgets('44. Memory card with null or unsupported mood renders without sticker and without crash',
+        (tester) async {
+      final mem = makeMemory(
+        catMood: null,
+        userMood: null,
+        note: 'No mood memory',
+      );
+      await repo.addMemory(mem);
+
+      await pumpContainer(
+        tester,
+        createDirectMemoriesWidget(container: container),
+      );
+
+      expect(tester.takeException(), isNull);
+      expect(find.text('“No mood memory”'), findsOneWidget);
+      final moodImageFinders = find.byWidgetPredicate(
+        (w) => w is Image && w.image is AssetImage && (w.image as AssetImage).assetName.contains('moods/cat_mood_'),
+      );
+      expect(moodImageFinders, findsNothing);
+    });
   });
 }

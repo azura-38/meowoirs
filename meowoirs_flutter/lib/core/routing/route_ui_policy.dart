@@ -31,8 +31,37 @@ class RouteUiPolicy {
   }
 
   /// Banner ad placement policy aligned with AdManager rules.
+  /// Allowed on: Home, Cats, Cat Detail, Memories, Profile/My Story.
+  /// Strictly prohibited on: Onboarding, Add/Edit forms, Settings, Legal, Debug.
   static bool shouldShowBannerAd(String location) {
-    return isTopLevel(location) || location.startsWith('/cats/detail');
+    // Prohibited screens
+    if (location == '/onboarding' ||
+        location == '/settings' ||
+        location == '/other_apps' ||
+        location == '/coming_soon' ||
+        location.startsWith('/cats/add') ||
+        location.startsWith('/add_cat') ||
+        location.startsWith('/memories/add') ||
+        location.startsWith('/add_memory')) {
+      return false;
+    }
+
+    // Top-level destinations (/, /home, /cats, /memories, /profile)
+    if (isTopLevel(location)) {
+      return true;
+    }
+
+    // Cat detail routes
+    if (location.startsWith('/cats/') || location.startsWith('/cat_detail/')) {
+      return true;
+    }
+
+    // Story browsing routes
+    if (location == '/story' || location == '/my_story') {
+      return true;
+    }
+
+    return false;
   }
 
   /// Returns user-facing, localized AppBar title for the current route.
@@ -63,6 +92,10 @@ class RouteUiPolicy {
       return l10n.navMyStory;
     } else if (location == '/settings') {
       return l10n.settingsTitle;
+    } else if (location == '/other_apps') {
+      return l10n.limanexAppsPageTitle;
+    } else if (location == '/coming_soon') {
+      return l10n.comingSoonPageTitle;
     }
     return l10n.appName;
   }

@@ -238,7 +238,16 @@ void main() {
       await prefsRepo.updateAvatarId('avatar_star_gazer');
       await pumpContainer(
           tester, createDirectProfileWidget(container: container));
-      expect(find.byIcon(Icons.star_border), findsOneWidget);
+      expect(
+        find.byWidgetPredicate(
+          (w) =>
+              w is Image &&
+              w.image is AssetImage &&
+              (w.image as AssetImage).assetName ==
+                  'assets/images/avatars/10_cat_home.png',
+        ),
+        findsOneWidget,
+      );
     });
 
     // 7. Avatar fallback

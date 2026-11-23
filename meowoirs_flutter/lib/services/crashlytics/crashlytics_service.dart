@@ -48,15 +48,21 @@ class CrashlyticsService {
     }
   }
 
-  /// In-memory diagnostic error tracking for Debug Center
+  /// In-memory diagnostic error tracking for Debug Center & Bug Reporting
   String? lastError;
+  String? lastErrorType;
+  String? lastErrorMessage;
   String? lastStackTrace;
+  DateTime? lastErrorTimestamp;
   int errorCount = 0;
 
   void recordDebugError(dynamic error, StackTrace? stack) {
     errorCount++;
     lastError = error.toString();
+    lastErrorType = error.runtimeType.toString();
+    lastErrorMessage = error.toString();
     lastStackTrace = stack?.toString();
+    lastErrorTimestamp = DateTime.now();
   }
 
   /// Records a non-fatal technical error without any user personal data.
@@ -76,4 +82,12 @@ class CrashlyticsService {
       );
     } catch (_) {}
   }
+
+  /// Alias for [recordNonFatal] to record non-fatal technical errors safely.
+  Future<void> recordError(
+    dynamic exception,
+    StackTrace? stack, {
+    String? reason,
+  }) =>
+      recordNonFatal(exception, stack, reason: reason);
 }

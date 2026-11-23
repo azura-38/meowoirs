@@ -11,15 +11,17 @@ class OnboardingPage4 extends StatelessWidget {
   const OnboardingPage4({
     super.key,
     required this.uiState,
-    required this.onPrivacyToggle,
-    required this.onTermsToggle,
+    this.onPrivacyToggle,
+    this.onTermsToggle,
+    this.onCombinedLegalToggle,
     required this.onOpenDocument,
     required this.onStart,
   });
 
   final OnboardingUiState uiState;
-  final ValueChanged<bool> onPrivacyToggle;
-  final ValueChanged<bool> onTermsToggle;
+  final ValueChanged<bool>? onPrivacyToggle;
+  final ValueChanged<bool>? onTermsToggle;
+  final ValueChanged<bool>? onCombinedLegalToggle;
   final ValueChanged<LegalDocument> onOpenDocument;
   final VoidCallback onStart;
 
@@ -34,12 +36,14 @@ class OnboardingPage4 extends StatelessWidget {
     final descText = l10n.onboardingStep4Desc;
     final featureTitle = l10n.onboardingStep4FeatureTitle;
     final featureDesc = l10n.onboardingStep4FeatureDesc;
-    final privacyCheckboxText = l10n.onboardingStep4PrivacyCheckbox;
+    final combinedCheckboxText = l10n.onboardingStep4CombinedCheckbox;
     final privacyLinkText = l10n.onboardingStep4PrivacyLink;
-    final termsCheckboxText = l10n.onboardingStep4TermsCheckbox;
     final termsLinkText = l10n.onboardingStep4TermsLink;
     final startText = l10n.onboardingStep4Start;
     final footerText = l10n.onboardingStep4Footer;
+
+    final isChecked = uiState.combinedLegalAccepted ||
+        (uiState.privacyAccepted && uiState.termsAccepted);
 
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
@@ -121,31 +125,28 @@ class OnboardingPage4 extends StatelessWidget {
 
           const SizedBox(height: 24),
 
-          // Checkbox 1: Privacy Policy
-          _buildLegalCheckbox(
+          // SINGLE Combined Legal Checkbox with Inline Tappable Links
+          _buildCombinedLegalCheckbox(
             context: context,
-            checked: uiState.privacyAccepted,
-            onChanged: onPrivacyToggle,
-            fullText: privacyCheckboxText,
-            linkKeyword: privacyLinkText,
-            onLinkClicked: () => onOpenDocument(LegalDocument.privacyPolicy),
-          ),
-
-          const SizedBox(height: 14),
-
-          // Checkbox 2: Terms of Service
-          _buildLegalCheckbox(
-            context: context,
-            checked: uiState.termsAccepted,
-            onChanged: onTermsToggle,
-            fullText: termsCheckboxText,
-            linkKeyword: termsLinkText,
-            onLinkClicked: () => onOpenDocument(LegalDocument.termsOfService),
+            checked: isChecked,
+            onChanged: (val) {
+              if (onCombinedLegalToggle != null) {
+                onCombinedLegalToggle!(val);
+              } else {
+                onPrivacyToggle?.call(val);
+                onTermsToggle?.call(val);
+              }
+            },
+            fullText: combinedCheckboxText,
+            privacyKeyword: privacyLinkText,
+            termsKeyword: termsLinkText,
+            onPrivacyClicked: () => onOpenDocument(LegalDocument.privacyPolicy),
+            onTermsClicked: () => onOpenDocument(LegalDocument.termsOfService),
           ),
 
           const SizedBox(height: 26),
 
-          // CTA Button: "Meowoirs'e Başla →" (Disabled until both checked)
+          // CTA Button: "Meowoirs'e Başla →" (Disabled until combined acceptance checked)
           SizedBox(
             width: double.infinity,
             height: 54,
@@ -205,17 +206,81 @@ class OnboardingPage4 extends StatelessWidget {
     );
   }
 
-  Widget _buildLegalCheckbox({
+  Widget _buildCombinedLegalCheckbox({
     required BuildContext context,
     required bool checked,
     required ValueChanged<bool> onChanged,
     required String fullText,
-    required String linkKeyword,
-    required VoidCallback onLinkClicked,
+    required String privacyKeyword,
+    required String termsKeyword,
+    required VoidCallback onPrivacyClicked,
+    required VoidCallback onTermsClicked,
   }) {
     final colors = context.meowoirsColors;
-    final startIndex = fullText.indexOf(linkKeyword);
-    final endIndex = startIndex != -1 ? startIndex + linkKeyword.length : -1;
+
+    final spans = <TextSpan>[];
+    final privIndex = fullText.indexOf(privacyKeyword);
+    final termsIndex = fullText.indexOf(termsKeyword);
+
+    if (privIndex != -1 && termsIndex != -1) {
+      if (privIndex < termsIndex) {
+        spans.add(TextSpan(text: fullText.substring(0, privIndex)));
+        spans.add(TextSpan(
+          text: privacyKeyword,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            decoration: TextDecoration.underline,
+            color: colors.orange,
+          ),
+          recognizer: TapGestureRecognizer()..onTap = onPrivacyClicked,
+        ));
+        spans.add(TextSpan(
+          text: fullText.substring(
+              privIndex + privacyKeyword.length, termsIndex),
+        ));
+        spans.add(TextSpan(
+          text: termsKeyword,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            decoration: TextDecoration.underline,
+            color: colors.orange,
+          ),
+          recognizer: TapGestureRecognizer()..onTap = onTermsClicked,
+        ));
+        spans.add(TextSpan(
+          text: fullText.substring(termsIndex + termsKeyword.length),
+        ));
+      } else {
+        spans.add(TextSpan(text: fullText.substring(0, termsIndex)));
+        spans.add(TextSpan(
+          text: termsKeyword,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            decoration: TextDecoration.underline,
+            color: colors.orange,
+          ),
+          recognizer: TapGestureRecognizer()..onTap = onTermsClicked,
+        ));
+        spans.add(TextSpan(
+          text: fullText.substring(
+              termsIndex + termsKeyword.length, privIndex),
+        ));
+        spans.add(TextSpan(
+          text: privacyKeyword,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            decoration: TextDecoration.underline,
+            color: colors.orange,
+          ),
+          recognizer: TapGestureRecognizer()..onTap = onPrivacyClicked,
+        ));
+        spans.add(TextSpan(
+          text: fullText.substring(privIndex + privacyKeyword.length),
+        ));
+      }
+    } else {
+      spans.add(TextSpan(text: fullText));
+    }
 
     return Semantics(
       label: fullText,
@@ -228,16 +293,15 @@ class OnboardingPage4 extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Custom Circular Checkbox
               Container(
                 margin: const EdgeInsets.only(top: 2),
                 width: 22,
                 height: 22,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: checked ? colors.textPrimary : colors.cardBackground,
+                  color: checked ? colors.orange : colors.cardBackground,
                   border: Border.all(
-                    color: checked ? colors.textPrimary : colors.cardBorder,
+                    color: checked ? colors.orange : colors.cardBorder,
                     width: 1.5,
                   ),
                 ),
@@ -246,8 +310,6 @@ class OnboardingPage4 extends StatelessWidget {
                     : null,
               ),
               const SizedBox(width: 12),
-
-              // Text with clickable link
               Expanded(
                 child: RichText(
                   text: TextSpan(
@@ -256,22 +318,7 @@ class OnboardingPage4 extends StatelessWidget {
                       height: 19 / 13,
                       color: colors.textPrimary,
                     ),
-                    children: [
-                      if (startIndex != -1) ...[
-                        TextSpan(text: fullText.substring(0, startIndex)),
-                        TextSpan(
-                          text: linkKeyword,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            decoration: TextDecoration.underline,
-                            color: colors.textPrimary,
-                          ),
-                          recognizer: TapGestureRecognizer()..onTap = onLinkClicked,
-                        ),
-                        TextSpan(text: fullText.substring(endIndex)),
-                      ] else
-                        TextSpan(text: fullText),
-                    ],
+                    children: spans,
                   ),
                 ),
               ),
@@ -282,5 +329,3 @@ class OnboardingPage4 extends StatelessWidget {
     );
   }
 }
-
-

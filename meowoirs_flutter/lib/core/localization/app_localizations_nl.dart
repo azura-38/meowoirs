@@ -624,6 +624,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Advertentie-privacyopties zijn niet vereist in jouw regio.';
 
   @override
+  String get umpPrivacySubtitle =>
+      'Advertentievoorkeuren en machtigingen beheren';
+
+  @override
   String get settingsLanguage => 'App-taal';
 
   @override
@@ -885,14 +889,18 @@ class AppLocalizationsNl extends AppLocalizations {
       'Ik heb het Privacybeleid gelezen en ga akkoord.';
 
   @override
-  String get onboardingStep4PrivacyLink => 'Privacy Policy';
+  String get onboardingStep4PrivacyLink => 'Privacybeleid';
 
   @override
   String get onboardingStep4TermsCheckbox =>
       'Ik heb de Gebruiksvoorwaarden gelezen en ga akkoord.';
 
   @override
-  String get onboardingStep4TermsLink => 'Terms of Service';
+  String get onboardingStep4TermsLink => 'Gebruiksvoorwaarden';
+
+  @override
+  String get onboardingStep4CombinedCheckbox =>
+      'Ik heb het Privacybeleid en de Gebruiksvoorwaarden gelezen en ga akkoord.';
 
   @override
   String get onboardingStep4Start => 'Start Meowoirs →';
@@ -976,34 +984,34 @@ class AppLocalizationsNl extends AppLocalizations {
   String get semanticsNotSelected => 'not selected';
 
   @override
-  String get moodHappy => 'Happy';
+  String get moodHappy => 'Vrolijk';
 
   @override
-  String get moodCurious => 'Curious';
+  String get moodCurious => 'Nieuwsgierig';
 
   @override
-  String get moodSleepy => 'Sleepy';
+  String get moodSleepy => 'Slaperig';
 
   @override
-  String get moodPlayful => 'Playful';
+  String get moodPlayful => 'Speels';
 
   @override
-  String get moodCalm => 'Calm';
+  String get moodCalm => 'Rustig';
 
   @override
-  String get moodAffectionate => 'Affectionate';
+  String get moodAffectionate => 'Liefdevol';
 
   @override
-  String get moodPeaceful => 'Peaceful';
+  String get moodPeaceful => 'Vredig';
 
   @override
-  String get moodNostalgic => 'Nostalgic';
+  String get moodNostalgic => 'Verlangend';
 
   @override
-  String get moodJoyful => 'Joyful';
+  String get moodJoyful => 'Blij';
 
   @override
-  String get moodEmotional => 'Emotional';
+  String get moodEmotional => 'Emotioneel';
 
   @override
   String addMemorySelectDate(String date) {
@@ -1064,4 +1072,130 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get legalTitleLegalDisclaimer => 'Legal Disclaimer';
+
+  @override
+  String get memoriesViewMenuLabel => 'Weergave';
+
+  @override
+  String get memoriesViewMenuSemantic => 'Weergave-opties';
+
+  @override
+  String get memoriesViewModeTiles => 'Tegels';
+
+  @override
+  String get memoriesViewModeLargeIcons => 'Grote pictogrammen';
+
+  @override
+  String get memoriesViewModeSmallIcons => 'Kleine pictogrammen';
+
+  @override
+  String get memoriesViewModeList => 'Lijst';
+
+  @override
+  String get memoriesViewModeContent => 'Inhoud';
+
+  @override
+  String get profileTryOtherAppsTitle => 'Probeer onze andere apps';
+
+  @override
+  String get profileTryOtherAppsSubtitle => 'Ontdek meer apps van LIMANEX';
+
+  @override
+  String get profileComingSoonTitle => 'Binnenkort';
+
+  @override
+  String get profileComingSoonSubtitle => 'Bekijk aankomende functies';
+
+  @override
+  String get limanexAppsPageTitle => 'Probeer onze andere apps';
+
+  @override
+  String get limanexStudioBadge => 'LIMANEX STUDIO';
+
+  @override
+  String get limanexStudioWelcome =>
+      'Met zorg gemaakt door LIMANEX. Ontdek andere doordachte applicaties van onze studio.';
+
+  @override
+  String get vitaCaseAppName => 'VitaCase';
+
+  @override
+  String get vitaCaseTagline => 'Your Personal Health & Wellness Companion';
+
+  @override
+  String get vitaCaseDescription =>
+      'Beheer je medische documenten, volg afspraken en stel dagelijkse medicijnherinneringen privé in op je eigen apparaat.';
+
+  @override
+  String get vitaCaseCtaExplore => 'Ontdek VitaCase';
+
+  @override
+  String get vitaCaseLaunchFallbackMessage =>
+      'Kan de winkellink niet openen op dit apparaat.';
+
+  @override
+  String get vitaCasePromoPlaceholderLabel => 'VitaCase-voorbeeld';
+
+  @override
+  String get comingSoonPageTitle => 'Binnenkort';
+
+  @override
+  String get comingSoonHeaderIntro =>
+      'Er komen spannende nieuwe functies aan om Meowoirs nog specialer te maken!';
+
+  @override
+  String get comingSoonFeature1Title => 'Herinneringscollage';
+
+  @override
+  String get comingSoonFeature1Desc =>
+      'Maak, bewerk, bewaar, heropen, verwijder en exporteer prachtige herinneringscollages met 2–6 foto\'s en drie sjablonen, met optionele titel, datum en kat.';
+
+  @override
+  String get comingSoonFeature2Title => 'Kattentijdlijn';
+
+  @override
+  String get comingSoonFeature2Desc =>
+      'Breng de herinneringen van een kat samen in chronologische volgorde, met datumnavigatie, eerste ontmoetingen en belangrijke momenten.';
+
+  @override
+  String get comingSoonFeature3Title => 'Op deze dag';
+
+  @override
+  String get comingSoonFeature3Desc =>
+      'Herontdek herinneringen die op dezelfde datum in eerdere jaren zijn opgeslagen en breng oude foto\'s en dierbare momenten weer tot leven.';
+
+  @override
+  String get comingSoonFeature4Title => 'Ons verhaal';
+
+  @override
+  String get comingSoonFeature4Desc =>
+      'Een persoonlijke verhaalpagina met de datum waarop je je kat hebt ontmoet, bijzondere mijlpalen, geselecteerde foto\'s en speciale herinneringen.';
+
+  @override
+  String get comingSoonFeature5Title => 'Herinneringsmeldingen';
+
+  @override
+  String get comingSoonFeature5Desc =>
+      'Optionele lokale herinneringen, voorkeuren en rustige meldingen om waardevolle herinneringen opnieuw te bekijken.';
+
+  @override
+  String get comingSoonFeature6Title => 'Archiefverbeteringen';
+
+  @override
+  String get comingSoonFeature6Desc =>
+      'Verbeterde zoekfunctie, datum- en katfilters, favorieten en snellere navigatie door het archief.';
+
+  @override
+  String get comingSoonFeature7Title => 'Deelbare herinneringsontwerpen';
+
+  @override
+  String get comingSoonFeature7Desc =>
+      'Meer collage-indelingen, extra visuele thema\'s en exportformaten in story-stijl om geselecteerde herinneringen te delen.';
+
+  @override
+  String get comingSoonFeature8Title => 'Persoonlijke archieftools';
+
+  @override
+  String get comingSoonFeature8Desc =>
+      'Lokale export- en herstelopties voor je archief, verbeterde bestandsintegriteit, opslagbeheer en bescherming tegen gegevensverlies.';
 }

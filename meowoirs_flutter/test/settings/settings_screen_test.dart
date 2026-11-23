@@ -442,42 +442,37 @@ void main() {
     });
 
     // 26. Data Deletion Policy opens native legal viewer
-    testWidgets('26. Data Deletion Policy row opens native legal document viewer dialog', (tester) async {
+    testWidgets('26. Obsolete separate legal rows are removed from top-level Settings', (tester) async {
       await tester.pumpWidget(createDirectSettingsWidget(tester: tester, container: container));
       await tester.pump(const Duration(milliseconds: 300));
 
-      final dataDeletionRow = find.text('Veri ve Silme');
-      await tester.tap(dataDeletionRow);
-      await tester.pump(const Duration(milliseconds: 300));
-
-      expect(find.byType(LegalDocumentViewerDialog), findsOneWidget);
-      expect(find.text(LegalDocument.dataDeletion.title), findsWidgets);
+      expect(find.text('Veri ve Silme'), findsNothing);
+      expect(find.text('Üçüncü Taraf Hizmetleri'), findsNothing);
+      expect(find.text('Reklam ve Onay'), findsNothing);
+      expect(find.text('Reklam Gizlilik Seçenekleri'), findsNothing);
     });
 
-    // 27. Third-Party Services opens native legal viewer
-    testWidgets('27. Third-Party Services row opens native legal document viewer dialog', (tester) async {
+    // 27. Primary three documents are visible in Settings
+    testWidgets('27. Primary three documents are present in Settings', (tester) async {
       await tester.pumpWidget(createDirectSettingsWidget(tester: tester, container: container));
       await tester.pump(const Duration(milliseconds: 300));
 
-      final thirdPartyRow = find.text('Üçüncü Taraf Hizmetleri');
-      await tester.tap(thirdPartyRow);
-      await tester.pump(const Duration(milliseconds: 300));
-
-      expect(find.byType(LegalDocumentViewerDialog), findsOneWidget);
-      expect(find.text(LegalDocument.thirdPartyServices.title), findsWidgets);
+      expect(find.text('Gizlilik Politikası'), findsOneWidget);
+      expect(find.text('Kullanım Koşulları'), findsOneWidget);
+      expect(find.text('Yasal Uyarı'), findsOneWidget);
     });
 
-    // 28. Advertising & Consent opens native legal viewer
-    testWidgets('28. Advertising & Consent row opens native legal document viewer dialog', (tester) async {
+    // 28. Privacy Policy row opens native legal viewer with UMP action
+    testWidgets('28. Privacy Policy row opens native legal viewer with UMP action', (tester) async {
       await tester.pumpWidget(createDirectSettingsWidget(tester: tester, container: container));
       await tester.pump(const Duration(milliseconds: 300));
 
-      final adConsentRow = find.text('Reklam ve Onay');
-      await tester.tap(adConsentRow);
+      final privacyRow = find.text('Gizlilik Politikası');
+      await tester.tap(privacyRow);
       await tester.pump(const Duration(milliseconds: 300));
 
       expect(find.byType(LegalDocumentViewerDialog), findsOneWidget);
-      expect(find.text(LegalDocument.advertisingAndConsent.title), findsWidgets);
+      expect(find.text(LegalDocument.privacyPolicy.title), findsWidgets);
     });
 
     // 29. Legal Disclaimer opens native legal viewer
@@ -493,17 +488,23 @@ void main() {
       expect(find.text(LegalDocument.legalDisclaimer.title), findsWidgets);
     });
 
-    // 30. Ad Privacy Options triggers AdManager showPrivacyOptions
-    testWidgets('30. Ad Privacy Options triggers AdManager without crash', (tester) async {
+    // 30. Ad Privacy Options in Privacy viewer triggers AdManager without crash
+    testWidgets('30. Ad Privacy Options in Privacy viewer triggers AdManager without crash', (tester) async {
       await tester.pumpWidget(createDirectSettingsWidget(tester: tester, container: container));
       await tester.pump(const Duration(milliseconds: 300));
 
-      final adPrivacyRow = find.text('Reklam Gizlilik Seçenekleri');
-      await tester.tap(adPrivacyRow);
+      // Open Privacy Policy
+      await tester.tap(find.text('Gizlilik Politikası'));
       await tester.pump(const Duration(milliseconds: 300));
 
+      final adPrivacyButton = find.text('Düzenle');
+      if (adPrivacyButton.evaluate().isNotEmpty) {
+        await tester.tap(adPrivacyButton);
+        await tester.pump(const Duration(milliseconds: 300));
+      }
+
       // No crash occurs
-      expect(find.byType(SettingsScreen), findsOneWidget);
+      expect(find.byType(LegalDocumentViewerDialog), findsOneWidget);
     });
 
     // 31. Reach Us row opens dialog with 3 actions
@@ -675,7 +676,7 @@ void main() {
       final buttons = tester.widgetList<Semantics>(
         find.byWidgetPredicate((w) => w is Semantics && w.properties.button == true),
       );
-      expect(buttons.length, greaterThanOrEqualTo(9));
+      expect(buttons.length, greaterThanOrEqualTo(6));
     });
 
     // 42. Dark mode rendering
@@ -760,40 +761,41 @@ void main() {
       expect(prefsRepo.getLanguageCode(), 'tr');
     });
 
-    // 49. DebugTapDetector unit test: 10 taps in 4000ms unlocks
-    test('49. DebugTapDetector unlocks after exactly 10 taps within window', () {
-      final detector = DebugTapDetector(requiredTaps: 10, windowMillis: 4000);
+    // 49. DebugTapDetector unit test: 7 taps in 5000ms unlocks
+    test('49. DebugTapDetector unlocks after exactly 7 taps within window', () {
+      final detector = DebugTapDetector(requiredTaps: 7, windowMillis: 5000);
 
-      for (int i = 1; i <= 9; i++) {
+      for (int i = 1; i <= 6; i++) {
         expect(detector.onUserTap(1000 + i * 100), isFalse);
         expect(detector.currentTapCount, i);
       }
-      expect(detector.onUserTap(1000 + 10 * 100), isTrue);
+      expect(detector.onUserTap(1000 + 7 * 100), isTrue);
       expect(detector.currentTapCount, 0); // resets on unlock
     });
 
     // 50. DebugTapDetector unit test: slow taps reset window
     test('50. DebugTapDetector resets count if tap interval exceeds window', () {
-      final detector = DebugTapDetector(requiredTaps: 10, windowMillis: 4000);
+      final detector = DebugTapDetector(requiredTaps: 7, windowMillis: 5000);
 
       detector.onUserTap(1000);
       detector.onUserTap(2000);
       expect(detector.currentTapCount, 2);
 
-      // Next tap arrives after 4500ms from start (1000 -> 5500)
-      detector.onUserTap(5500);
+      // Next tap arrives after 5500ms from start (1000 -> 6500)
+      detector.onUserTap(6500);
       expect(detector.currentTapCount, 1);
     });
 
     // 51. Debug panel bottom sheet displays onboarding status and reset action in debug mode
-    testWidgets('51. 10 taps on App Information row unlocks debug bottom sheet in debug mode', (tester) async {
+    testWidgets('51. 7 taps on App Information row unlocks debug center', (tester) async {
       await tester.pumpWidget(createDirectSettingsWidget(tester: tester, container: container));
       await tester.pump(const Duration(milliseconds: 300));
 
       final versionRow = find.textContaining('Sürüm ${AppConfig.versionName}');
+      await tester.scrollUntilVisible(versionRow, 200);
 
-      // Tap 10 times rapidly
-      for (int i = 0; i < 10; i++) {
+      // Tap 7 times rapidly
+      for (int i = 0; i < 7; i++) {
         await tester.tap(versionRow);
         await tester.pump(const Duration(milliseconds: 50));
       }

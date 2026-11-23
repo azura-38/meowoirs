@@ -9,6 +9,7 @@ import '../../data/providers/database_provider.dart';
 import '../../widgets/meowoirs_card.dart';
 import '../../widgets/meowoirs_chip.dart';
 import '../../widgets/subtle_motion.dart';
+import 'mood_helper.dart';
 
 /// MemoryDetailScreen: Viewing full memory details, personal note, and moods.
 /// Direct parity with MemoryDetailScreen.kt.
@@ -337,19 +338,35 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                       Wrap(
                         spacing: spacing.small,
                         runSpacing: spacing.small,
+                        crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
                           if (memory.catMood != null &&
-                              memory.catMood!.trim().isNotEmpty)
+                              memory.catMood!.trim().isNotEmpty) ...[
+                            Builder(
+                              builder: (context) {
+                                final sticker = CatMoodStickerMapper.buildSticker(
+                                  mood: memory.catMood,
+                                  size: 28.0,
+                                  isDecorative: true,
+                                );
+                                if (sticker != null) return sticker;
+                                return const SizedBox.shrink();
+                              },
+                            ),
                             MeowoirsChip(
-                              label: l10n.memoryCatMoodFormat(memory.catMood!),
+                              label: l10n.memoryCatMoodFormat(
+                                getLocalizedCatMood(memory.catMood, l10n),
+                              ),
                               icon: const Icon(Icons.pets_outlined, size: 16),
                               isSelected: false,
                             ),
+                          ],
                           if (memory.userMood != null &&
                               memory.userMood!.trim().isNotEmpty)
                             MeowoirsChip(
-                              label:
-                                  l10n.memoryUserMoodFormat(memory.userMood!),
+                              label: l10n.memoryUserMoodFormat(
+                                getLocalizedUserMood(memory.userMood, l10n),
+                              ),
                               icon: const Icon(
                                 Icons.sentiment_satisfied_outlined,
                                 size: 16,

@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import '../../data/models/cat.dart';
 import '../../data/models/memory.dart';
+import 'models/memories_view_mode.dart';
 
 class MemoriesUiState {
   const MemoriesUiState({
@@ -9,6 +10,7 @@ class MemoriesUiState {
     this.availableCats = const [],
     this.selectedCatFilterId,
     this.errorMessage,
+    this.viewMode = MemoriesViewMode.tiles,
   });
 
   final bool isLoading;
@@ -16,6 +18,7 @@ class MemoriesUiState {
   final List<Cat> availableCats;
   final String? selectedCatFilterId;
   final String? errorMessage;
+  final MemoriesViewMode viewMode;
 
   bool get isCompletelyEmpty => !isLoading && allMemories.isEmpty;
 
@@ -38,6 +41,7 @@ class MemoriesUiState {
     List<Cat>? availableCats,
     String? selectedCatFilterId,
     String? errorMessage,
+    MemoriesViewMode? viewMode,
   }) {
     return MemoriesUiState(
       isLoading: isLoading ?? this.isLoading,
@@ -45,6 +49,7 @@ class MemoriesUiState {
       availableCats: availableCats ?? this.availableCats,
       selectedCatFilterId: selectedCatFilterId ?? this.selectedCatFilterId,
       errorMessage: errorMessage ?? this.errorMessage,
+      viewMode: viewMode ?? this.viewMode,
     );
   }
 }

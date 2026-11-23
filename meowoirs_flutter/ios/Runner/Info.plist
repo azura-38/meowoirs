@@ -69,6 +69,6 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Meowoirs needs access to photos so you can attach pictures of your cats and memories.</string>
 	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-587701117866406~4355156867</string>
+	<string>ca-app-pub-5877011177866406~4355156867</string>
 </dict>
 </plist>

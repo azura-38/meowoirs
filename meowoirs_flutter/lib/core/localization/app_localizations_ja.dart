@@ -620,6 +620,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get umpNotRequired => '現在の地域またはセッションでは広告プライバシー設定は不要です。';
 
   @override
+  String get umpPrivacySubtitle => '広告の設定と権限を管理する';
+
+  @override
   String get settingsLanguage => 'アプリの言語';
 
   @override
@@ -866,13 +869,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get onboardingStep4PrivacyCheckbox => 'プライバシーポリシーを読み、同意します。';
 
   @override
-  String get onboardingStep4PrivacyLink => 'Privacy Policy';
+  String get onboardingStep4PrivacyLink => 'プライバシーポリシー';
 
   @override
   String get onboardingStep4TermsCheckbox => '利用規約を読み、同意します。';
 
   @override
-  String get onboardingStep4TermsLink => 'Terms of Service';
+  String get onboardingStep4TermsLink => '利用規約';
+
+  @override
+  String get onboardingStep4CombinedCheckbox => 'プライバシーポリシーと利用規約を読み、同意します。';
 
   @override
   String get onboardingStep4Start => 'Start Meowoirs →';
@@ -956,34 +962,34 @@ class AppLocalizationsJa extends AppLocalizations {
   String get semanticsNotSelected => 'not selected';
 
   @override
-  String get moodHappy => 'Happy';
+  String get moodHappy => '嬉しい';
 
   @override
-  String get moodCurious => 'Curious';
+  String get moodCurious => '好奇心旺盛';
 
   @override
-  String get moodSleepy => 'Sleepy';
+  String get moodSleepy => '眠い';
 
   @override
-  String get moodPlayful => 'Playful';
+  String get moodPlayful => '遊びたい';
 
   @override
-  String get moodCalm => 'Calm';
+  String get moodCalm => '穏やか';
 
   @override
-  String get moodAffectionate => 'Affectionate';
+  String get moodAffectionate => '甘えん坊';
 
   @override
-  String get moodPeaceful => 'Peaceful';
+  String get moodPeaceful => '平和';
 
   @override
-  String get moodNostalgic => 'Nostalgic';
+  String get moodNostalgic => '懐かしい';
 
   @override
-  String get moodJoyful => 'Joyful';
+  String get moodJoyful => '陽気';
 
   @override
-  String get moodEmotional => 'Emotional';
+  String get moodEmotional => '感動的';
 
   @override
   String addMemorySelectDate(String date) {
@@ -1044,4 +1050,128 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get legalTitleLegalDisclaimer => 'Legal Disclaimer';
+
+  @override
+  String get memoriesViewMenuLabel => '表示';
+
+  @override
+  String get memoriesViewMenuSemantic => '表示オプション';
+
+  @override
+  String get memoriesViewModeTiles => '並べて表示';
+
+  @override
+  String get memoriesViewModeLargeIcons => '大アイコン';
+
+  @override
+  String get memoriesViewModeSmallIcons => '小アイコン';
+
+  @override
+  String get memoriesViewModeList => 'リスト';
+
+  @override
+  String get memoriesViewModeContent => 'コンテンツ';
+
+  @override
+  String get profileTryOtherAppsTitle => '他のアプリを試す';
+
+  @override
+  String get profileTryOtherAppsSubtitle => 'LIMANEXの他のアプリをチェック';
+
+  @override
+  String get profileComingSoonTitle => '近日公開';
+
+  @override
+  String get profileComingSoonSubtitle => '今後の新機能を見る';
+
+  @override
+  String get limanexAppsPageTitle => '他のアプリを試す';
+
+  @override
+  String get limanexStudioBadge => 'LIMANEX STUDIO';
+
+  @override
+  String get limanexStudioWelcome =>
+      'LIMANEXが心を込めて制作しました。当スタジオの他のアプリもぜひご覧ください。';
+
+  @override
+  String get vitaCaseAppName => 'VitaCase';
+
+  @override
+  String get vitaCaseTagline => 'Your Personal Health & Wellness Companion';
+
+  @override
+  String get vitaCaseDescription =>
+      '医療書類の整理、通院予定の管理、毎日の服薬リマインダーをデバイス上で安全・プライベートに管理できます。';
+
+  @override
+  String get vitaCaseCtaExplore => 'VitaCaseを見る';
+
+  @override
+  String get vitaCaseLaunchFallbackMessage => 'このデバイスでストアのリンクを開けませんでした。';
+
+  @override
+  String get vitaCasePromoPlaceholderLabel => 'VitaCase プレビュー';
+
+  @override
+  String get comingSoonPageTitle => '近日公開';
+
+  @override
+  String get comingSoonHeaderIntro => 'Meowoirsをもっと特別なものにするワクワクする新機能が準備中です！';
+
+  @override
+  String get comingSoonFeature1Title => '思い出コラージュ';
+
+  @override
+  String get comingSoonFeature1Desc =>
+      '2〜6枚の写真と3つのテンプレートを使って、タイトル・日付・猫の関連付け付きの素敵なコラージュを作成、編集、保存、再編集、削除、書き出しできます。';
+
+  @override
+  String get comingSoonFeature2Title => '猫のタイムライン';
+
+  @override
+  String get comingSoonFeature2Desc =>
+      '初めての出会いや大切な瞬間など、猫との思い出を日付ナビゲーション付きで時系列にまとめます。';
+
+  @override
+  String get comingSoonFeature3Title => 'あの日あの時';
+
+  @override
+  String get comingSoonFeature3Desc =>
+      '過去の同じ日に保存された思い出を振り返り、懐かしい写真や大切な瞬間にもう一度出会えます。';
+
+  @override
+  String get comingSoonFeature4Title => '私たちの物語';
+
+  @override
+  String get comingSoonFeature4Desc =>
+      '猫と出会った日、大切な節目、お気に入りの写真、特別な思い出をまとめるパーソナルストーリーページです。';
+
+  @override
+  String get comingSoonFeature5Title => '思い出リマインダー';
+
+  @override
+  String get comingSoonFeature5Desc =>
+      '大切な思い出を振り返るための、任意で設定できるローカルリマインダーと控えめな通知機能です。';
+
+  @override
+  String get comingSoonFeature6Title => 'アーカイブの改善';
+
+  @override
+  String get comingSoonFeature6Desc =>
+      '思い出検索の強化、日付や猫での絞り込み、お気に入り登録、よりスムーズなアーカイブ閲覧を実現します。';
+
+  @override
+  String get comingSoonFeature7Title => 'シェア用メモリーデザイン';
+
+  @override
+  String get comingSoonFeature7Desc =>
+      '選んだ思い出をシェアするためのコラージュレイアウト、追加テーマ、ストーリー形式の書き出しフォーマットです。';
+
+  @override
+  String get comingSoonFeature8Title => 'パーソナルアーカイブツール';
+
+  @override
+  String get comingSoonFeature8Desc =>
+      'ローカルアーカイブの書き出しと復元、ファイル整合性の向上、ストレージ管理、データ消失防止機能を提供します。';
 }

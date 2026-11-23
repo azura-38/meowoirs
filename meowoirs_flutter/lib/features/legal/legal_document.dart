@@ -42,6 +42,15 @@ enum LegalDocument {
     required this.webUrl,
   });
 
+  /// The 3 user-facing top-level legal documents exposed in Settings and Debug Center.
+  /// Internal documents (dataDeletion, thirdPartyServices, advertisingAndConsent)
+  /// remain in the enum for asset access but are not exposed as top-level navigation items.
+  static const List<LegalDocument> userFacing = [
+    privacyPolicy,
+    termsOfService,
+    legalDisclaimer,
+  ];
+
   final String title;
   final String assetPath;
   final String webUrl;
